@@ -21,3 +21,13 @@ export type Snapshot = {
   scraper: string;
   data?: string;
 };
+
+export type RawSnapshotArray = [
+  urlkey: string,
+  timestamp: string,
+  original: string,
+  mimetype: string,
+  statuscode: string,
+  digest: string,
+  length: string
+];

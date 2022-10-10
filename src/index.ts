@@ -1,9 +1,21 @@
-import axios from "axios";
+import fs from "fs";
+import path from "path";
 import cheerio from "cheerio";
-import { genSnapshotTargets } from "./gen-snapshot-targets";
+import { genSnapshotsList } from "./gen-snapshots-list";
+import { filePaths } from "./constants";
+import { scrapeTargets } from "./scrape-targets";
 
 const init = () => {
-  genSnapshotTargets();
+  genSnapshotsList();
+
+  // const snapshotList = JSON.parse(
+  //   fs.readFileSync(path.resolve(__dirname, filePaths.outputs.snapshotList), {
+  //     encoding: "utf8",
+  //     flag: "r",
+  //   })
+  // );
+
+  // scrapeTargets(snapshotList);
 };
 
 init();

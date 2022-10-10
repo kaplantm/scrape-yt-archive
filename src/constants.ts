@@ -17,3 +17,12 @@ export const eras: Era[] = [
 export const scraperMap = {
   [Scraper.FEATURED_1]: undefined,
 };
+
+export const filePaths = {
+  outputs: {
+    snapshots: "../outputs/snapshots.json",
+  },
+  inputs: {
+    rawSnapshots: "../inputs/raw-snapshots.txt",
+  },
+};
