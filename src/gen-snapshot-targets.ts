@@ -1,8 +1,12 @@
 import fs from "fs";
 import path from "path";
-import { checkedStatus } from "./types";
+import { CheckedStatus, Snapshot } from "./types";
+import { findEraForTimestamp } from "./utils";
 
-const getValidUniqueSnapshots = (rawSnapshotList: string) => {
+const getValidUniqueSnapshots = (
+  rawSnapshotList: string,
+  prevGenSnapshotTargets: { [key: string]: Snapshot }
+) => {
   return rawSnapshotList
     .split("\n")
     .map((el) => el.split(" "))
@@ -10,16 +14,19 @@ const getValidUniqueSnapshots = (rawSnapshotList: string) => {
       // if is valid snapshot
       if (el[4] === "200" && el[3] === "text/html") {
         const key = el[1].substring(0, el[1].length - 4);
-        // if is unique snapshot (max one snapshot per hour)
-        if (!acc[key]) {
+        const timestamp = parseInt(key, 10);
+        const era = findEraForTimestamp(timestamp);
+        // if is unique snapshot (max one snapshot per hour) and within a target era
+        if (!acc[key] && era) {
           acc[key] = {
-            timestamp: parseInt(key, 10),
-            checked: checkedStatus.NOT_ATTEMPTED,
+            timestamp,
+            checked: CheckedStatus.NOT_ATTEMPTED,
+            scraper: era.scraper,
           };
         }
       }
       return acc;
-    }, {} as { [key: string]: { checked: checkedStatus.NOT_ATTEMPTED; timestamp: number } });
+    }, prevGenSnapshotTargets || ({} as { [key: string]: Snapshot }));
 };
 
 export const genSnapshotTargets = () => {
@@ -31,9 +38,19 @@ export const genSnapshotTargets = () => {
       flag: "r",
     }
   );
-  const validUniqueSnapshots = getValidUniqueSnapshots(rawSnapshotList);
+  const prevGenSnapshotTargets = fs.readFileSync(
+    path.resolve(__dirname, "../outputs/snapshot-list.json"),
+    {
+      encoding: "utf8",
+      flag: "r",
+    }
+  );
+  const validUniqueSnapshots = getValidUniqueSnapshots(
+    rawSnapshotList,
+    JSON.parse(prevGenSnapshotTargets)
+  );
   fs.writeFileSync(
-    "./outputs/snapshot-list",
+    "./outputs/snapshot-list.json",
     JSON.stringify(validUniqueSnapshots)
   );
   console.log("Finished genSnapshotTargets");
