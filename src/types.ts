@@ -1,25 +1,25 @@
 export enum CheckedStatus {
   FOUND = "FOUND",
-  NOT_FOUND = "FAILED",
+  FAILED = "FAILED",
   NOT_ATTEMPTED = "NOT_ATTEMPTED",
 }
 
-export enum Scraper {
+export enum EraName {
   FEATURED_1 = "FEATURED_1",
 }
 
 export type Era = {
-  name: string;
+  name: EraName;
   start: number;
   end: number;
-  scraper: Scraper;
+  scraper: () => void;
 };
 
 export type Snapshot = {
   checked: CheckedStatus.NOT_ATTEMPTED;
-  timestamp: number;
-  scraper: string;
-  data?: string;
+  timestamp: string;
+  EraName: EraName;
+  featuredVideos?: FeaturedVideo[];
 };
 
 export type RawSnapshotArray = [
@@ -31,3 +31,19 @@ export type RawSnapshotArray = [
   digest: string,
   length: string
 ];
+
+export type Video = {
+  title: string;
+  views: number;
+  author: string;
+  thumbnail: string;
+  url: string;
+  uploadDate?: string;
+  comments?: number;
+};
+
+export type FeaturedVideo = Video & {
+  dateFeatured: string;
+  dateFeaturedEpoch: string;
+  timestampFeatured: string;
+};

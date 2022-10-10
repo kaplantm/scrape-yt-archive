@@ -14,14 +14,13 @@ const getValidUniqueSnapshots = (
     // if is valid snapshot
     if (el[4] === "200" && el[3] === "text/html") {
       const key = el[1].substring(0, el[1].length - 4);
-      const timestamp = parseInt(key, 10);
-      const era = findEraForTimestamp(timestamp);
+      const era = findEraForTimestamp(parseInt(key, 10));
       // if is unique snapshot (max one snapshot per hour) and within a target era
       if (!acc[key] && era) {
         acc[key] = {
-          timestamp,
+          timestamp: el[1],
           checked: CheckedStatus.NOT_ATTEMPTED,
-          scraper: era.scraper,
+          EraName: era.name,
         };
       }
     }

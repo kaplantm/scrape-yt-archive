@@ -1,21 +1,23 @@
 import fs from "fs";
 import path from "path";
-import cheerio from "cheerio";
-import { genSnapshotsList } from "./gen-snapshots-list";
 import { filePaths } from "./constants";
+import { genSnapshotsList } from "./gen-snapshots-list";
 import { scrapeTargets } from "./scrape-targets";
+import { Snapshot } from "./types";
 
 const init = () => {
-  genSnapshotsList();
+  // genSnapshotsList();
 
-  // const snapshotList = JSON.parse(
-  //   fs.readFileSync(path.resolve(__dirname, filePaths.outputs.snapshotList), {
-  //     encoding: "utf8",
-  //     flag: "r",
-  //   })
-  // );
+  const targets = JSON.parse(
+    fs.readFileSync(path.resolve(__dirname, filePaths.outputs.snapshots), {
+      encoding: "utf8",
+      flag: "r",
+    })
+  );
 
-  // scrapeTargets(snapshotList);
+  // scrapeTargets(snapshots);
+
+  scrapeTargets(Object.values(targets).slice(0, 3) as Snapshot[]);
 };
 
 init();
