@@ -46,6 +46,7 @@ export const erasArray = Object.values(eras);
 export const filePaths = {
   outputs: {
     snapshots: "../outputs/snapshots.json",
+    snapshotsArray: "../outputs/snapshotsArray.json",
   },
   inputs: {
     rawSnapshots: "../inputs/raw-snapshots.txt",

@@ -19,7 +19,7 @@ export type Era = {
 };
 
 export type Snapshot = {
-  checked: CheckedStatus.NOT_ATTEMPTED;
+  checked: CheckedStatus;
   timestamp: string;
   eraName: eraName;
   featuredVideos?: FeaturedVideo[];
@@ -37,11 +37,11 @@ export type RawSnapshotArray = [
 
 export type Video = {
   title: string;
-  views: number;
+  views: number | null;
   author: string;
   videoId: string;
-  uploadDate?: string;
-  comments?: number;
+  uploadDate: string;
+  comments: number | null;
 };
 
 export type FeaturedVideo = Video & {

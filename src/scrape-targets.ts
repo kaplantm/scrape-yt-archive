@@ -10,8 +10,9 @@ const scrapeTarget = async (snapshot: Snapshot) => {
 
   try {
     await sleep();
-    // const { data } = await axios.get(getWaybackUrl(snapshot.timestamp));
-    const data = mockYoutubeFeatured1;
+    console.log("**** scraping", snapshot);
+    const { data } = await axios.get(getWaybackUrl(snapshot.timestamp));
+    // const data = mockYoutubeFeatured1;
     const $ = load(data);
 
     return {
@@ -25,7 +26,10 @@ const scrapeTarget = async (snapshot: Snapshot) => {
   }
 };
 export const scrapeTargets = async (targets: Snapshot[]) => {
-  const map = targets.map((target) => () => scrapeTarget(target));
+  const map = targets.map(
+    (target) => () =>
+      target.checked === CheckedStatus.FOUND ? target : scrapeTarget(target)
+  );
   const results = await allSynchronously(map);
   console.log("***", results);
   return results;

@@ -13,7 +13,7 @@ export const getWaybackUrl = (timestamp: string) =>
 
 // https://traveling-coderman.net/code/synchronous-promise-loop/
 export async function allSynchronously<T>(
-  resolvables: (() => Promise<T>)[]
+  resolvables: (() => Promise<T> | T)[]
 ): Promise<T[]> {
   const results = [];
   for (const resolvable of resolvables) {
@@ -33,4 +33,15 @@ export const getISOStringFromWaybackTimestamp = (ts: string) => {
 
 export const sleep = (ms = 3000) => {
   return new Promise((resolve) => setTimeout(resolve, ms));
+};
+
+export const safeTrim = (str: string | undefined) => (str || "").trim();
+export const safeSplit = (str: string | undefined, splitter: string) =>
+  (str || "").split(splitter);
+export const getVideoId = (str: string | undefined) => {
+  try {
+    return str?.split("v=")[1]?.split("&")[0] || "";
+  } catch (e) {
+    return "";
+  }
 };
