@@ -8,6 +8,7 @@ export enum CheckedStatus {
 
 export enum eraName {
   FEATURED_1 = "FEATURED_1",
+  // FEATURED_2 = "FEATURED_2",
 }
 
 export type Era = {
@@ -47,4 +48,5 @@ export type FeaturedVideo = Video & {
   dateFeatured: string;
   dateFeaturedEpoch: number;
   timestampFeatured: string;
+  selectedBy?: string;
 };

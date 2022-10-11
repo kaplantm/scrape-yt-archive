@@ -3,7 +3,7 @@ import { load } from "cheerio";
 import { mockYoutubeFeatured1 } from "./mocks/youtube";
 import { eras } from "./constants";
 import { CheckedStatus, Snapshot } from "./types";
-import { allSynchronously, sleep } from "./utils";
+import { allSynchronously, getWaybackUrl, sleep } from "./utils";
 
 const scrapeTarget = async (snapshot: Snapshot) => {
   const scraper = eras[snapshot.eraName].scraper;
@@ -16,7 +16,7 @@ const scrapeTarget = async (snapshot: Snapshot) => {
 
     return {
       ...snapshot,
-      checked: CheckedStatus,
+      checked: CheckedStatus.FOUND,
       featuredVideos: scraper($, snapshot),
     };
   } catch (e) {
@@ -28,4 +28,5 @@ export const scrapeTargets = async (targets: Snapshot[]) => {
   const map = targets.map((target) => () => scrapeTarget(target));
   const results = await allSynchronously(map);
   console.log("***", results);
+  return results;
 };
