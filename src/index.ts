@@ -4,36 +4,44 @@ import { filePaths } from "./constants";
 import { genSnapshotsList } from "./gen-snapshots-list";
 import { scrapeTargets } from "./scrape-targets";
 import { Snapshot } from "./types";
+import { getKeyFromTimeStamp } from "./utils";
+
+const targets = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, filePaths.outputs.snapshots), {
+    encoding: "utf8",
+    flag: "r",
+  })
+);
+
+const mutableTargets = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, filePaths.outputs.snapshots), {
+    encoding: "utf8",
+    flag: "r",
+  })
+);
+
+const onTargetScraped = (snapshot: Snapshot) => {
+  mutableTargets[getKeyFromTimeStamp(snapshot.timestamp)] = snapshot;
+  fs.writeFileSync(
+    path.resolve(__dirname, filePaths.outputs.snapshots),
+    JSON.stringify(mutableTargets)
+  );
+  fs.writeFileSync(
+    path.resolve(__dirname, filePaths.outputs.snapshotsArray),
+    JSON.stringify(Object.values(mutableTargets))
+  );
+};
 
 const init = async () => {
   // genSnapshotsList();
 
-  const targets = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, filePaths.outputs.snapshots), {
-      encoding: "utf8",
-      flag: "r",
-    })
-  );
-
-  // scrapeTargets(snapshots);
+  scrapeTargets(Object.values(targets), onTargetScraped);
 
   // TODO: now remove slice
-  const results = await scrapeTargets(
-    Object.values(targets).slice(0, 1) as Snapshot[]
-  );
-  fs.writeFileSync(
-    path.resolve(__dirname, filePaths.outputs.snapshots),
-    JSON.stringify(
-      results.reduce((acc, cv) => {
-        acc[cv.timestamp] = cv;
-        return acc;
-      }, {} as { [key: string]: Snapshot })
-    )
-  );
-  fs.writeFileSync(
-    path.resolve(__dirname, filePaths.outputs.snapshotsArray),
-    JSON.stringify(results)
-  );
+  // scrapeTargets(
+  //   Object.values(targets).slice(0, 1) as Snapshot[],
+  //   onTargetScraped
+  // );
 };
 
 init();

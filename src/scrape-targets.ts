@@ -8,11 +8,15 @@ import { allSynchronously, getWaybackUrl, sleep } from "./utils";
 const scrapeTarget = async (snapshot: Snapshot) => {
   const scraper = eras[snapshot.eraName].scraper;
 
+  if (!scraper) {
+    return snapshot;
+  }
+
   try {
-    await sleep();
     console.log("**** scraping", snapshot);
-    const { data } = await axios.get(getWaybackUrl(snapshot.timestamp));
-    // const data = mockYoutubeFeatured1;
+    // await sleep();
+    // const { data } = await axios.get(getWaybackUrl(snapshot.timestamp));
+    const data = mockYoutubeFeatured1;
     const $ = load(data);
 
     return {
@@ -25,10 +29,25 @@ const scrapeTarget = async (snapshot: Snapshot) => {
     return { ...snapshot, checked: CheckedStatus.FAILED };
   }
 };
-export const scrapeTargets = async (targets: Snapshot[]) => {
+
+export const processTarget = async (
+  target: Snapshot,
+  onTargetScraped: (snapshot: Snapshot) => void
+) => {
+  const snapshot = await scrapeTarget(target);
+  onTargetScraped(snapshot);
+  return snapshot;
+};
+
+export const scrapeTargets = async (
+  targets: Snapshot[],
+  onTargetScraped: (snapshot: Snapshot) => void
+) => {
   const map = targets.map(
     (target) => () =>
-      target.checked === CheckedStatus.FOUND ? target : scrapeTarget(target)
+      target.checked !== CheckedStatus.FOUND
+        ? processTarget(target, onTargetScraped)
+        : target
   );
   const results = await allSynchronously(map);
   console.log("***", results);

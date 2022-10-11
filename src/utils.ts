@@ -45,3 +45,6 @@ export const getVideoId = (str: string | undefined) => {
     return "";
   }
 };
+
+export const getKeyFromTimeStamp = (timestamp: string) =>
+  timestamp.substring(0, timestamp.length - 4);

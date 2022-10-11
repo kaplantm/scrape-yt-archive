@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { filePaths } from "./constants";
 import { CheckedStatus, RawSnapshotArray, Snapshot } from "./types";
-import { findEraForTimestamp } from "./utils";
+import { findEraForTimestamp, getKeyFromTimeStamp } from "./utils";
 
 const getValidUniqueSnapshots = (
   rawSnapshotList: string,
@@ -13,7 +13,7 @@ const getValidUniqueSnapshots = (
   ).reduce((acc, el) => {
     // if is valid snapshot
     if (el[4] === "200" && el[3] === "text/html") {
-      const key = el[1].substring(0, el[1].length - 4);
+      const key = getKeyFromTimeStamp(el[1]);
       const era = findEraForTimestamp(parseInt(key, 10));
       // if is unique snapshot (max one snapshot per hour) and within a target era
       if (!acc[key] && era) {
