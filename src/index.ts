@@ -17,7 +17,8 @@ const init = () => {
 
   // scrapeTargets(snapshots);
 
-  scrapeTargets(Object.values(targets).slice(0, 3) as Snapshot[]);
+  // TODO: now remove slice
+  scrapeTargets(Object.values(targets).slice(0, 1) as Snapshot[]);
 };
 
 init();

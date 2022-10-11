@@ -20,7 +20,7 @@ const getValidUniqueSnapshots = (
         acc[key] = {
           timestamp: el[1],
           checked: CheckedStatus.NOT_ATTEMPTED,
-          EraName: era.name,
+          eraName: era.name,
         };
       }
     }

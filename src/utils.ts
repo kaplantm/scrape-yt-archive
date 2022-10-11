@@ -30,3 +30,7 @@ export const getISOStringFromWaybackTimestamp = (ts: string) => {
     10
   )}:${ts.slice(10, 12)}:${ts.slice(12, 14)}+00:00`;
 };
+
+export const sleep = (ms = 3000) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};

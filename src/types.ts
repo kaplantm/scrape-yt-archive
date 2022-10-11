@@ -1,24 +1,26 @@
+import { CheerioAPI } from "cheerio";
+
 export enum CheckedStatus {
   FOUND = "FOUND",
   FAILED = "FAILED",
   NOT_ATTEMPTED = "NOT_ATTEMPTED",
 }
 
-export enum EraName {
+export enum eraName {
   FEATURED_1 = "FEATURED_1",
 }
 
 export type Era = {
-  name: EraName;
+  name: eraName;
   start: number;
   end: number;
-  scraper: () => void;
+  scraper: ($: CheerioAPI, snapshot: Snapshot) => FeaturedVideo[];
 };
 
 export type Snapshot = {
   checked: CheckedStatus.NOT_ATTEMPTED;
   timestamp: string;
-  EraName: EraName;
+  eraName: eraName;
   featuredVideos?: FeaturedVideo[];
 };
 
@@ -36,14 +38,13 @@ export type Video = {
   title: string;
   views: number;
   author: string;
-  thumbnail: string;
-  url: string;
+  videoId: string;
   uploadDate?: string;
   comments?: number;
 };
 
 export type FeaturedVideo = Video & {
   dateFeatured: string;
-  dateFeaturedEpoch: string;
+  dateFeaturedEpoch: number;
   timestampFeatured: string;
 };
