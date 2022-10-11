@@ -30,7 +30,7 @@ export const eras: { [key in eraName]: Era } = {
   [eraName.FEATURED_1]: {
     name: eraName.FEATURED_1,
     start: 2005061423,
-    end: 2011120100,
+    end: 2005071823,
     scraper: featuredOneScraper,
   },
   // [eraName.FEATURED_2]: {

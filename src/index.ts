@@ -33,9 +33,9 @@ const onTargetScraped = (snapshot: Snapshot) => {
 };
 
 const init = async () => {
-  // genSnapshotsList();
+  genSnapshotsList();
 
-  scrapeTargets(Object.values(targets), onTargetScraped);
+  // scrapeTargets(Object.values(targets), onTargetScraped);
 
   // TODO: now remove slice
   // scrapeTargets(
