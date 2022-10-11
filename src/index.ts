@@ -13,7 +13,7 @@ const targets = JSON.parse(
   })
 );
 
-const mutableTargets = JSON.parse(
+const mutableTargets: { [key: string]: Snapshot } = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, filePaths.outputs.snapshots), {
     encoding: "utf8",
     flag: "r",
@@ -28,14 +28,19 @@ const onTargetScraped = (snapshot: Snapshot) => {
   );
   fs.writeFileSync(
     path.resolve(__dirname, filePaths.outputs.snapshotsArray),
-    JSON.stringify(Object.values(mutableTargets))
+    JSON.stringify(
+      Object.values(mutableTargets)
+        .map((el: Snapshot) => el.featuredVideos)
+        .flat()
+        .filter((el) => el)
+    )
   );
 };
 
 const init = async () => {
-  genSnapshotsList();
+  // genSnapshotsList();
 
-  // scrapeTargets(Object.values(targets), onTargetScraped);
+  scrapeTargets(Object.values(targets), onTargetScraped);
 
   // TODO: now remove slice
   // scrapeTargets(

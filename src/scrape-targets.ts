@@ -15,8 +15,8 @@ const scrapeTarget = async (snapshot: Snapshot) => {
   try {
     console.log("**** scraping", snapshot);
     // await sleep();
-    // const { data } = await axios.get(getWaybackUrl(snapshot.timestamp));
-    const data = mockYoutubeFeatured1;
+    const { data } = await axios.get(getWaybackUrl(snapshot.timestamp));
+    // const data = mockYoutubeFeatured1;
     const $ = load(data);
 
     return {
