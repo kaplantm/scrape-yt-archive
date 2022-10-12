@@ -21,12 +21,14 @@ const scrapeTarget = async (snapshot: Snapshot) => {
     // const data = mockYoutubeFeatured2;
     const $ = load(data);
 
+    console.log("scraped - found", snapshot.timestamp);
     return {
       ...snapshot,
       checked: CheckedStatus.FOUND,
       featuredVideos: scraper($, snapshot),
     };
   } catch (e) {
+    console.log("scraped - failed", snapshot.timestamp);
     console.error({ e });
     return { ...snapshot, checked: CheckedStatus.FAILED };
   }

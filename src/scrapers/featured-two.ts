@@ -24,7 +24,7 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
 
     const title = featuredItem.find(".moduleEntryTitle");
     const [details1, details2] = featuredItem.find(".moduleEntryDetails");
-    const [addedText, byText] = safeSplit($(details1).text(), "by\n");
+    const [addedText, byText] = safeSplit($(details1).text(), "by");
     const [viewsText, commentsText] = safeSplit($(details2).text(), " | ");
 
     const comments = parseInt(
