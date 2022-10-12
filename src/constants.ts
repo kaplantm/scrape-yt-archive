@@ -28,14 +28,14 @@ import { getEraBoundFromTimeStamp } from "./utils";
 //   ended: dec 4 2012 20121204000356
 
 // https://web.archive.org/web/20060605013018/http://www.youtube.com/ - new style
-export const eras: { [key in eraName]: Era } = {
-  [eraName.FEATURED_1]: {
-    // ("Featured Videos" horizontal)
-    name: eraName.FEATURED_1,
-    start: getEraBoundFromTimeStamp("20050614234128"), // jun 14th 2005
-    end: getEraBoundFromTimeStamp("20050718235237"), // july 18th 2005
-    scraper: featuredOneScraper,
-  },
+export const eras: Partial<{ [key in eraName]: Era }> = {
+  // [eraName.FEATURED_1]: {
+  //   // ("Featured Videos" horizontal)
+  //   name: eraName.FEATURED_1,
+  //   start: getEraBoundFromTimeStamp("20050614234128"), // jun 14th 2005
+  //   end: getEraBoundFromTimeStamp("20050718235237"), // july 18th 2005
+  //   scraper: featuredOneScraper,
+  // },
   [eraName.FEATURED_2]: {
     // ("Today's Featured Videos") (moduleEntry)
     name: eraName.FEATURED_2,

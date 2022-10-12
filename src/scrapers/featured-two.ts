@@ -16,7 +16,6 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
   const featuredVideos: FeaturedVideo[] = [];
   featuredItems.each((i, el) => {
     const featuredItem = $(el);
-    const [thumb, featuredItemTd] = featuredItem.children("table tbody tr td");
 
     const isoDateFeatured = getISOStringFromWaybackTimestamp(
       snapshot.timestamp
@@ -28,12 +27,16 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     const [addedText, byText] = safeSplit($(details1).text(), "by\n");
     const [viewsText, commentsText] = safeSplit($(details2).text(), " | ");
 
-    console.log({ commentsText });
-
     const comments = parseInt(
       safeTrim(safeSplit(commentsText, "Comments: ")[1])
     );
-    console.log("***featured-two", {
+
+    const tagsText = featuredItem.find(".moduleEntryTags").text();
+    const tags = safeSplit(safeSplit(tagsText, "Tags //")[1], ":").map((el) =>
+      safeTrim(el)
+    );
+
+    const featuredVideo = {
       title: safeTrim(title.text()),
       description: safeSplit(
         featuredItem.find(".moduleEntryDescription").text(),
@@ -42,42 +45,18 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
         .map((el) => safeTrim(el))
         .join(" ")
         .trim(),
-      tags: featuredItem
-        .find(".moduleEntryTags")
-        .text()
-        .split("Tags //\n ")[1]
-        .split(":\n")
-        .map((el) => safeTrim(el))
-        .filter((el) => el),
+      tags: tags.filter((el) => el),
       views: parseInt(safeSplit(viewsText, "Views: ")[1]) || null,
       author: safeTrim(byText),
       videoId: getVideoId(title.children("a").attr("href")),
       uploadDate: safeTrim(safeSplit(addedText, "Added:")?.[1]),
       comments: comments >= 0 ? comments : null,
-      // dateFeaturedEpoch: date.getTime(),
-      // dateFeatured: `${date.toUTCString()}`,
-      // timestampFeatured: snapshot.timestamp,
-    });
-    //   const featuredVideo = {
-    // title: safeTrim(title.text()),
-    // description: safeTrim(
-    //   featuredItem.children(".moduleEntryDescription").text()
-    // ),
-    // tags: featuredItem
-    //   .children(".moduleEntryTags")
-    //   .text()
-    //   .split(" : ")
-    //   .map((el) => safeTrim(el)),
-    // views: parseInt(safeSplit(viewsText, "Views: ")[1]) || null,
-    // author: safeTrim(authorFromUploadDate) || safeTrim(author),
-    // videoId: getVideoId(title.children("a").attr("href")),
-    // uploadDate: safeTrim(uploadDateWithoutAuthor),
-    // comments: parseInt((commentsText || "").split("Comments: ")[1]) || null,
-    // dateFeaturedEpoch: date.getTime(),
-    // dateFeatured: `${date.toUTCString()}`,
-    // timestampFeatured: snapshot.timestamp,
-    //   };
-    //   featuredVideos.push(featuredVideo);
+      dateFeaturedEpoch: date.getTime(),
+      dateFeatured: `${date.toUTCString()}`,
+      timestampFeatured: snapshot.timestamp,
+    };
+    console.log({ featuredVideo });
+    featuredVideos.push(featuredVideo);
   });
   return featuredVideos;
 };

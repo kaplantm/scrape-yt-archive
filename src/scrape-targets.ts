@@ -2,12 +2,13 @@ import axios from "axios";
 import { load } from "cheerio";
 import { mockYoutubeFeatured1, mockYoutubeFeatured2 } from "./mocks/youtube";
 import { eras } from "./constants";
-import { CheckedStatus, Snapshot } from "./types";
+import { CheckedStatus, eraName, Snapshot } from "./types";
 import { allSynchronously, getWaybackUrl, sleep } from "./utils";
 
 const scrapeTarget = async (snapshot: Snapshot) => {
-  const scraper = eras[snapshot.eraName].scraper;
+  const scraper = eras[snapshot.eraName]?.scraper;
 
+  console.log("scrapeTarget", { snapshot, scraper });
   if (!scraper) {
     return snapshot;
   }
@@ -15,14 +16,14 @@ const scrapeTarget = async (snapshot: Snapshot) => {
   try {
     console.log("**** scraping", snapshot);
     // await sleep();
-    // const { data } = await axios.get(getWaybackUrl(snapshot.timestamp));
+    const { data } = await axios.get(getWaybackUrl(snapshot.timestamp));
     // const data = mockYoutubeFeatured1;
-    const data = mockYoutubeFeatured2;
+    // const data = mockYoutubeFeatured2;
     const $ = load(data);
 
     return {
       ...snapshot,
-      // checked: CheckedStatus.FOUND,
+      checked: CheckedStatus.FOUND,
       featuredVideos: scraper($, snapshot),
     };
   } catch (e) {
@@ -47,7 +48,8 @@ export const scrapeTargets = async (
   const map = targets.map(
     (target) => () =>
       target.checked !== CheckedStatus.FOUND
-        ? processTarget(target, onTargetScraped)
+        ? // target.eraName !== eraName.FEATURED_1
+          processTarget(target, onTargetScraped)
         : target
   );
   const results = await allSynchronously(map);
