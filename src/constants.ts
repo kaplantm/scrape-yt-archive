@@ -1,5 +1,7 @@
 import { featuredOneScraper } from "./scrapers/featured-one";
+import { featuredTwoScraper } from "./scrapers/featured-two";
 import { Era, eraName } from "./types";
+import { getEraBoundFromTimeStamp } from "./utils";
 
 // featured 1 ("Featured Videos" horizontal)
 //   start: jun 14th 2005 20050614234128
@@ -28,17 +30,19 @@ import { Era, eraName } from "./types";
 // https://web.archive.org/web/20060605013018/http://www.youtube.com/ - new style
 export const eras: { [key in eraName]: Era } = {
   [eraName.FEATURED_1]: {
+    // ("Featured Videos" horizontal)
     name: eraName.FEATURED_1,
-    start: 2005061423,
-    end: 2005071823,
+    start: getEraBoundFromTimeStamp("20050614234128"), // jun 14th 2005
+    end: getEraBoundFromTimeStamp("20050718235237"), // july 18th 2005
     scraper: featuredOneScraper,
   },
-  // [eraName.FEATURED_2]: {
-  //   name: eraName.FEATURED_2,
-  //   start: 2005061423, // TODO: change
-  //   end: 2011120100, // TODO: change
-  //   scraper: featuredOneScraper, // TODO: change
-  // },
+  [eraName.FEATURED_2]: {
+    // ("Today's Featured Videos") (moduleEntry)
+    name: eraName.FEATURED_2,
+    start: getEraBoundFromTimeStamp("20050720021800"), // jun 20th 2005
+    end: getEraBoundFromTimeStamp("20060428025149"), // april 28th 2005
+    scraper: featuredTwoScraper,
+  },
   // { name: "from-youtube", start: 2011120211, end: 2012120400, scraper: null },
 };
 export const erasArray = Object.values(eras);

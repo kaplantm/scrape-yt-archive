@@ -1,6 +1,6 @@
 import axios from "axios";
 import { load } from "cheerio";
-import { mockYoutubeFeatured1 } from "./mocks/youtube";
+import { mockYoutubeFeatured1, mockYoutubeFeatured2 } from "./mocks/youtube";
 import { eras } from "./constants";
 import { CheckedStatus, Snapshot } from "./types";
 import { allSynchronously, getWaybackUrl, sleep } from "./utils";
@@ -15,13 +15,14 @@ const scrapeTarget = async (snapshot: Snapshot) => {
   try {
     console.log("**** scraping", snapshot);
     // await sleep();
-    const { data } = await axios.get(getWaybackUrl(snapshot.timestamp));
+    // const { data } = await axios.get(getWaybackUrl(snapshot.timestamp));
     // const data = mockYoutubeFeatured1;
+    const data = mockYoutubeFeatured2;
     const $ = load(data);
 
     return {
       ...snapshot,
-      checked: CheckedStatus.FOUND,
+      // checked: CheckedStatus.FOUND,
       featuredVideos: scraper($, snapshot),
     };
   } catch (e) {
@@ -50,6 +51,6 @@ export const scrapeTargets = async (
         : target
   );
   const results = await allSynchronously(map);
-  console.log("***", results);
+  // console.log("***", results);
   return results;
 };
