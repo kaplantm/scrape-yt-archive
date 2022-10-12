@@ -44,6 +44,7 @@ export type Video = {
   uploadDate: string;
   comments: number | null;
   tags: string[];
+  categories?: string[];
 };
 
 export type FeaturedVideo = Video & {
