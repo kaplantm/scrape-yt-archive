@@ -1,4 +1,5 @@
 import { featuredOneScraper } from "./scrapers/featured-one";
+import { featuredThreeScraper } from "./scrapers/featured-three";
 import { featuredTwoScraper } from "./scrapers/featured-two";
 import { Era, eraName } from "./types";
 import { getEraBoundFromTimeStamp } from "./utils";
@@ -36,12 +37,19 @@ export const eras: Partial<{ [key in eraName]: Era }> = {
   //   end: getEraBoundFromTimeStamp("20050718235237"), // july 18th 2005
   //   scraper: featuredOneScraper,
   // },
-  [eraName.FEATURED_2]: {
-    // ("Today's Featured Videos") (moduleEntry)
-    name: eraName.FEATURED_2,
-    start: getEraBoundFromTimeStamp("20050720021800"), // jun 20th 2005
-    end: getEraBoundFromTimeStamp("20060428025149"), // april 28th 2005
-    scraper: featuredTwoScraper,
+  // [eraName.FEATURED_2]: {
+  //   // ("Today's Featured Videos") (moduleEntry)
+  //   name: eraName.FEATURED_2,
+  //   start: getEraBoundFromTimeStamp("20050720021800"), // jun 20th 2005
+  //   end: getEraBoundFromTimeStamp("20060428025149"), // april 28th 2005
+  //   scraper: featuredTwoScraper,
+  // },
+  [eraName.FEATURED_3]: {
+    // ("Today's Featured Videos") (contentListBox)
+    name: eraName.FEATURED_3,
+    start: getEraBoundFromTimeStamp("20060502203540"), // may 2nd 2006
+    end: getEraBoundFromTimeStamp("20060622215407"), // june 22nd 2006
+    scraper: featuredThreeScraper,
   },
   // { name: "from-youtube", start: 2011120211, end: 2012120400, scraper: null },
 };

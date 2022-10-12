@@ -9,6 +9,7 @@ export enum CheckedStatus {
 export enum eraName {
   FEATURED_1 = "FEATURED_1",
   FEATURED_2 = "FEATURED_2",
+  FEATURED_3 = "FEATURED_3",
 }
 
 export type Era = {
@@ -41,10 +42,14 @@ export type Video = {
   description: string;
   author: string;
   videoId: string;
-  uploadDate: string;
+  uploadDate?: string;
   comments: number | null;
   tags: string[];
   categories?: string[];
+  duration: number;
+  age: string;
+  stars?: number;
+  numRatings?: number;
 };
 
 export type FeaturedVideo = Video & {

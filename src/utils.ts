@@ -50,3 +50,17 @@ export const getKeyFromTimeStamp = (timestamp: string) =>
   timestamp.substring(0, timestamp.length - 4);
 export const getEraBoundFromTimeStamp = (timestamp: string) =>
   parseInt(getKeyFromTimeStamp(timestamp));
+
+// https://stackoverflow.com/a/9640417
+export const convertDurationToSeconds = (duration: string): number => {
+  const p = duration.split(":");
+  let s = 0;
+  let m = 1;
+
+  while (p.length > 0) {
+    s += m * parseInt(p.pop() || "0", 10);
+    m *= 60;
+  }
+
+  return s;
+};
