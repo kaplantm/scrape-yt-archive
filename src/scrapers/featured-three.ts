@@ -75,7 +75,7 @@ export const featuredThreeScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       featuredVideo,
       meta: { a: title.find("a").attr("href") },
     });
-    featuredVideos.push(featuredVideo as any);
+    featuredVideos.push(featuredVideo);
   });
   return featuredVideos;
 };

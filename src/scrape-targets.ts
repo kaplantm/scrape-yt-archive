@@ -4,6 +4,7 @@ import {
   mockYoutubeFeatured1,
   mockYoutubeFeatured2,
   mockYoutubeFeatured3,
+  mockYoutubeFeatured4,
 } from "./mocks/youtube";
 import { eras } from "./constants";
 import { CheckedStatus, eraName, Snapshot } from "./types";
@@ -20,10 +21,11 @@ const scrapeTarget = async (snapshot: Snapshot) => {
   try {
     console.log("**** scraping", snapshot);
     // await sleep();
-    const { data } = await axios.get(getWaybackUrl(snapshot.timestamp));
+    // const { data } = await axios.get(getWaybackUrl(snapshot.timestamp));
     // const data = mockYoutubeFeatured1;
     // const data = mockYoutubeFeatured2;
     // const data = mockYoutubeFeatured3;
+    const data = mockYoutubeFeatured4;
     const $ = load(data);
 
     console.log("scraped - found", snapshot.timestamp);

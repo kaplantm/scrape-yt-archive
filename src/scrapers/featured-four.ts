@@ -9,29 +9,30 @@ import {
 } from "../utils";
 
 export const featuredFourScraper = ($: CheerioAPI, snapshot: Snapshot) => {
-  const featuredItems = $(".vDetailEntry");
+  const featuredItems = $(".vListBox .vTable");
 
   const featuredVideos: FeaturedVideo[] = [];
   featuredItems.each((i, el) => {
-    const featuredItem = $(el).find(".vListInfo1Still");
+    const featuredItem = $(el).find(".vinfo");
 
     const isoDateFeatured = getISOStringFromWaybackTimestamp(
       snapshot.timestamp
     );
     const date = new Date(isoDateFeatured);
 
-    const title = featuredItem.find(".title");
-    const tags = safeSplit(
-      safeSplit(featuredItem.find(".tagTable td").text(), "Tags:")[1],
-      " "
-    )
+    const title = featuredItem.find(".vtitle");
+
+    const facets = safeTrim(featuredItem.find(".vfacets").text());
+    const tags = safeSplit(safeSplit(facets, "Tags:\n")[1], "\n")
       .map((el) => safeTrim(el))
       .filter((el) => el);
-
-    const [age, author, views] = safeSplit(
-      safeSplit(featuredItem.find(".facets").text(), "Added:")[1],
+    const age = safeSplit(safeSplit(facets, "Added:")[1], "\n")[0];
+    const categories = safeSplit(
+      safeSplit(facets, "in Category:\n")[1],
       "\n"
-    );
+    )[0];
+    const author = safeSplit(safeSplit(facets, "From:\n")[1], "\n")[0];
+    const views = safeSplit(safeSplit(facets, "Views:")[1], "\n")[0];
 
     let totalRating: number | undefined = undefined;
     featuredItem.find("nobr img.rating").each((i, el) => {
@@ -57,10 +58,10 @@ export const featuredFourScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       duration: convertDurationToSeconds(
         safeTrim(featuredItem.find(".runtime").text())
       ),
-      description: safeTrim(featuredItem.find(".desc").text()),
+      description: safeTrim(featuredItem.find(".vdesc").text()),
       tags,
-      views: parseInt(safeSplit(views, "Views: ")[1].replace(",", "")) || null,
-      author: safeTrim(safeSplit(author, "From:")[1]),
+      views: parseInt(views.replace(",", "")) || null,
+      author: safeTrim(author),
       videoId: getVideoId(title.find("a").attr("href")),
       uploadDate: undefined,
       comments: null,
@@ -70,12 +71,12 @@ export const featuredFourScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       dateFeaturedEpoch: date.getTime(),
       dateFeatured: `${date.toUTCString()}`,
       timestampFeatured: snapshot.timestamp,
+      categories: safeSplit(categories, "\n").map((el) => safeTrim(el)),
     };
     console.log({
       featuredVideo,
-      meta: { a: title.find("a").attr("href") },
     });
-    featuredVideos.push(featuredVideo as any);
+    featuredVideos.push(featuredVideo);
   });
   return featuredVideos;
 };

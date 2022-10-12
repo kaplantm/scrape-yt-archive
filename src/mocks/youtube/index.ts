@@ -24,3 +24,11 @@ export const mockYoutubeFeatured3 = fs.readFileSync(
     flag: "r",
   }
 );
+
+export const mockYoutubeFeatured4 = fs.readFileSync(
+  path.resolve(__dirname, "../youtube/featured-4.html"),
+  {
+    encoding: "utf8",
+    flag: "r",
+  }
+);
