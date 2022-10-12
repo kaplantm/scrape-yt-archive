@@ -23,14 +23,16 @@ export const featuredFourScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     const title = featuredItem.find(".vtitle");
 
     const facets = safeTrim(featuredItem.find(".vfacets").text());
-    const tags = safeSplit(safeSplit(facets, "Tags:\n")[1], "\n")
+    const tags = safeSplit(
+      safeSplit(safeSplit(facets, "Tags:\n")[1], "Added:")[0],
+      "   "
+    )
       .map((el) => safeTrim(el))
       .filter((el) => el);
+
     const age = safeSplit(safeSplit(facets, "Added:")[1], "\n")[0];
-    const categories = safeSplit(
-      safeSplit(facets, "in Category:\n")[1],
-      "\n"
-    )[0];
+    const categories = safeSplit(safeSplit(facets, "in Category:")[1], "\n")[0];
+
     const author = safeSplit(safeSplit(facets, "From:\n")[1], "\n")[0];
     const views = safeSplit(safeSplit(facets, "Views:")[1], "\n")[0];
 
