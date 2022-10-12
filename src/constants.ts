@@ -1,6 +1,7 @@
 import { featuredOneScraper } from "./scrapers/featured-one";
 import { featuredThreeScraper } from "./scrapers/featured-three";
 import { featuredTwoScraper } from "./scrapers/featured-two";
+import { featuredFourScraper } from "./scrapers/featured-four";
 import { Era, eraName } from "./types";
 import { getEraBoundFromTimeStamp } from "./utils";
 
@@ -16,10 +17,10 @@ import { getEraBoundFromTimeStamp } from "./utils";
 // featured 4 ("Featured Videos") (vListBox)
 //   start: july 1 2006 20060701022704
 //   ended: jan 3 2007 20070103134232
-// featured 4 ("Featured Videos") (white header bg) (hpFeaturedList)
+// featured 5 ("Featured Videos") (white header bg) (hpFeaturedList)
 //   start: jan 4 2007 20070104102404
 //   ended:
-// featured 4 ("Featured Videos") (white header bg) (hpVideoList)
+// featured 6 ("Featured Videos") (white header bg) (hpVideoList)
 //   start:
 //   ended:
 // MORE TBD
@@ -44,12 +45,19 @@ export const eras: Partial<{ [key in eraName]: Era }> = {
   //   end: getEraBoundFromTimeStamp("20060428025149"), // april 28th 2005
   //   scraper: featuredTwoScraper,
   // },
-  [eraName.FEATURED_3]: {
+  // [eraName.FEATURED_3]: {
+  //   // ("Today's Featured Videos") (contentListBox)
+  //   name: eraName.FEATURED_3,
+  //   start: getEraBoundFromTimeStamp("20060502203540"), // may 2nd 2006
+  //   end: getEraBoundFromTimeStamp("20060622215407"), // june 22nd 2006
+  //   scraper: featuredThreeScraper,
+  // },
+  [eraName.FEATURED_4]: {
     // ("Today's Featured Videos") (contentListBox)
-    name: eraName.FEATURED_3,
-    start: getEraBoundFromTimeStamp("20060502203540"), // may 2nd 2006
-    end: getEraBoundFromTimeStamp("20060622215407"), // june 22nd 2006
-    scraper: featuredThreeScraper,
+    name: eraName.FEATURED_4,
+    start: getEraBoundFromTimeStamp("20060701022704"), // july 1 2006
+    end: getEraBoundFromTimeStamp("20070103134232"), // jan 3 2007
+    scraper: featuredFourScraper,
   },
   // { name: "from-youtube", start: 2011120211, end: 2012120400, scraper: null },
 };

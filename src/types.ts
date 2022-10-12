@@ -10,6 +10,7 @@ export enum eraName {
   FEATURED_1 = "FEATURED_1",
   FEATURED_2 = "FEATURED_2",
   FEATURED_3 = "FEATURED_3",
+  FEATURED_4 = "FEATURED_4",
 }
 
 export type Era = {
