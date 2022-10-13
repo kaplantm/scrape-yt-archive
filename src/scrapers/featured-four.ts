@@ -48,7 +48,9 @@ export const featuredFourScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     const age = safeSplit(safeSplit(facets, "Added:")[1], "\n")[0];
     const categories = safeSplit(safeSplit(facets, "in Category:")[1], "\n")[0];
 
-    const author = safeSplit(safeSplit(facets, "From:\n")[1], "\n")[0];
+    const author = safeSplit(safeSplit(facets, "From:")[1], "\n")[0];
+
+    console.log({ author, facets });
     const views = safeSplit(safeSplit(facets, "Views:")[1], "\n")[0];
 
     const videoId = getVideoId(title.find("a").attr("href"));
