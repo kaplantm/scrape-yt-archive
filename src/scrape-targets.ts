@@ -59,6 +59,7 @@ export const processTarget = async (
   onTargetScraped: (snapshot: Snapshot) => void
 ) => {
   const snapshot = await scrapeTarget(target);
+  // console.log("done scrape", snapshot);
   onTargetScraped(snapshot);
   return snapshot;
 };

@@ -1,2118 +1,1897 @@
 {
-  "2005061423": {
-    "timestamp": "20050614234128",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "Kites",
-        "views": null,
-        "author": "ScottEvil",
-        "videoId": "AnTi-2KZ7MU",
-        "uploadDate": "June 13, 2005",
-        "comments": null,
-        "dateFeaturedEpoch": 1118792488000,
-        "dateFeatured": "Tue, 14 Jun 2005 23:41:28 GMT",
-        "timestampFeatured": "20050614234128",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Ibiza",
-        "views": null,
-        "author": "Maupy",
-        "videoId": "4Fr54d-m7mc",
-        "uploadDate": "June 13, 2005",
-        "comments": null,
-        "dateFeaturedEpoch": 1118792488000,
-        "dateFeatured": "Tue, 14 Jun 2005 23:41:28 GMT",
-        "timestampFeatured": "20050614234128",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Bikes",
-        "views": null,
-        "author": "ScottEvil",
-        "videoId": "_N57DbnvDN4",
-        "uploadDate": "June 13, 2005",
-        "comments": null,
-        "dateFeaturedEpoch": 1118792488000,
-        "dateFeatured": "Tue, 14 Jun 2005 23:41:28 GMT",
-        "timestampFeatured": "20050614234128",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Bootie Christ Dance",
-        "views": null,
-        "author": "BootieChrist",
-        "videoId": "lzj98rpCcJc",
-        "uploadDate": "April 24, 2005",
-        "comments": null,
-        "dateFeaturedEpoch": 1118792488000,
-        "dateFeatured": "Tue, 14 Jun 2005 23:41:28 GMT",
-        "timestampFeatured": "20050614234128",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Tim sleding",
-        "views": null,
-        "author": "vivaciousvalerii",
-        "videoId": "5RUZZHISpoY",
-        "uploadDate": "June 13, 2005",
-        "comments": null,
-        "dateFeaturedEpoch": 1118792488000,
-        "dateFeatured": "Tue, 14 Jun 2005 23:41:28 GMT",
-        "timestampFeatured": "20050614234128",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005072002": {
+    "timestamp": "20050720021800",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005061600": {
-    "timestamp": "20050616004243",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "Philipsburg - Princess Juliana (TNCM / SXM)",
-        "views": null,
-        "author": "jawed",
-        "videoId": "UNY7IqpA2CQ",
-        "uploadDate": "June 11, 2005",
-        "comments": null,
-        "dateFeaturedEpoch": 1118882563000,
-        "dateFeatured": "Thu, 16 Jun 2005 00:42:43 GMT",
-        "timestampFeatured": "20050616004243",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "What?!?!",
-        "views": null,
-        "author": "cabmobile",
-        "videoId": "wyZ0XKvHIVw",
-        "uploadDate": "May 4, 2005",
-        "comments": null,
-        "dateFeaturedEpoch": 1118882563000,
-        "dateFeatured": "Thu, 16 Jun 2005 00:42:43 GMT",
-        "timestampFeatured": "20050616004243",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "MaleBear",
-        "views": null,
-        "author": "xanatos",
-        "videoId": "MLEa2XtmmsY",
-        "uploadDate": "June 14, 2005",
-        "comments": null,
-        "dateFeaturedEpoch": 1118882563000,
-        "dateFeatured": "Thu, 16 Jun 2005 00:42:43 GMT",
-        "timestampFeatured": "20050616004243",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Luis on NY1",
-        "views": null,
-        "author": "cmonico",
-        "videoId": "yLJdjoS4kcg",
-        "uploadDate": "June 15, 2005",
-        "comments": null,
-        "dateFeaturedEpoch": 1118882563000,
-        "dateFeatured": "Thu, 16 Jun 2005 00:42:43 GMT",
-        "timestampFeatured": "20050616004243",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Denny's",
-        "views": null,
-        "author": "jrhyley",
-        "videoId": "_QBPp6zso7g",
-        "uploadDate": "June 14, 2005",
-        "comments": null,
-        "dateFeaturedEpoch": 1118882563000,
-        "dateFeatured": "Thu, 16 Jun 2005 00:42:43 GMT",
-        "timestampFeatured": "20050616004243",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005072007": {
+    "timestamp": "20050720073339",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005061701": {
-    "timestamp": "20050617015149",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "Baby Fart",
-        "views": 48,
-        "author": "larfus",
-        "videoId": "usRldgBlEBk",
-        "uploadDate": "June 15, 2005",
-        "comments": 2,
-        "dateFeaturedEpoch": 1118973109000,
-        "dateFeatured": "Fri, 17 Jun 2005 01:51:49 GMT",
-        "timestampFeatured": "20050617015149",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "2 Men in a bath!",
-        "views": 31,
-        "author": "xanatos",
-        "videoId": "AN7FstkmuTs",
-        "uploadDate": "June 15, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1118973109000,
-        "dateFeatured": "Fri, 17 Jun 2005 01:51:49 GMT",
-        "timestampFeatured": "20050617015149",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Estacion Espora",
-        "views": 23,
-        "author": "CAP",
-        "videoId": "DnJcXRHQG1A",
-        "uploadDate": "June 13, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1118973109000,
-        "dateFeatured": "Fri, 17 Jun 2005 01:51:49 GMT",
-        "timestampFeatured": "20050617015149",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Racing with some cool tunes",
-        "views": 2,
-        "author": "blackbelt",
-        "videoId": "C1M_ukg4jR8",
-        "uploadDate": "June 16, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1118973109000,
-        "dateFeatured": "Fri, 17 Jun 2005 01:51:49 GMT",
-        "timestampFeatured": "20050617015149",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "QEW",
-        "views": 11,
-        "author": "ScottEvil",
-        "videoId": "nK68ZN1BUMA",
-        "uploadDate": "June 14, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1118973109000,
-        "dateFeatured": "Fri, 17 Jun 2005 01:51:49 GMT",
-        "timestampFeatured": "20050617015149",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005072103": {
+    "timestamp": "20050721032731",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005061802": {
-    "timestamp": "20050618025635",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "tribute",
-        "views": 26,
-        "author": "gp",
-        "videoId": "3_-tvadkXMs",
-        "uploadDate": "April 24, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119063395000,
-        "dateFeatured": "Sat, 18 Jun 2005 02:56:35 GMT",
-        "timestampFeatured": "20050618025635",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "GREECE!",
-        "views": 93,
-        "author": "vivaciousvalerii",
-        "videoId": "e_xieum5R98",
-        "uploadDate": "June 13, 2005",
-        "comments": 2,
-        "dateFeaturedEpoch": 1119063395000,
-        "dateFeatured": "Sat, 18 Jun 2005 02:56:35 GMT",
-        "timestampFeatured": "20050618025635",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Kid sings New York, New York",
-        "views": 72,
-        "author": "maxkash",
-        "videoId": "cfAdZW-abgk",
-        "uploadDate": "June 14, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119063395000,
-        "dateFeatured": "Sat, 18 Jun 2005 02:56:35 GMT",
-        "timestampFeatured": "20050618025635",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Schlitz Commercial",
-        "views": 97,
-        "author": "cmonico",
-        "videoId": "wwY2MVX5kZ4",
-        "uploadDate": "June 15, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119063395000,
-        "dateFeatured": "Sat, 18 Jun 2005 02:56:35 GMT",
-        "timestampFeatured": "20050618025635",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Tiger Remixed",
-        "views": 129,
-        "author": "hurlex",
-        "videoId": "gz2DQvgorQU",
-        "uploadDate": "April 30, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119063395000,
-        "dateFeatured": "Sat, 18 Jun 2005 02:56:35 GMT",
-        "timestampFeatured": "20050618025635",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005072201": {
+    "timestamp": "20050722015326",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005061902": {
-    "timestamp": "20050619024724",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "Quick Stoppie!!!",
-        "views": 221,
-        "author": "COBALTGRUV",
-        "videoId": "UFpWzvw5Ito",
-        "uploadDate": "May 4, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119149244000,
-        "dateFeatured": "Sun, 19 Jun 2005 02:47:24 GMT",
-        "timestampFeatured": "20050619024724",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Vernal Lullaby",
-        "views": 15,
-        "author": "bullemhead",
-        "videoId": "KEqhJEJU4rk",
-        "uploadDate": "May 2, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119149244000,
-        "dateFeatured": "Sun, 19 Jun 2005 02:47:24 GMT",
-        "timestampFeatured": "20050619024724",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Get Down",
-        "views": 109,
-        "author": "fusionmonkey",
-        "videoId": "lXtuA9THsMo",
-        "uploadDate": "June 14, 2005",
-        "comments": 2,
-        "dateFeaturedEpoch": 1119149244000,
-        "dateFeatured": "Sun, 19 Jun 2005 02:47:24 GMT",
-        "timestampFeatured": "20050619024724",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "overdramatic: hudson street",
-        "views": 12,
-        "author": "overdramatic",
-        "videoId": "WuG4gztjxx8",
-        "uploadDate": "June 16, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119149244000,
-        "dateFeatured": "Sun, 19 Jun 2005 02:47:24 GMT",
-        "timestampFeatured": "20050619024724",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Toronto Autoshow 2005",
-        "views": 39,
-        "author": "ScottEvil",
-        "videoId": "n7xrB7Ce_rc",
-        "uploadDate": "June 13, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119149244000,
-        "dateFeatured": "Sun, 19 Jun 2005 02:47:24 GMT",
-        "timestampFeatured": "20050619024724",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005072207": {
+    "timestamp": "20050722074038",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005062204": {
-    "timestamp": "20050622045250",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "San Francisco Mission District",
-        "views": 11,
-        "author": "steve",
-        "videoId": "98UsB_mjMdw",
-        "uploadDate": "June 19, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119415970000,
-        "dateFeatured": "Wed, 22 Jun 2005 04:52:50 GMT",
-        "timestampFeatured": "20050622045250",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "overdramatic: on the subway",
-        "views": 26,
-        "author": "overdramatic",
-        "videoId": "vDO4bBCHspU",
-        "uploadDate": "June 16, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119415970000,
-        "dateFeatured": "Wed, 22 Jun 2005 04:52:50 GMT",
-        "timestampFeatured": "20050622045250",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "overdramatic: city hall park II",
-        "views": 11,
-        "author": "overdramatic",
-        "videoId": "C_JIYlBvzuo",
-        "uploadDate": "June 16, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119415970000,
-        "dateFeatured": "Wed, 22 Jun 2005 04:52:50 GMT",
-        "timestampFeatured": "20050622045250",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Another story about Drey",
-        "views": 21,
-        "author": "jawed",
-        "videoId": "hO1X7eRy46E",
-        "uploadDate": "April 28, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119415970000,
-        "dateFeatured": "Wed, 22 Jun 2005 04:52:50 GMT",
-        "timestampFeatured": "20050622045250",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "dunk",
-        "views": 33,
-        "author": "anillo65",
-        "videoId": "MZ85hfsVL2A",
-        "uploadDate": "June 19, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119415970000,
-        "dateFeatured": "Wed, 22 Jun 2005 04:52:50 GMT",
-        "timestampFeatured": "20050622045250",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005072300": {
+    "timestamp": "20050723001743",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005062300": {
-    "timestamp": "20050623004326",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "Eric Rice Promo",
-        "views": 44,
-        "author": "ericrice",
-        "videoId": "CDxwN8MKoPI",
-        "uploadDate": "June 13, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119487406000,
-        "dateFeatured": "Thu, 23 Jun 2005 00:43:26 GMT",
-        "timestampFeatured": "20050623004326",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Slapping Oriental women",
-        "views": 1842,
-        "author": "larfus",
-        "videoId": "MoLds42eIL8",
-        "uploadDate": "June 16, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119487406000,
-        "dateFeatured": "Thu, 23 Jun 2005 00:43:26 GMT",
-        "timestampFeatured": "20050623004326",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Who does the dog like more?!",
-        "views": 97,
-        "author": "hitofushi",
-        "videoId": "jovunOYy9Jk",
-        "uploadDate": "April 29, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119487406000,
-        "dateFeatured": "Thu, 23 Jun 2005 00:43:26 GMT",
-        "timestampFeatured": "20050623004326",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Glitterclub",
-        "views": 21,
-        "author": "Thms",
-        "videoId": "_jE4Jp-Kn6g",
-        "uploadDate": "June 19, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119487406000,
-        "dateFeatured": "Thu, 23 Jun 2005 00:43:26 GMT",
-        "timestampFeatured": "20050623004326",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Bikes",
-        "views": 124,
-        "author": "ScottEvil",
-        "videoId": "_N57DbnvDN4",
-        "uploadDate": "June 13, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119487406000,
-        "dateFeatured": "Thu, 23 Jun 2005 00:43:26 GMT",
-        "timestampFeatured": "20050623004326",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005072323": {
+    "timestamp": "20050723234912",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005062500": {
-    "timestamp": "20050625004837",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "MAK UTI",
-        "views": 65,
-        "author": "asleeponthesun",
-        "videoId": "EqeeDnGhTd0",
-        "uploadDate": "June 16, 2005",
-        "comments": 1,
-        "dateFeaturedEpoch": 1119660517000,
-        "dateFeatured": "Sat, 25 Jun 2005 00:48:37 GMT",
-        "timestampFeatured": "20050625004837",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Tiger Remixed",
-        "views": 161,
-        "author": "hurlex",
-        "videoId": "gz2DQvgorQU",
-        "uploadDate": "April 30, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119660517000,
-        "dateFeatured": "Sat, 25 Jun 2005 00:48:37 GMT",
-        "timestampFeatured": "20050625004837",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Mijn Budlight verzameling",
-        "views": 44,
-        "author": "Tjoeten",
-        "videoId": "XOg1bXaUJnU",
-        "uploadDate": "June 19, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119660517000,
-        "dateFeatured": "Sat, 25 Jun 2005 00:48:37 GMT",
-        "timestampFeatured": "20050625004837",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Schlitz Commercial",
-        "views": 159,
-        "author": "cmonico",
-        "videoId": "wwY2MVX5kZ4",
-        "uploadDate": "June 15, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119660517000,
-        "dateFeatured": "Sat, 25 Jun 2005 00:48:37 GMT",
-        "timestampFeatured": "20050625004837",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Cyberdyne Systems from Terminator 2 Movie",
-        "views": 30,
-        "author": "jawed",
-        "videoId": "s7hzrENAaxg",
-        "uploadDate": "June 21, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119660517000,
-        "dateFeatured": "Sat, 25 Jun 2005 00:48:37 GMT",
-        "timestampFeatured": "20050625004837",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005072423": {
+    "timestamp": "20050724235916",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005062601": {
-    "timestamp": "20050626010207",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "A little run on San Gregorio beach.",
-        "views": 294,
-        "author": "Chad",
-        "videoId": "g-LZSOkwlzU",
-        "uploadDate": "June 12, 2005",
-        "comments": 4,
-        "dateFeaturedEpoch": 1119747727000,
-        "dateFeatured": "Sun, 26 Jun 2005 01:02:07 GMT",
-        "timestampFeatured": "20050626010207",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Tabby",
-        "views": 11,
-        "author": "leonamanutd",
-        "videoId": "lLUWOGLxeyk",
-        "uploadDate": "June 24, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119747727000,
-        "dateFeatured": "Sun, 26 Jun 2005 01:02:07 GMT",
-        "timestampFeatured": "20050626010207",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Japoneses bailando",
-        "views": 274,
-        "author": "biboz",
-        "videoId": "f-Wn1PmG46c",
-        "uploadDate": "June 14, 2005",
-        "comments": 3,
-        "dateFeaturedEpoch": 1119747727000,
-        "dateFeatured": "Sun, 26 Jun 2005 01:02:07 GMT",
-        "timestampFeatured": "20050626010207",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "BUSH HAKKA SPEECH",
-        "views": 161,
-        "author": "wilsonlhw",
-        "videoId": "pRHch2oWBeg",
-        "uploadDate": "June 24, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119747727000,
-        "dateFeatured": "Sun, 26 Jun 2005 01:02:07 GMT",
-        "timestampFeatured": "20050626010207",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Positively New Jersey",
-        "views": 18,
-        "author": "adamarif",
-        "videoId": "1m6Sww_9vSQ",
-        "uploadDate": "June 23, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119747727000,
-        "dateFeatured": "Sun, 26 Jun 2005 01:02:07 GMT",
-        "timestampFeatured": "20050626010207",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005072523": {
+    "timestamp": "20050725234756",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005062701": {
-    "timestamp": "20050627011231",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "Le clandestin",
-        "views": 44,
-        "author": "hchicha",
-        "videoId": "aw9DL5WsXy8",
-        "uploadDate": "May 3, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119834751000,
-        "dateFeatured": "Mon, 27 Jun 2005 01:12:31 GMT",
-        "timestampFeatured": "20050627011231",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "I Believe",
-        "views": 27,
-        "author": "jt1892",
-        "videoId": "-xuGDwb8x-E",
-        "uploadDate": "June 14, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119834751000,
-        "dateFeatured": "Mon, 27 Jun 2005 01:12:31 GMT",
-        "timestampFeatured": "20050627011231",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Doctor Who- Together till the end",
-        "views": 26,
-        "author": "TheOCRox331",
-        "videoId": "Ws5z4iN1kiY",
-        "uploadDate": "June 25, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119834751000,
-        "dateFeatured": "Mon, 27 Jun 2005 01:12:31 GMT",
-        "timestampFeatured": "20050627011231",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Matrix Redone 2",
-        "views": 53,
-        "author": "djtrentt",
-        "videoId": "8RhkHO8i5ag",
-        "uploadDate": "June 22, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119834751000,
-        "dateFeatured": "Mon, 27 Jun 2005 01:12:31 GMT",
-        "timestampFeatured": "20050627011231",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Concorde Landing",
-        "views": 307,
-        "author": "jawed",
-        "videoId": "58nnKG7nKoQ",
-        "uploadDate": "June 11, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119834751000,
-        "dateFeatured": "Mon, 27 Jun 2005 01:12:31 GMT",
-        "timestampFeatured": "20050627011231",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005072623": {
+    "timestamp": "20050726235136",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005062801": {
-    "timestamp": "20050628014046",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "SBC Park in San Francisco",
-        "views": 34,
-        "author": "steve",
-        "videoId": "6Gwn0ARKXgE",
-        "uploadDate": "June 18, 2005",
-        "comments": 2,
-        "dateFeaturedEpoch": 1119922846000,
-        "dateFeatured": "Tue, 28 Jun 2005 01:40:46 GMT",
-        "timestampFeatured": "20050628014046",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "MAK UTI",
-        "views": 72,
-        "author": "asleeponthesun",
-        "videoId": "EqeeDnGhTd0",
-        "uploadDate": "June 16, 2005",
-        "comments": 1,
-        "dateFeaturedEpoch": 1119922846000,
-        "dateFeatured": "Tue, 28 Jun 2005 01:40:46 GMT",
-        "timestampFeatured": "20050628014046",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Water moto",
-        "views": 56,
-        "author": "xanatos",
-        "videoId": "Xl8nI3iD2ow",
-        "uploadDate": "June 15, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119922846000,
-        "dateFeatured": "Tue, 28 Jun 2005 01:40:46 GMT",
-        "timestampFeatured": "20050628014046",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Super Gokart minispeedway racing-a-gogo",
-        "views": 51,
-        "author": "punkey",
-        "videoId": "uRlyoDGeBkQ",
-        "uploadDate": "June 15, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119922846000,
-        "dateFeatured": "Tue, 28 Jun 2005 01:40:46 GMT",
-        "timestampFeatured": "20050628014046",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Mijn Budlight verzameling",
-        "views": 41,
-        "author": "Tjoeten",
-        "videoId": "B8gw4_Kl6cQ",
-        "uploadDate": "June 19, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1119922846000,
-        "dateFeatured": "Tue, 28 Jun 2005 01:40:46 GMT",
-        "timestampFeatured": "20050628014046",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005072801": {
+    "timestamp": "20050728010454",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005062903": {
-    "timestamp": "20050629030521",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "Ibiza",
-        "views": 78,
-        "author": "Maupy",
-        "videoId": "gYwcw0DzTGM",
-        "uploadDate": "June 16, 2005",
-        "comments": 1,
-        "dateFeaturedEpoch": 1120014321000,
-        "dateFeatured": "Wed, 29 Jun 2005 03:05:21 GMT",
-        "timestampFeatured": "20050629030521",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "He Got Big Fish",
-        "views": 577,
-        "author": "lcf",
-        "videoId": "dUTZvdgr42U",
-        "uploadDate": "June 22, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120014321000,
-        "dateFeatured": "Wed, 29 Jun 2005 03:05:21 GMT",
-        "timestampFeatured": "20050629030521",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Filip - FedEx Auto-X",
-        "views": 90,
-        "author": "warrtalon",
-        "videoId": "_XfHyR2mNxs",
-        "uploadDate": "June 26, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120014321000,
-        "dateFeatured": "Wed, 29 Jun 2005 03:05:21 GMT",
-        "timestampFeatured": "20050629030521",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Why was Steve late?",
-        "views": 47,
-        "author": "jawed",
-        "videoId": "77QAKf9RGIk",
-        "uploadDate": "April 27, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120014321000,
-        "dateFeatured": "Wed, 29 Jun 2005 03:05:21 GMT",
-        "timestampFeatured": "20050629030521",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Ferrari",
-        "views": 19,
-        "author": "BMWDave",
-        "videoId": "XlxMtOHMQEU",
-        "uploadDate": "June 27, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120014321000,
-        "dateFeatured": "Wed, 29 Jun 2005 03:05:21 GMT",
-        "timestampFeatured": "20050629030521",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005072900": {
+    "timestamp": "20050729002950",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005063001": {
-    "timestamp": "20050630013537",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "Drunk gambler discussing life.",
-        "views": 117,
-        "author": "Kaizenamazen",
-        "videoId": "7fBGxN-W-wE",
-        "uploadDate": "June 13, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120095337000,
-        "dateFeatured": "Thu, 30 Jun 2005 01:35:37 GMT",
-        "timestampFeatured": "20050630013537",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "overdramatic: world trade center I",
-        "views": 42,
-        "author": "overdramatic",
-        "videoId": "5nX0OjVuENA",
-        "uploadDate": "June 16, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120095337000,
-        "dateFeatured": "Thu, 30 Jun 2005 01:35:37 GMT",
-        "timestampFeatured": "20050630013537",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Jingle en Joe",
-        "views": 27,
-        "author": "Lena",
-        "videoId": "uE9oPxzDup0",
-        "uploadDate": "June 21, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120095337000,
-        "dateFeatured": "Thu, 30 Jun 2005 01:35:37 GMT",
-        "timestampFeatured": "20050630013537",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Sprite � Argentina � Ganas � 2005",
-        "views": 20,
-        "author": "ivanrodero",
-        "videoId": "mttek4fBsGs",
-        "uploadDate": "June 26, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120095337000,
-        "dateFeatured": "Thu, 30 Jun 2005 01:35:37 GMT",
-        "timestampFeatured": "20050630013537",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Father's Day Special",
-        "views": 46,
-        "author": "ATrain",
-        "videoId": "2yqRMRSgSSY",
-        "uploadDate": "June 19, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120095337000,
-        "dateFeatured": "Thu, 30 Jun 2005 01:35:37 GMT",
-        "timestampFeatured": "20050630013537",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005073002": {
+    "timestamp": "20050730020311",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005070100": {
-    "timestamp": "20050701000942",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "Denny's",
-        "views": 86,
-        "author": "jrhyley",
-        "videoId": "_QBPp6zso7g",
-        "uploadDate": "June 14, 2005",
-        "comments": 1,
-        "dateFeaturedEpoch": 1120176582000,
-        "dateFeatured": "Fri, 01 Jul 2005 00:09:42 GMT",
-        "timestampFeatured": "20050701000942",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "On top of the world!",
-        "views": 82,
-        "author": "jawed",
-        "videoId": "Eq2ObjmGSD8",
-        "uploadDate": "May 3, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120176582000,
-        "dateFeatured": "Fri, 01 Jul 2005 00:09:42 GMT",
-        "timestampFeatured": "20050701000942",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Trabajo",
-        "views": 3,
-        "author": "HaoT",
-        "videoId": "NYVk34eItx8",
-        "uploadDate": "June 27, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120176582000,
-        "dateFeatured": "Fri, 01 Jul 2005 00:09:42 GMT",
-        "timestampFeatured": "20050701000942",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Dance Luke & Kylie DANCE!!",
-        "views": 15,
-        "author": "WhitneyLee",
-        "videoId": "ivi5mnb6xfA",
-        "uploadDate": "June 28, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120176582000,
-        "dateFeatured": "Fri, 01 Jul 2005 00:09:42 GMT",
-        "timestampFeatured": "20050701000942",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "My \"Special\" Dance",
-        "views": 144,
-        "author": "cabmobile",
-        "videoId": "dySCz5rPK4E",
-        "uploadDate": "April 27, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120176582000,
-        "dateFeatured": "Fri, 01 Jul 2005 00:09:42 GMT",
-        "timestampFeatured": "20050701000942",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005073101": {
+    "timestamp": "20050731010142",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005070108": {
-    "timestamp": "20050701080535",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "Pantman",
-        "views": 6,
-        "author": "Krisko",
-        "videoId": "eyWg57J0SSQ",
-        "uploadDate": "June 24, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120205135000,
-        "dateFeatured": "Fri, 01 Jul 2005 08:05:35 GMT",
-        "timestampFeatured": "20050701080535",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "nice pass",
-        "views": 80,
-        "author": "anillo65",
-        "videoId": "GD4Gyb5e_wU",
-        "uploadDate": "June 19, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120205135000,
-        "dateFeatured": "Fri, 01 Jul 2005 08:05:35 GMT",
-        "timestampFeatured": "20050701080535",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Super Gokart minispeedway racing-a-gogo",
-        "views": 56,
-        "author": "punkey",
-        "videoId": "uRlyoDGeBkQ",
-        "uploadDate": "June 15, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120205135000,
-        "dateFeatured": "Fri, 01 Jul 2005 08:05:35 GMT",
-        "timestampFeatured": "20050701080535",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Ilias showing off his skillz",
-        "views": 67,
-        "author": "jawed",
-        "videoId": "FkjOW1SyIzk",
-        "uploadDate": "April 29, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120205135000,
-        "dateFeatured": "Fri, 01 Jul 2005 08:05:35 GMT",
-        "timestampFeatured": "20050701080535",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "NYIAS 2005",
-        "views": 11,
-        "author": "BMWDave",
-        "videoId": "sKIsdD1w_xU",
-        "uploadDate": "June 26, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120205135000,
-        "dateFeatured": "Fri, 01 Jul 2005 08:05:35 GMT",
-        "timestampFeatured": "20050701080535",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005080100": {
+    "timestamp": "20050801002005",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005070302": {
-    "timestamp": "20050703024500",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "River Otter in Central Park Zoo",
-        "views": 6,
-        "author": "TH",
-        "videoId": "RpAjWJ0FowY",
-        "uploadDate": "June 28, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120358700000,
-        "dateFeatured": "Sun, 03 Jul 2005 02:45:00 GMT",
-        "timestampFeatured": "20050703024500",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Crushing my camera",
-        "views": 121,
-        "author": "jawed",
-        "videoId": "JRNZJ2_fO7Q",
-        "uploadDate": "April 27, 2005",
-        "comments": 3,
-        "dateFeaturedEpoch": 1120358700000,
-        "dateFeatured": "Sun, 03 Jul 2005 02:45:00 GMT",
-        "timestampFeatured": "20050703024500",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "The Orb - Once More",
-        "views": 42,
-        "author": "slvgdvg",
-        "videoId": "CqS_V4TtLnM",
-        "uploadDate": "June 29, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120358700000,
-        "dateFeatured": "Sun, 03 Jul 2005 02:45:00 GMT",
-        "timestampFeatured": "20050703024500",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "The Thrills Band Gig : Liverpool Video 2",
-        "views": 7,
-        "author": "xlanz",
-        "videoId": "bML3aEUooK4",
-        "uploadDate": "June 29, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120358700000,
-        "dateFeatured": "Sun, 03 Jul 2005 02:45:00 GMT",
-        "timestampFeatured": "20050703024500",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Swimming Lessons",
-        "views": 44,
-        "author": "griff",
-        "videoId": "IvTmNREFkNw",
-        "uploadDate": "June 24, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120358700000,
-        "dateFeatured": "Sun, 03 Jul 2005 02:45:00 GMT",
-        "timestampFeatured": "20050703024500",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005080200": {
+    "timestamp": "20050802001345",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005071001": {
-    "timestamp": "20050710014302",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "Dogs",
-        "views": 109,
-        "author": "Ezza",
-        "videoId": "suLpmxKP-uw",
-        "uploadDate": "June 25, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120959782000,
-        "dateFeatured": "Sun, 10 Jul 2005 01:43:02 GMT",
-        "timestampFeatured": "20050710014302",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Chichen Izta - Kukulcan",
-        "views": 13,
-        "author": "esparta",
-        "videoId": "i6Dq__K1VNw",
-        "uploadDate": "June 26, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120959782000,
-        "dateFeatured": "Sun, 10 Jul 2005 01:43:02 GMT",
-        "timestampFeatured": "20050710014302",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "playing with water",
-        "views": 96,
-        "author": "tamarind",
-        "videoId": "Sh3Ebp4bF58",
-        "uploadDate": "June 27, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120959782000,
-        "dateFeatured": "Sun, 10 Jul 2005 01:43:02 GMT",
-        "timestampFeatured": "20050710014302",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Super Gokart minispeedway racing-a-gogo",
-        "views": 58,
-        "author": "punkey",
-        "videoId": "uRlyoDGeBkQ",
-        "uploadDate": "June 15, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1120959782000,
-        "dateFeatured": "Sun, 10 Jul 2005 01:43:02 GMT",
-        "timestampFeatured": "20050710014302",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Aerolight Eagle Ultralight",
-        "views": 140,
-        "author": "flyguy26",
-        "videoId": "aEXd8Gtu9A4",
-        "uploadDate": "June 30, 2005",
-        "comments": 2,
-        "dateFeaturedEpoch": 1120959782000,
-        "dateFeatured": "Sun, 10 Jul 2005 01:43:02 GMT",
-        "timestampFeatured": "20050710014302",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005080223": {
+    "timestamp": "20050802235941",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005071201": {
-    "timestamp": "20050712015747",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "fancy dribbling",
-        "views": 128,
-        "author": "anillo65",
-        "videoId": "um_VWxjO9ts",
-        "uploadDate": "June 19, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1121133467000,
-        "dateFeatured": "Tue, 12 Jul 2005 01:57:47 GMT",
-        "timestampFeatured": "20050712015747",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Reilly and Bobby",
-        "views": 29,
-        "author": "tess32",
-        "videoId": "XWy-ZFBgOCo",
-        "uploadDate": "July 7, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1121133467000,
-        "dateFeatured": "Tue, 12 Jul 2005 01:57:47 GMT",
-        "timestampFeatured": "20050712015747",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "festival der Liebe",
-        "views": 5,
-        "author": "wilhelmina",
-        "videoId": "IM0Hb_VREJ8",
-        "uploadDate": "July 1, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1121133467000,
-        "dateFeatured": "Tue, 12 Jul 2005 01:57:47 GMT",
-        "timestampFeatured": "20050712015747",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Cari Kerja",
-        "views": 4,
-        "author": "mfr1505",
-        "videoId": "NOKfSP4JNE8",
-        "uploadDate": "July 5, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1121133467000,
-        "dateFeatured": "Tue, 12 Jul 2005 01:57:47 GMT",
-        "timestampFeatured": "20050712015747",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Aerolight Eagle Ultralight",
-        "views": 219,
-        "author": "flyguy26",
-        "videoId": "aEXd8Gtu9A4",
-        "uploadDate": "June 30, 2005",
-        "comments": 3,
-        "dateFeaturedEpoch": 1121133467000,
-        "dateFeatured": "Tue, 12 Jul 2005 01:57:47 GMT",
-        "timestampFeatured": "20050712015747",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005080400": {
+    "timestamp": "20050804005744",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005071400": {
-    "timestamp": "20050714000327",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "My take off",
-        "views": 121,
-        "author": "relate2",
-        "videoId": "vKeahCKBvr8",
-        "uploadDate": "June 26, 2005",
-        "comments": 13,
-        "dateFeaturedEpoch": 1121299407000,
-        "dateFeatured": "Thu, 14 Jul 2005 00:03:27 GMT",
-        "timestampFeatured": "20050714000327",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "The Simpsons Unplugged",
-        "views": 124,
-        "author": "DeKku",
-        "videoId": "tm7DDGkbXYU",
-        "uploadDate": "July 12, 2005",
-        "comments": 2,
-        "dateFeaturedEpoch": 1121299407000,
-        "dateFeatured": "Thu, 14 Jul 2005 00:03:27 GMT",
-        "timestampFeatured": "20050714000327",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Modern Romance",
-        "views": 91,
-        "author": "steve",
-        "videoId": "CqrpcH5TJAI",
-        "uploadDate": "July 6, 2005",
-        "comments": 2,
-        "dateFeaturedEpoch": 1121299407000,
-        "dateFeatured": "Thu, 14 Jul 2005 00:03:27 GMT",
-        "timestampFeatured": "20050714000327",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Clayton - Frederick Auto-X",
-        "views": 151,
-        "author": "warrtalon",
-        "videoId": "vvrlU5COGtw",
-        "uploadDate": "June 26, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1121299407000,
-        "dateFeatured": "Thu, 14 Jul 2005 00:03:27 GMT",
-        "timestampFeatured": "20050714000327",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "El Poder de Lynx",
-        "views": 689,
-        "author": "Kazze",
-        "videoId": "mI0YERBpAN8",
-        "uploadDate": "June 14, 2005",
-        "comments": 1,
-        "dateFeaturedEpoch": 1121299407000,
-        "dateFeatured": "Thu, 14 Jul 2005 00:03:27 GMT",
-        "timestampFeatured": "20050714000327",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005080423": {
+    "timestamp": "20050804232629",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005071501": {
-    "timestamp": "20050715011341",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "wilco",
-        "views": 496,
-        "author": "wilco",
-        "videoId": "niQT_4NjSZ0",
-        "uploadDate": "June 24, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1121390021000,
-        "dateFeatured": "Fri, 15 Jul 2005 01:13:41 GMT",
-        "timestampFeatured": "20050715011341",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "hOUsE DISMOUNT",
-        "views": 2237,
-        "author": "COBALTGRUV",
-        "videoId": "OSAaOEOGvYA",
-        "uploadDate": "May 24, 2005",
-        "comments": 5,
-        "dateFeaturedEpoch": 1121390021000,
-        "dateFeatured": "Fri, 15 Jul 2005 01:13:41 GMT",
-        "timestampFeatured": "20050715011341",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Good Times!!!",
-        "views": 197,
-        "author": "zubazpants",
-        "videoId": "A1LC0Pv5uFE",
-        "uploadDate": "May 18, 2005",
-        "comments": 5,
-        "dateFeaturedEpoch": 1121390021000,
-        "dateFeatured": "Fri, 15 Jul 2005 01:13:41 GMT",
-        "timestampFeatured": "20050715011341",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Baby Food Eating Contest",
-        "views": 19,
-        "author": "ilias",
-        "videoId": "mBt2QNCyD5c",
-        "uploadDate": "July 9, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1121390021000,
-        "dateFeatured": "Fri, 15 Jul 2005 01:13:41 GMT",
-        "timestampFeatured": "20050715011341",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "carrie chokes the chicken",
-        "views": 537,
-        "author": "jones4carrie",
-        "videoId": "llY9nvUQEfM",
-        "uploadDate": "April 30, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1121390021000,
-        "dateFeatured": "Fri, 15 Jul 2005 01:13:41 GMT",
-        "timestampFeatured": "20050715011341",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005080600": {
+    "timestamp": "20050806001719",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005071605": {
-    "timestamp": "20050716051313",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "mark and carlos - get down",
-        "views": 14,
-        "author": "stazaa",
-        "videoId": "hi_A-MXRQnI",
-        "uploadDate": "July 15, 2005",
-        "comments": 1,
-        "dateFeaturedEpoch": 1121490793000,
-        "dateFeatured": "Sat, 16 Jul 2005 05:13:13 GMT",
-        "timestampFeatured": "20050716051313",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Nice moves",
-        "views": 68,
-        "author": "darkally",
-        "videoId": "t_QJ6-2e4EA",
-        "uploadDate": "July 14, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1121490793000,
-        "dateFeatured": "Sat, 16 Jul 2005 05:13:13 GMT",
-        "timestampFeatured": "20050716051313",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Bubble Madness",
-        "views": 40,
-        "author": "Kaizenamazen",
-        "videoId": "y77vfcTztOo",
-        "uploadDate": "July 9, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1121490793000,
-        "dateFeatured": "Sat, 16 Jul 2005 05:13:13 GMT",
-        "timestampFeatured": "20050716051313",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Takin a Video!!!",
-        "views": 32,
-        "author": "grubb76",
-        "videoId": "8KcWUCVyD0M",
-        "uploadDate": "July 10, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1121490793000,
-        "dateFeatured": "Sat, 16 Jul 2005 05:13:13 GMT",
-        "timestampFeatured": "20050716051313",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "The Simpsons Unplugged",
-        "views": 152,
-        "author": "DeKku",
-        "videoId": "tm7DDGkbXYU",
-        "uploadDate": "July 12, 2005",
-        "comments": 2,
-        "dateFeaturedEpoch": 1121490793000,
-        "dateFeatured": "Sat, 16 Jul 2005 05:13:13 GMT",
-        "timestampFeatured": "20050716051313",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005080702": {
+    "timestamp": "20050807024117",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005071702": {
-    "timestamp": "20050717023751",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "Bubble Madness",
-        "views": 57,
-        "author": "Kaizenamazen",
-        "videoId": "y77vfcTztOo",
-        "uploadDate": "July 9, 2005",
-        "comments": 1,
-        "dateFeaturedEpoch": 1121567871000,
-        "dateFeatured": "Sun, 17 Jul 2005 02:37:51 GMT",
-        "timestampFeatured": "20050717023751",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "mark and carlos - get down",
-        "views": 22,
-        "author": "stazaa",
-        "videoId": "hi_A-MXRQnI",
-        "uploadDate": "July 15, 2005",
-        "comments": 1,
-        "dateFeaturedEpoch": 1121567871000,
-        "dateFeatured": "Sun, 17 Jul 2005 02:37:51 GMT",
-        "timestampFeatured": "20050717023751",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Flippin' Safeway!!!",
-        "views": 113,
-        "author": "COBALTGRUV",
-        "videoId": "vofjtSesu0w",
-        "uploadDate": "July 12, 2005",
-        "comments": 2,
-        "dateFeaturedEpoch": 1121567871000,
-        "dateFeatured": "Sun, 17 Jul 2005 02:37:51 GMT",
-        "timestampFeatured": "20050717023751",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Nice moves",
-        "views": 115,
-        "author": "darkally",
-        "videoId": "t_QJ6-2e4EA",
-        "uploadDate": "July 14, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1121567871000,
-        "dateFeatured": "Sun, 17 Jul 2005 02:37:51 GMT",
-        "timestampFeatured": "20050717023751",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "chick's *ss on fire",
-        "views": 92,
-        "author": "buckyball",
-        "videoId": "qiCQT6TnEqs",
-        "uploadDate": "July 15, 2005",
-        "comments": 6,
-        "dateFeaturedEpoch": 1121567871000,
-        "dateFeatured": "Sun, 17 Jul 2005 02:37:51 GMT",
-        "timestampFeatured": "20050717023751",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005080708": {
+    "timestamp": "20050807081036",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   },
-  "2005071823": {
-    "timestamp": "20050718235237",
-    "checked": "FOUND",
-    "eraName": "FEATURED_1",
-    "featuredVideos": [
-      {
-        "title": "Extreme Unicycling",
-        "views": 258,
-        "author": "larfus",
-        "videoId": "9S13CWLHQ_8",
-        "uploadDate": "June 25, 2005",
-        "comments": 0,
-        "dateFeaturedEpoch": 1121730757000,
-        "dateFeatured": "Mon, 18 Jul 2005 23:52:37 GMT",
-        "timestampFeatured": "20050718235237",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Bubble Madness",
-        "views": 133,
-        "author": "Kaizenamazen",
-        "videoId": "y77vfcTztOo",
-        "uploadDate": "July 9, 2005",
-        "comments": 1,
-        "dateFeaturedEpoch": 1121730757000,
-        "dateFeatured": "Mon, 18 Jul 2005 23:52:37 GMT",
-        "timestampFeatured": "20050718235237",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Nicki & Ashley Gone Wild",
-        "views": 394,
-        "author": "caronwo",
-        "videoId": "y4Gy9E-0S5k",
-        "uploadDate": "July 7, 2005",
-        "comments": 1,
-        "dateFeaturedEpoch": 1121730757000,
-        "dateFeatured": "Mon, 18 Jul 2005 23:52:37 GMT",
-        "timestampFeatured": "20050718235237",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "My dance (red tie)",
-        "views": 350,
-        "author": "lqdchicky83",
-        "videoId": "bkcoSFgOsMs",
-        "uploadDate": "July 12, 2005",
-        "comments": 9,
-        "dateFeaturedEpoch": 1121730757000,
-        "dateFeatured": "Mon, 18 Jul 2005 23:52:37 GMT",
-        "timestampFeatured": "20050718235237",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      },
-      {
-        "title": "Flippin' Safeway!!!",
-        "views": 198,
-        "author": "COBALTGRUV",
-        "videoId": "vofjtSesu0w",
-        "uploadDate": "July 12, 2005",
-        "comments": 2,
-        "dateFeaturedEpoch": 1121730757000,
-        "dateFeatured": "Mon, 18 Jul 2005 23:52:37 GMT",
-        "timestampFeatured": "20050718235237",
-        "description": "",
-        "tags": [],
-        "duration": null,
-        "age": null,
-        "stars": null,
-        "categories": []
-      }
-    ]
+  "2005080723": {
+    "timestamp": "20050807235321",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005080901": {
+    "timestamp": "20050809013635",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005080908": {
+    "timestamp": "20050809081141",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005081003": {
+    "timestamp": "20050810030357",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005081023": {
+    "timestamp": "20050810234058",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005081201": {
+    "timestamp": "20050812015224",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005081300": {
+    "timestamp": "20050813004957",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005081400": {
+    "timestamp": "20050814001648",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005081501": {
+    "timestamp": "20050815011340",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005081912": {
+    "timestamp": "20050819125629",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005082215": {
+    "timestamp": "20050822154924",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005082605": {
+    "timestamp": "20050826053620",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005082616": {
+    "timestamp": "20050826165016",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005082700": {
+    "timestamp": "20050827000551",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005082703": {
+    "timestamp": "20050827031345",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005082808": {
+    "timestamp": "20050828080215",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005082820": {
+    "timestamp": "20050828203856",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005082900": {
+    "timestamp": "20050829000357",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005082906": {
+    "timestamp": "20050829063446",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005082918": {
+    "timestamp": "20050829183545",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005082919": {
+    "timestamp": "20050829192740",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005082920": {
+    "timestamp": "20050829203226",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005082922": {
+    "timestamp": "20050829222845",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005082923": {
+    "timestamp": "20050829233034",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005083000": {
+    "timestamp": "20050830005543",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005083001": {
+    "timestamp": "20050830014940",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005083020": {
+    "timestamp": "20050830203157",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005083123": {
+    "timestamp": "20050831230308",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005090117": {
+    "timestamp": "20050901170944",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005090206": {
+    "timestamp": "20050902065151",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005091401": {
+    "timestamp": "20050914015855",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005092317": {
+    "timestamp": "20050923173727",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005092318": {
+    "timestamp": "20050923183637",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005092319": {
+    "timestamp": "20050923192033",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005092320": {
+    "timestamp": "20050923200925",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005092323": {
+    "timestamp": "20050923233945",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005092401": {
+    "timestamp": "20050924014815",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005092402": {
+    "timestamp": "20050924023153",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005092403": {
+    "timestamp": "20050924031755",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005092405": {
+    "timestamp": "20050924051632",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005092416": {
+    "timestamp": "20050924164454",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005092422": {
+    "timestamp": "20050924223228",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005100101": {
+    "timestamp": "20051001010728",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005100106": {
+    "timestamp": "20051001061711",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005100107": {
+    "timestamp": "20051001070239",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005100108": {
+    "timestamp": "20051001080114",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005100114": {
+    "timestamp": "20051001143017",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005101306": {
+    "timestamp": "20051013064320",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005101307": {
+    "timestamp": "20051013075303",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005101308": {
+    "timestamp": "20051013081324",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005101623": {
+    "timestamp": "20051016235452",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005102100": {
+    "timestamp": "20051021003402",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005102301": {
+    "timestamp": "20051023011757",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005102408": {
+    "timestamp": "20051024082247",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005102500": {
+    "timestamp": "20051025003246",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005102507": {
+    "timestamp": "20051025074433",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005102508": {
+    "timestamp": "20051025081424",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005102608": {
+    "timestamp": "20051026084531",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005102800": {
+    "timestamp": "20051028001735",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005102801": {
+    "timestamp": "20051028012300",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005102808": {
+    "timestamp": "20051028085008",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005102809": {
+    "timestamp": "20051028090524",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005102905": {
+    "timestamp": "20051029050253",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005102908": {
+    "timestamp": "20051029084412",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005102909": {
+    "timestamp": "20051029090707",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005103001": {
+    "timestamp": "20051030013339",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005103007": {
+    "timestamp": "20051030075744",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005103008": {
+    "timestamp": "20051030080121",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005103119": {
+    "timestamp": "20051031192334",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005103121": {
+    "timestamp": "20051031212213",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005110109": {
+    "timestamp": "20051101094936",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005110110": {
+    "timestamp": "20051101100233",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005110202": {
+    "timestamp": "20051102020725",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005110207": {
+    "timestamp": "20051102071407",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005110209": {
+    "timestamp": "20051102093709",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005110401": {
+    "timestamp": "20051104010627",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005110402": {
+    "timestamp": "20051104020846",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005110409": {
+    "timestamp": "20051104090108",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005110509": {
+    "timestamp": "20051105092546",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005110609": {
+    "timestamp": "20051106095824",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005110708": {
+    "timestamp": "20051107085824",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005110709": {
+    "timestamp": "20051107092251",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112321": {
+    "timestamp": "20051123214410",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112409": {
+    "timestamp": "20051124093559",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112412": {
+    "timestamp": "20051124123204",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112415": {
+    "timestamp": "20051124153512",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112418": {
+    "timestamp": "20051124185039",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112419": {
+    "timestamp": "20051124190601",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112422": {
+    "timestamp": "20051124221808",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112504": {
+    "timestamp": "20051125043657",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112505": {
+    "timestamp": "20051125051828",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112506": {
+    "timestamp": "20051125065312",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112507": {
+    "timestamp": "20051125070053",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112509": {
+    "timestamp": "20051125095112",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112510": {
+    "timestamp": "20051125104941",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112512": {
+    "timestamp": "20051125122610",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112516": {
+    "timestamp": "20051125161308",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112520": {
+    "timestamp": "20051125203933",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112523": {
+    "timestamp": "20051125230920",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112604": {
+    "timestamp": "20051126040127",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112605": {
+    "timestamp": "20051126050328",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112607": {
+    "timestamp": "20051126073508",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112608": {
+    "timestamp": "20051126084414",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112610": {
+    "timestamp": "20051126100030",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112612": {
+    "timestamp": "20051126120416",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112616": {
+    "timestamp": "20051126162049",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112623": {
+    "timestamp": "20051126232629",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112703": {
+    "timestamp": "20051127035436",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112704": {
+    "timestamp": "20051127040308",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112709": {
+    "timestamp": "20051127091427",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112803": {
+    "timestamp": "20051128031025",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112904": {
+    "timestamp": "20051129042346",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005112908": {
+    "timestamp": "20051129085016",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005113004": {
+    "timestamp": "20051130041055",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005113009": {
+    "timestamp": "20051130092946",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120104": {
+    "timestamp": "20051201042652",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120109": {
+    "timestamp": "20051201091454",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120206": {
+    "timestamp": "20051202065547",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120207": {
+    "timestamp": "20051202070453",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120305": {
+    "timestamp": "20051203055510",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120306": {
+    "timestamp": "20051203060542",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120408": {
+    "timestamp": "20051204080342",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120503": {
+    "timestamp": "20051205032851",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120509": {
+    "timestamp": "20051205095345",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120603": {
+    "timestamp": "20051206033752",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120604": {
+    "timestamp": "20051206040609",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120609": {
+    "timestamp": "20051206090416",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120704": {
+    "timestamp": "20051207043721",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120710": {
+    "timestamp": "20051207105233",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120806": {
+    "timestamp": "20051208062425",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005120809": {
+    "timestamp": "20051208090314",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121002": {
+    "timestamp": "20051210024929",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121003": {
+    "timestamp": "20051210031646",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121011": {
+    "timestamp": "20051210111111",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121019": {
+    "timestamp": "20051210192403",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121107": {
+    "timestamp": "20051211070314",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121109": {
+    "timestamp": "20051211093857",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121114": {
+    "timestamp": "20051211143631",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121205": {
+    "timestamp": "20051212054552",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121207": {
+    "timestamp": "20051212075548",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121213": {
+    "timestamp": "20051212132159",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121301": {
+    "timestamp": "20051213015915",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121302": {
+    "timestamp": "20051213020716",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121308": {
+    "timestamp": "20051213084324",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121404": {
+    "timestamp": "20051214045227",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121405": {
+    "timestamp": "20051214051012",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121409": {
+    "timestamp": "20051214092019",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121506": {
+    "timestamp": "20051215060006",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121508": {
+    "timestamp": "20051215085406",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121509": {
+    "timestamp": "20051215090143",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121519": {
+    "timestamp": "20051215194008",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121609": {
+    "timestamp": "20051216092321",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121611": {
+    "timestamp": "20051216110110",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121612": {
+    "timestamp": "20051216122615",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121711": {
+    "timestamp": "20051217110722",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121803": {
+    "timestamp": "20051218035532",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121804": {
+    "timestamp": "20051218041647",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121806": {
+    "timestamp": "20051218065415",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121807": {
+    "timestamp": "20051218071146",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121823": {
+    "timestamp": "20051218231005",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121911": {
+    "timestamp": "20051219115418",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121914": {
+    "timestamp": "20051219144448",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005121917": {
+    "timestamp": "20051219172005",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005122007": {
+    "timestamp": "20051220073213",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005122008": {
+    "timestamp": "20051220083153",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005122013": {
+    "timestamp": "20051220134154",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005122023": {
+    "timestamp": "20051220234842",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005122105": {
+    "timestamp": "20051221050848",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005122315": {
+    "timestamp": "20051223154129",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005122405": {
+    "timestamp": "20051224053648",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005122418": {
+    "timestamp": "20051224182437",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005122509": {
+    "timestamp": "20051225095717",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005122702": {
+    "timestamp": "20051227024353",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005122803": {
+    "timestamp": "20051228035306",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005123006": {
+    "timestamp": "20051230060500",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005123007": {
+    "timestamp": "20051230071918",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005123016": {
+    "timestamp": "20051230161400",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005123023": {
+    "timestamp": "20051230234108",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005123105": {
+    "timestamp": "20051231053048",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2005123123": {
+    "timestamp": "20051231232401",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010107": {
+    "timestamp": "20060101075658",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010120": {
+    "timestamp": "20060101205610",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010121": {
+    "timestamp": "20060101210719",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010210": {
+    "timestamp": "20060102102013",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010211": {
+    "timestamp": "20060102115208",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010212": {
+    "timestamp": "20060102122009",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010301": {
+    "timestamp": "20060103013548",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010308": {
+    "timestamp": "20060103081520",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010317": {
+    "timestamp": "20060103174232",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010318": {
+    "timestamp": "20060103185619",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010400": {
+    "timestamp": "20060104002248",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010403": {
+    "timestamp": "20060104030022",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010407": {
+    "timestamp": "20060104073852",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010408": {
+    "timestamp": "20060104084323",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010423": {
+    "timestamp": "20060104231311",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010507": {
+    "timestamp": "20060105072929",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010510": {
+    "timestamp": "20060105101948",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010603": {
+    "timestamp": "20060106034058",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010605": {
+    "timestamp": "20060106052219",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010606": {
+    "timestamp": "20060106061857",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010621": {
+    "timestamp": "20060106215631",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010622": {
+    "timestamp": "20060106220629",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010623": {
+    "timestamp": "20060106235020",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010700": {
+    "timestamp": "20060107001233",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010713": {
+    "timestamp": "20060107131902",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010715": {
+    "timestamp": "20060107150305",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010721": {
+    "timestamp": "20060107210936",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010820": {
+    "timestamp": "20060108201545",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006010901": {
+    "timestamp": "20060109013133",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011003": {
+    "timestamp": "20060110031018",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011004": {
+    "timestamp": "20060110043350",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011011": {
+    "timestamp": "20060110112016",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011016": {
+    "timestamp": "20060110165218",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011017": {
+    "timestamp": "20060110171647",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011020": {
+    "timestamp": "20060110205635",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011105": {
+    "timestamp": "20060111051901",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011106": {
+    "timestamp": "20060111061519",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011107": {
+    "timestamp": "20060111072651",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011119": {
+    "timestamp": "20060111192418",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011122": {
+    "timestamp": "20060111221120",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011202": {
+    "timestamp": "20060112021745",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011205": {
+    "timestamp": "20060112052810",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011208": {
+    "timestamp": "20060112083751",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011209": {
+    "timestamp": "20060112095928",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011216": {
+    "timestamp": "20060112161652",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011223": {
+    "timestamp": "20060112235136",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011304": {
+    "timestamp": "20060113045647",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011307": {
+    "timestamp": "20060113075228",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011310": {
+    "timestamp": "20060113101115",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011315": {
+    "timestamp": "20060113154948",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011317": {
+    "timestamp": "20060113170224",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011405": {
+    "timestamp": "20060114052242",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011406": {
+    "timestamp": "20060114060629",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011408": {
+    "timestamp": "20060114083431",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011409": {
+    "timestamp": "20060114091423",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011410": {
+    "timestamp": "20060114100459",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011412": {
+    "timestamp": "20060114123952",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011504": {
+    "timestamp": "20060115040217",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011505": {
+    "timestamp": "20060115050621",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011508": {
+    "timestamp": "20060115083109",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011511": {
+    "timestamp": "20060115112140",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011602": {
+    "timestamp": "20060116022851",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011608": {
+    "timestamp": "20060116081439",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011609": {
+    "timestamp": "20060116092015",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011622": {
+    "timestamp": "20060116222024",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011707": {
+    "timestamp": "20060117071358",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011710": {
+    "timestamp": "20060117100834",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011803": {
+    "timestamp": "20060118032229",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011805": {
+    "timestamp": "20060118050819",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011806": {
+    "timestamp": "20060118062747",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006011807": {
+    "timestamp": "20060118071434",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006012623": {
+    "timestamp": "20060126230057",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006012700": {
+    "timestamp": "20060127001421",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006012701": {
+    "timestamp": "20060127011113",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006012708": {
+    "timestamp": "20060127085337",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006012810": {
+    "timestamp": "20060128104508",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006012902": {
+    "timestamp": "20060129023723",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006012910": {
+    "timestamp": "20060129100008",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006013009": {
+    "timestamp": "20060130093010",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006013119": {
+    "timestamp": "20060131190006",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020102": {
+    "timestamp": "20060201024527",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020202": {
+    "timestamp": "20060202021427",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020210": {
+    "timestamp": "20060202102045",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020220": {
+    "timestamp": "20060202201452",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020303": {
+    "timestamp": "20060203031918",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020304": {
+    "timestamp": "20060203042244",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020309": {
+    "timestamp": "20060203093501",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020401": {
+    "timestamp": "20060204015313",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020404": {
+    "timestamp": "20060204045446",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020405": {
+    "timestamp": "20060204050308",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020422": {
+    "timestamp": "20060204220031",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020502": {
+    "timestamp": "20060205023301",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020503": {
+    "timestamp": "20060205033047",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020506": {
+    "timestamp": "20060205061050",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020509": {
+    "timestamp": "20060205093959",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020515": {
+    "timestamp": "20060205154731",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020602": {
+    "timestamp": "20060206023127",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020603": {
+    "timestamp": "20060206031438",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020608": {
+    "timestamp": "20060206085305",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020701": {
+    "timestamp": "20060207015937",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020702": {
+    "timestamp": "20060207020539",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020708": {
+    "timestamp": "20060207085739",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020802": {
+    "timestamp": "20060208020523",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020803": {
+    "timestamp": "20060208033352",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020809": {
+    "timestamp": "20060208092705",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020902": {
+    "timestamp": "20060209023529",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006020903": {
+    "timestamp": "20060209033849",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006021402": {
+    "timestamp": "20060214020225",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006021403": {
+    "timestamp": "20060214034104",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006021618": {
+    "timestamp": "20060216181414",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006021709": {
+    "timestamp": "20060217091705",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006030306": {
+    "timestamp": "20060303064630",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006031009": {
+    "timestamp": "20060310091927",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006031010": {
+    "timestamp": "20060310100653",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006031011": {
+    "timestamp": "20060310114133",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006031013": {
+    "timestamp": "20060310130653",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006031023": {
+    "timestamp": "20060310235435",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006031100": {
+    "timestamp": "20060311003750",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006031411": {
+    "timestamp": "20060314110711",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006031515": {
+    "timestamp": "20060315150502",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006031605": {
+    "timestamp": "20060316052716",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006031813": {
+    "timestamp": "20060318132134",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006032205": {
+    "timestamp": "20060322050643",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006032408": {
+    "timestamp": "20060324085700",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006032909": {
+    "timestamp": "20060329091202",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006033114": {
+    "timestamp": "20060331140706",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006040221": {
+    "timestamp": "20060402212746",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006040223": {
+    "timestamp": "20060402233351",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006040512": {
+    "timestamp": "20060405121639",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006040620": {
+    "timestamp": "20060406205813",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006040919": {
+    "timestamp": "20060409195006",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041000": {
+    "timestamp": "20060410003407",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041001": {
+    "timestamp": "20060410015737",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041111": {
+    "timestamp": "20060411110400",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041121": {
+    "timestamp": "20060411211642",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041123": {
+    "timestamp": "20060411233800",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041202": {
+    "timestamp": "20060412021952",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041203": {
+    "timestamp": "20060412031749",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041204": {
+    "timestamp": "20060412044939",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041205": {
+    "timestamp": "20060412055933",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041206": {
+    "timestamp": "20060412065706",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041208": {
+    "timestamp": "20060412083246",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041209": {
+    "timestamp": "20060412090026",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041219": {
+    "timestamp": "20060412195314",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041220": {
+    "timestamp": "20060412205304",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041308": {
+    "timestamp": "20060413083344",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041309": {
+    "timestamp": "20060413092705",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041401": {
+    "timestamp": "20060414012212",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041403": {
+    "timestamp": "20060414033011",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041408": {
+    "timestamp": "20060414085759",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041418": {
+    "timestamp": "20060414185158",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041420": {
+    "timestamp": "20060414202652",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041509": {
+    "timestamp": "20060415091038",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041518": {
+    "timestamp": "20060415182910",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041519": {
+    "timestamp": "20060415193349",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041520": {
+    "timestamp": "20060415203300",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041708": {
+    "timestamp": "20060417084153",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041800": {
+    "timestamp": "20060418005634",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041805": {
+    "timestamp": "20060418052544",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006041901": {
+    "timestamp": "20060419012335",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042119": {
+    "timestamp": "20060421192200",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042321": {
+    "timestamp": "20060423215904",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042322": {
+    "timestamp": "20060423220020",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042323": {
+    "timestamp": "20060423231816",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042401": {
+    "timestamp": "20060424012635",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042409": {
+    "timestamp": "20060424092903",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042411": {
+    "timestamp": "20060424115312",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042414": {
+    "timestamp": "20060424144036",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042417": {
+    "timestamp": "20060424175022",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042418": {
+    "timestamp": "20060424183818",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042419": {
+    "timestamp": "20060424194147",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042421": {
+    "timestamp": "20060424212537",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042423": {
+    "timestamp": "20060424230453",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042521": {
+    "timestamp": "20060425211911",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042601": {
+    "timestamp": "20060426012900",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042721": {
+    "timestamp": "20060427213420",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
+  },
+  "2006042802": {
+    "timestamp": "20060428025149",
+    "checked": "NOT_ATTEMPTED",
+    "eraName": "FEATURED_2"
   }
 }

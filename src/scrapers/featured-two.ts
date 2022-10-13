@@ -1,4 +1,4 @@
-import { CheerioAPI } from "cheerio";
+import { Cheerio, CheerioAPI, Element } from "cheerio";
 import { FeaturedVideo, Snapshot } from "../types";
 import {
   getISOStringFromWaybackTimestamp,
@@ -6,6 +6,22 @@ import {
   safeSplit,
   safeTrim,
 } from "../utils";
+
+// starts only appear sometimes
+// https://web.archive.org/web/20050822154924/http://www.youtube.com/ - run time and stars
+const findTotalStarRating = ($: CheerioAPI, item: Cheerio<Element>) => {
+  let totalRating: number | null = null;
+  item.find("nobr img.rating").each((i, el) => {
+    const src = $(el).attr("src");
+    if (src && !src.includes("star_sm_bg.gif")) {
+      if (!totalRating) {
+        totalRating = 0;
+      }
+      totalRating += src.includes("/star_sm.gif") ? 1 : 0.5;
+    }
+  });
+  return totalRating;
+};
 
 export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
   const featuredItemsTd = $("td").filter(function () {
@@ -25,7 +41,19 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     const title = featuredItem.find(".moduleEntryTitle");
     const [details1, details2] = featuredItem.find(".moduleEntryDetails");
     const [addedText, byText] = safeSplit($(details1).text(), "by");
-    const [viewsText, commentsText] = safeSplit($(details2).text(), " | ");
+
+    // duration (runtime) only appears sometimes
+    // https://web.archive.org/web/20050815011340/http://www.youtube.com/ - runtime but no stars
+    const splitDetails2 = safeSplit($(details2).text(), " | ");
+    const durationText = safeTrim(
+      splitDetails2.length === 3 ? splitDetails2[0] : ""
+    );
+    const viewsText = safeTrim(
+      splitDetails2.length === 3 ? splitDetails2[1] : splitDetails2[0]
+    );
+    const commentsText = safeTrim(
+      splitDetails2.length === 3 ? splitDetails2[2] : splitDetails2[1]
+    );
 
     const comments = parseInt(
       safeTrim(safeSplit(commentsText, "Comments: ")[1])
@@ -56,8 +84,8 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       timestampFeatured: snapshot.timestamp,
       age: null,
       categories: [],
-      duration: null,
-      stars: null,
+      duration: parseInt(safeSplit(durationText, "RunTime:")[1] || "0") || null,
+      stars: findTotalStarRating($, featuredItem),
     };
     featuredVideos.push(featuredVideo);
   });

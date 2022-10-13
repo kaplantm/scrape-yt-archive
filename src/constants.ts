@@ -45,27 +45,27 @@ export const eras: Partial<{ [key in eraName]: Era }> = {
     end: getEraBoundFromTimeStamp("20050718235237"), // july 18th 2005
     scraper: featuredOneScraper,
   },
-  // [eraName.FEATURED_2]: {
-  //   // ("Today's Featured Videos") (moduleEntry)
-  //   name: eraName.FEATURED_2,
-  //   start: getEraBoundFromTimeStamp("20050720021800"), // jun 20th 2005
-  //   end: getEraBoundFromTimeStamp("20060428025149"), // april 28th 2005
-  //   scraper: featuredTwoScraper,
-  // },
-  // [eraName.FEATURED_3]: {
-  //   // ("Today's Featured Videos") (contentListBox)
-  //   name: eraName.FEATURED_3,
-  //   start: getEraBoundFromTimeStamp("20060502203540"), // may 2nd 2006
-  //   end: getEraBoundFromTimeStamp("20060622215407"), // june 22nd 2006
-  //   scraper: featuredThreeScraper,
-  // },
-  // [eraName.FEATURED_4]: {
-  //   // ("Today's Featured Videos") (contentListBox)
-  //   name: eraName.FEATURED_4,
-  //   start: getEraBoundFromTimeStamp("20060701022704"), // july 1 2006
-  //   end: getEraBoundFromTimeStamp("20070103134232"), // jan 3 2007
-  //   scraper: featuredFourScraper,
-  // },
+  [eraName.FEATURED_2]: {
+    // ("Today's Featured Videos") (moduleEntry)
+    name: eraName.FEATURED_2,
+    start: getEraBoundFromTimeStamp("20050720021800"), // jun 20th 2005
+    end: getEraBoundFromTimeStamp("20060428025149"), // april 28th 2005
+    scraper: featuredTwoScraper,
+  },
+  [eraName.FEATURED_3]: {
+    // ("Today's Featured Videos") (contentListBox)
+    name: eraName.FEATURED_3,
+    start: getEraBoundFromTimeStamp("20060502203540"), // may 2nd 2006
+    end: getEraBoundFromTimeStamp("20060622215407"), // june 22nd 2006
+    scraper: featuredThreeScraper,
+  },
+  [eraName.FEATURED_4]: {
+    // ("Today's Featured Videos") (contentListBox)
+    name: eraName.FEATURED_4,
+    start: getEraBoundFromTimeStamp("20060701022704"), // july 1 2006
+    end: getEraBoundFromTimeStamp("20070103134232"), // jan 3 2007
+    scraper: featuredFourScraper,
+  },
   // { name: "from-youtube", start: 2011120211, end: 2012120400, scraper: null },
 };
 export const erasArray = Object.values(eras);

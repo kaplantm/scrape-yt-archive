@@ -1,4 +1,4 @@
-import { CheerioAPI } from "cheerio";
+import { Cheerio, CheerioAPI, Element } from "cheerio";
 import { FeaturedVideo, Snapshot } from "../types";
 import {
   convertDurationToSeconds,
@@ -7,6 +7,20 @@ import {
   safeSplit,
   safeTrim,
 } from "../utils";
+
+const findTotalStarRating = ($: CheerioAPI, item: Cheerio<Element>) => {
+  let totalRating: number | null = null;
+  item.find("nobr img.rating").each((i, el) => {
+    const src = $(el).attr("src");
+    if (src && !src.includes("star_sm_bg.gif")) {
+      if (!totalRating) {
+        totalRating = 0;
+      }
+      totalRating += src.includes("/star_sm.gif") ? 1 : 0.5;
+    }
+  });
+  return totalRating;
+};
 
 export const featuredThreeScraper = ($: CheerioAPI, snapshot: Snapshot) => {
   const featuredItems = $(".vDetailEntry");
@@ -33,25 +47,6 @@ export const featuredThreeScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       "\n"
     );
 
-    let totalRating: number | undefined = undefined;
-    featuredItem.find("nobr img.rating").each((i, el) => {
-      const src = $(el).attr("src");
-      if (
-        src &&
-        src !==
-          "/web/20060502203540im_/http://www.youtube.com/img/star_sm_bg.gif"
-      ) {
-        if (!totalRating) {
-          totalRating = 0;
-        }
-        totalRating +=
-          src ===
-          "/web/20060502203540im_/http://www.youtube.com/img/star_sm.gif"
-            ? 1
-            : 0.5;
-      }
-    });
-
     const featuredVideo = {
       title: safeTrim(safeSplit(safeTrim(title.text()), "\n")[0]),
       duration: convertDurationToSeconds(
@@ -64,7 +59,7 @@ export const featuredThreeScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       videoId: getVideoId(title.find("a").attr("href")),
       uploadDate: undefined,
       comments: null,
-      stars: totalRating || 0,
+      stars: findTotalStarRating($, featuredItem),
       numRatings: parseInt(featuredItem.find("div.rating").text() || "0"),
       age: safeTrim(age),
       dateFeaturedEpoch: date.getTime(),
