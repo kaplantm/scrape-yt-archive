@@ -44,45 +44,7 @@ const onTargetScraped = (snapshot: Snapshot) => {
 const init = async () => {
   // genSnapshotsList();
 
-  // scrapeTargets(Object.values(targets), onTargetScraped);
-
-  const cleaned = Object.keys(targets).reduce((acc, key) => {
-    const cv = targets[key];
-    acc[key] = {
-      ...cv,
-      featuredVideos: cv.featuredVideos?.map((vid) => {
-        const uploadDate = vid.uploadDate;
-        const categoryTag = vid.tags.find((el) => el.includes("Channels //"));
-        // console.log({ tags: vid.tags, categoryTag });
-        return {
-          ...vid,
-          tags: vid.tags.map((el) => safeTrim(el.split("Channels //")[0])),
-          categories: safeSplit(safeSplit(categoryTag, "Channels //")?.[1], ":")
-            .map((el) => safeTrim(el))
-            .filter((el) => el),
-          uploadDate: uploadDate?.includes("ago")
-            ? undefined
-            : uploadDate || undefined,
-          age: !uploadDate?.includes("ago") ? null : uploadDate || null,
-        };
-      }),
-    };
-    return acc;
-  }, {} as { [key: string]: Snapshot });
-
-  fs.writeFileSync(
-    path.resolve(__dirname, filePaths.outputs.snapshots),
-    JSON.stringify(cleaned)
-  );
-  fs.writeFileSync(
-    path.resolve(__dirname, filePaths.outputs.snapshotsArray),
-    JSON.stringify(
-      Object.values(cleaned)
-        .map((el: Snapshot) => el.featuredVideos)
-        .flat()
-        .filter((el) => el)
-    )
-  );
+  scrapeTargets(Object.values(targets), onTargetScraped);
 };
 
 init();

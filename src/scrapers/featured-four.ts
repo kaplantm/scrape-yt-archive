@@ -69,7 +69,7 @@ export const featuredFourScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       dateFeaturedEpoch: date.getTime(),
       dateFeatured: `${date.toUTCString()}`,
       timestampFeatured: snapshot.timestamp,
-      categories: safeSplit(categories, "\n").map((el) => safeTrim(el)),
+      categories: safeSplit(categories, " ").map((el) => safeTrim(el)),
     };
 
     featuredVideos.push(featuredVideo);

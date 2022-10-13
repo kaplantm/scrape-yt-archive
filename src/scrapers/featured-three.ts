@@ -47,6 +47,8 @@ export const featuredThreeScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       "\n"
     );
 
+    const [ageWithoutCategory, categories] = age.split("in Category:");
+
     const featuredVideo = {
       title: safeTrim(safeSplit(safeTrim(title.text()), "\n")[0]),
       duration: convertDurationToSeconds(
@@ -61,11 +63,11 @@ export const featuredThreeScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       comments: null,
       stars: findTotalStarRating($, featuredItem),
       numRatings: parseInt(featuredItem.find("div.rating").text() || "0"),
-      age: safeTrim(age),
+      age: safeTrim(ageWithoutCategory),
       dateFeaturedEpoch: date.getTime(),
       dateFeatured: `${date.toUTCString()}`,
       timestampFeatured: snapshot.timestamp,
-      categories: [],
+      categories: safeSplit(categories, " ").map((el) => safeTrim(el)),
     };
 
     featuredVideos.push(featuredVideo);
