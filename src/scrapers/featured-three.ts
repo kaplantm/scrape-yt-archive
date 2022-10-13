@@ -49,16 +49,25 @@ export const featuredThreeScraper = ($: CheerioAPI, snapshot: Snapshot) => {
 
     const [ageWithoutCategory, categories] = age.split("in Category:");
 
+    const videoId = getVideoId(title.find("a").attr("href"));
+
+    const moreDescription = featuredItem
+      .find(`#RemainvidDesc${videoId}`)
+      .removeAttr("style")
+      .text();
+
     const featuredVideo = {
       title: safeTrim(safeSplit(safeTrim(title.text()), "\n")[0]),
       duration: convertDurationToSeconds(
         safeTrim(featuredItem.find(".runtime").text())
       ),
-      description: safeTrim(featuredItem.find(".desc").text()),
+      description: safeTrim(
+        moreDescription || featuredItem.find(".desc").text()
+      ),
       tags,
       views: parseInt(safeSplit(views, "Views: ")[1].replace(",", "")) || null,
       author: safeTrim(safeSplit(author, "From:")[1]),
-      videoId: getVideoId(title.find("a").attr("href")),
+      videoId,
       uploadDate: undefined,
       comments: null,
       stars: findTotalStarRating($, featuredItem),

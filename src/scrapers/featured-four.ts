@@ -51,16 +51,24 @@ export const featuredFourScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     const author = safeSplit(safeSplit(facets, "From:\n")[1], "\n")[0];
     const views = safeSplit(safeSplit(facets, "Views:")[1], "\n")[0];
 
+    const videoId = getVideoId(title.find("a").attr("href"));
+    const moreDescription = featuredItem
+      .find(`#RemainvidDesc${videoId}`)
+      .removeAttr("style")
+      .text();
+
     const featuredVideo = {
       title: safeTrim(safeSplit(safeTrim(title.text()), "\n")[0]),
       duration: convertDurationToSeconds(
         safeTrim(featuredItem.find(".runtime").text())
       ),
-      description: safeTrim(featuredItem.find(".vdesc").text()),
+      description: safeTrim(
+        moreDescription || featuredItem.find(".vdesc").text()
+      ),
       tags,
       views: parseInt(views.replace(",", "")) || null,
       author: safeTrim(author),
-      videoId: getVideoId(title.find("a").attr("href")),
+      videoId,
       uploadDate: undefined,
       comments: null,
       stars: findTotalStarRating($, featuredItem),
