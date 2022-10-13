@@ -49,7 +49,7 @@ export const eras: Partial<{ [key in eraName]: Era }> = {
     // ("Today's Featured Videos") (moduleEntry)
     name: eraName.FEATURED_2,
     start: getEraBoundFromTimeStamp("20050720021800"), // jun 20th 2005
-    end: getEraBoundFromTimeStamp("20060428025149"), // april 28th 2005
+    end: getEraBoundFromTimeStamp("20060428025149"), // april 28th 2006
     scraper: featuredTwoScraper,
   },
   [eraName.FEATURED_3]: {
