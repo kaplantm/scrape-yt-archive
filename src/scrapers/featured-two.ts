@@ -1,6 +1,7 @@
 import { Cheerio, CheerioAPI, Element } from "cheerio";
 import { FeaturedVideo, Snapshot } from "../types";
 import {
+  convertDurationToSeconds,
   getISOStringFromWaybackTimestamp,
   getVideoId,
   safeSplit,
@@ -11,7 +12,9 @@ import {
 // https://web.archive.org/web/20050822154924/http://www.youtube.com/ - run time and stars
 const findTotalStarRating = ($: CheerioAPI, item: Cheerio<Element>) => {
   let totalRating: number | null = null;
-  item.find("nobr img.rating").each((i, el) => {
+  const found = item.find("nobr img.rating");
+  console.log("****", found);
+  item.find("nobr img").each((i, el) => {
     const src = $(el).attr("src");
     if (src && !src.includes("star_sm_bg.gif")) {
       if (!totalRating) {
@@ -84,7 +87,9 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       timestampFeatured: snapshot.timestamp,
       age: null,
       categories: [],
-      duration: parseInt(safeSplit(durationText, "RunTime:")[1] || "0") || null,
+      duration: convertDurationToSeconds(
+        safeTrim(safeSplit(durationText, "Runtime:")[1])
+      ),
       stars: findTotalStarRating($, featuredItem),
     };
     featuredVideos.push(featuredVideo);
