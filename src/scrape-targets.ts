@@ -1,31 +1,44 @@
 import axios from "axios";
 import { load } from "cheerio";
-import {
-  mockYoutubeFeatured1,
-  mockYoutubeFeatured2,
-  mockYoutubeFeatured3,
-  mockYoutubeFeatured4,
-} from "./mocks/youtube";
+import { featureMocks } from "./mocks/youtube";
 import { eras } from "./constants";
 import { CheckedStatus, eraName, Snapshot } from "./types";
-import { allSynchronously, getWaybackUrl, sleep } from "./utils";
+import {
+  allSynchronously,
+  getWaybackUrl,
+  sleep,
+  targetLimit,
+  mockTargets,
+  onlyFeature,
+} from "./utils";
 
 const scrapeTarget = async (snapshot: Snapshot) => {
   const scraper = eras[snapshot.eraName]?.scraper;
 
-  console.log("scrapeTarget", { snapshot, scraper });
   if (!scraper) {
     return snapshot;
   }
 
   try {
-    console.log("**** scraping", snapshot);
-    // await sleep();
-    const { data } = await axios.get(getWaybackUrl(snapshot.timestamp));
-    // const data = mockYoutubeFeatured1;
-    // const data = mockYoutubeFeatured2;
-    // const data = mockYoutubeFeatured3;
-    // const data = mockYoutubeFeatured4;
+    console.log("**** scraping", snapshot.timestamp);
+
+    const mock = mockTargets ? featureMocks[snapshot.eraName] : undefined;
+
+    if (process.env.MOCK && !mock) {
+      throw new Error(`missing mock for ${snapshot.eraName}`);
+    }
+
+    let data = mock;
+
+    if (!data) {
+      // await sleep();
+      data = (await axios.get(getWaybackUrl(snapshot.timestamp)))?.data;
+    }
+
+    if (!data) {
+      throw new Error(`no data found for snapshot ${snapshot.timestamp}`);
+    }
+
     const $ = load(data);
 
     console.log("scraped - found", snapshot.timestamp);
@@ -54,14 +67,15 @@ export const scrapeTargets = async (
   targets: Snapshot[],
   onTargetScraped: (snapshot: Snapshot) => void
 ) => {
-  const map = targets.map(
-    (target) => () =>
-      // target.checked !== CheckedStatus.FOUND
-      target.eraName !== eraName.FEATURED_3
-        ? processTarget(target, onTargetScraped)
-        : target
-  );
+  const selectedTargets = targetLimit ? targets.slice(0, 1) : targets;
+
+  const map = selectedTargets.map((target) => () => {
+    const shouldCheck = onlyFeature
+      ? selectedTargets[0].eraName === eraName[onlyFeature as eraName]
+      : selectedTargets[0].checked !== CheckedStatus.FOUND;
+    return shouldCheck ? processTarget(target, onTargetScraped) : target;
+  });
   const results = await allSynchronously(map);
-  // console.log("***", results);
+
   return results;
 };

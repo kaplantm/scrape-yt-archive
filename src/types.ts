@@ -46,10 +46,10 @@ export type Video = {
   uploadDate?: string;
   comments: number | null;
   tags: string[];
-  categories?: string[];
-  duration: number;
-  age: string;
-  stars?: number;
+  categories: string[];
+  duration: number | null;
+  age: string | null;
+  stars: number | null;
   numRatings?: number;
 };
 

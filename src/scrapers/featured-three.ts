@@ -64,17 +64,15 @@ export const featuredThreeScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       videoId: getVideoId(title.find("a").attr("href")),
       uploadDate: undefined,
       comments: null,
-      stars: totalRating,
+      stars: totalRating || 0,
       numRatings: parseInt(featuredItem.find("div.rating").text() || "0"),
       age: safeTrim(age),
       dateFeaturedEpoch: date.getTime(),
       dateFeatured: `${date.toUTCString()}`,
       timestampFeatured: snapshot.timestamp,
+      categories: [],
     };
-    console.log({
-      featuredVideo,
-      meta: { a: title.find("a").attr("href") },
-    });
+
     featuredVideos.push(featuredVideo);
   });
   return featuredVideos;

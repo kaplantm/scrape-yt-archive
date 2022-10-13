@@ -54,8 +54,11 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       dateFeaturedEpoch: date.getTime(),
       dateFeatured: `${date.toUTCString()}`,
       timestampFeatured: snapshot.timestamp,
+      age: null,
+      categories: [],
+      duration: null,
+      stars: null,
     };
-    console.log({ featuredVideo });
     featuredVideos.push(featuredVideo);
   });
   return featuredVideos;

@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "nodemon",
+    "start:mock:dev": "MOCK=true nodemon",
     "build": "rimraf ./build && tsc",
     "start:prod": "node build/index.js",
     "lint": "eslint . --ext .ts"

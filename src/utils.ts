@@ -1,5 +1,7 @@
 import { erasArray } from "./constants";
-import { Era } from "./types";
+import { Era, eraName } from "./types";
+import fs from "fs";
+import path from "path";
 
 export const isInEra = (era: Era, timestamp: number) => {
   return timestamp >= era.start && timestamp <= era.end;
@@ -64,3 +66,13 @@ export const convertDurationToSeconds = (duration: string): number => {
 
   return s;
 };
+
+export const readFile = (file: string) =>
+  fs.readFileSync(path.resolve(__dirname, file), {
+    encoding: "utf8",
+    flag: "r",
+  });
+
+export const targetLimit = parseInt(process.env.LIMIT || "0");
+export const mockTargets = process.env.MOCK === "true";
+export const onlyFeature = process.env.FEATURE as eraName;

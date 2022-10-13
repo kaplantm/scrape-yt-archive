@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { filePaths } from "./constants";
 import { CheckedStatus, RawSnapshotArray, Snapshot } from "./types";
-import { findEraForTimestamp, getKeyFromTimeStamp } from "./utils";
+import { findEraForTimestamp, getKeyFromTimeStamp, onlyFeature } from "./utils";
 
 const getValidUniqueSnapshots = (
   rawSnapshotList: string,
@@ -17,11 +17,13 @@ const getValidUniqueSnapshots = (
       const era = findEraForTimestamp(parseInt(key, 10));
       // if is unique snapshot (max one snapshot per hour) and within a target era
       if (!acc[key] && era) {
-        acc[key] = {
-          timestamp: el[1],
-          checked: CheckedStatus.NOT_ATTEMPTED,
-          eraName: era.name,
-        };
+        if (onlyFeature ? era && era.name === onlyFeature : era) {
+          acc[key] = {
+            timestamp: el[1],
+            checked: CheckedStatus.NOT_ATTEMPTED,
+            eraName: era.name,
+          };
+        }
       }
     }
     return acc;

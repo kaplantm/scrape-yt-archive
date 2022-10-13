@@ -67,7 +67,7 @@ export const featuredFourScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       videoId: getVideoId(title.find("a").attr("href")),
       uploadDate: undefined,
       comments: null,
-      stars: totalRating,
+      stars: totalRating || 0,
       numRatings: parseInt(featuredItem.find("div.rating").text() || "0"),
       age: safeTrim(age),
       dateFeaturedEpoch: date.getTime(),
@@ -75,9 +75,7 @@ export const featuredFourScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       timestampFeatured: snapshot.timestamp,
       categories: safeSplit(categories, "\n").map((el) => safeTrim(el)),
     };
-    console.log({
-      featuredVideo,
-    });
+
     featuredVideos.push(featuredVideo);
   });
   return featuredVideos;

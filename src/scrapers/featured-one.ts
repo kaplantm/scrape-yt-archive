@@ -29,22 +29,18 @@ export const featuredOneScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     //     Added: July 7, 2005
     //     by caronwo
 
-    const [uploadDate, author] = $(details1)
-      .text()
-      .trim()
-      .split("Added: ")[1]
-      .split(" by\n");
+    const uploadDate = $(details1).text().trim().split("Added: ")[1];
 
-    const [uploadDateWithoutAuthor, authorFromUploadDate] = (
-      uploadDate || ""
-    ).split("By: ");
-    const [viewsText, commentsText] = $(details2).text();
+    const [uploadDateWithoutAuthor, authorFromUploadDate] = (uploadDate || "")
+      .replace("By:", "by")
+      .split("by");
+    const [viewsText, commentsText] = $(details2).text().split("|");
 
     const comments = parseInt((commentsText || "").split("Comments: ")[1]);
     const featuredVideo = {
       title: featuredItem.children(".moduleFeaturedTitle").text().trim(),
       views: parseInt(safeSplit(viewsText, "Views: ")[1]) || null,
-      author: safeTrim(authorFromUploadDate) || safeTrim(author),
+      author: safeTrim(authorFromUploadDate),
       videoId: getVideoId(featuredItem.children("a").attr("href")),
       uploadDate: safeTrim(uploadDateWithoutAuthor),
       comments: comments >= 0 ? comments : null,
@@ -53,6 +49,10 @@ export const featuredOneScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       timestampFeatured: snapshot.timestamp,
       description: "",
       tags: [],
+      duration: null,
+      age: null,
+      stars: null,
+      categories: [],
     };
     featuredVideos.push(featuredVideo);
   });
