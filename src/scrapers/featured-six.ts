@@ -8,29 +8,9 @@ import {
   safeTrim,
 } from "../utils";
 
-const findTotalStarRatingV1 = ($: CheerioAPI, item: Cheerio<Element>) => {
-  let totalRating: number | null = null;
-  item.find("img.rating").each((i, el) => {
-    const src = $(el).attr("src");
-    if (
-      src &&
-      !src.includes("star_sm_bg.gif") &&
-      !src.includes("_off") &&
-      !src.includes("_empty")
-    ) {
-      if (!totalRating) {
-        totalRating = 0;
-      }
-      totalRating += src.includes("half") ? 0.5 : 1;
-    }
-  });
-  return totalRating;
-};
-
 const findTotalStarRating = ($: CheerioAPI, item: Cheerio<Element>) => {
   const fullStars = item.find(".icn_star_full_11x11gif");
   const halfStars = item.find(".icn_star_half_11x11gif");
-  console.log({ fullStars: fullStars.length, halfStars: halfStars.length });
   return fullStars.length + halfStars.length * 0.5;
 };
 
