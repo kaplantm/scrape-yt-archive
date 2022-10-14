@@ -39,8 +39,8 @@ const onTargetScraped = (snapshot: Snapshot) => {
 };
 
 const init = async () => {
-  // genSnapshotsList();
-  scrapeTargets(Object.values(targets), onTargetScraped);
+  genSnapshotsList();
+  // scrapeTargets(Object.values(targets), onTargetScraped);
 };
 
 init();

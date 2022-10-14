@@ -5,6 +5,7 @@ import { featuredFourScraper } from "./scrapers/featured-four";
 import { Era, eraName } from "./types";
 import { getEraBoundFromTimeStamp } from "./utils";
 import { featuredFiveScraper } from "./scrapers/featured-five";
+import { featuredSixScraper } from "./scrapers/featured-six";
 
 export const eras: { [key in eraName]: Era } = {
   [eraName.FEATURED_1]: {
@@ -40,14 +41,14 @@ export const eras: { [key in eraName]: Era } = {
     name: eraName.FEATURED_5,
     start: getEraBoundFromTimeStamp("20070104102404"), // jan 4 2007
     end: getEraBoundFromTimeStamp("20080409051340"), // april 9 2008
-    scraper: featuredFiveScraper, // TODO
+    scraper: featuredFiveScraper,
   },
   [eraName.FEATURED_6]: {
     // ("Featured Videos") (white header bg) (hpVideoList - vlentry)
     name: eraName.FEATURED_6,
     start: getEraBoundFromTimeStamp("20080410125312"), // april 10 2008
     end: getEraBoundFromTimeStamp("20090325031018"), // march 25 2009
-    scraper: featuredFourScraper, // TODO
+    scraper: featuredSixScraper,
   },
   [eraName.FEATURED_7]: {
     // ("Featured Videos") (grid view)
