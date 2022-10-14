@@ -28,13 +28,14 @@ const findTotalStarRatingV1 = ($: CheerioAPI, item: Cheerio<Element>) => {
 };
 
 const findTotalStarRating = ($: CheerioAPI, item: Cheerio<Element>) => {
-  const ratingUsingOldApproach = findTotalStarRatingV1($, item);
-  if (ratingUsingOldApproach) {
-    return ratingUsingOldApproach;
-  }
   const fullStars = item.find(".icn_star_full_11x11gif");
   const halfStars = item.find(".icn_star_half_11x11gif");
-  return fullStars.length + halfStars.length * 0.5;
+
+  const ratingUsingNewApproach = fullStars.length + halfStars.length * 0.5;
+  if (ratingUsingNewApproach) {
+    return ratingUsingNewApproach;
+  }
+  return findTotalStarRatingV1($, item);
 };
 
 export const featuredFiveScraper = ($: CheerioAPI, snapshot: Snapshot) => {
