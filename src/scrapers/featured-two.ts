@@ -91,6 +91,9 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
         safeTrim(safeSplit(durationText, "Runtime:")[1])
       ),
       stars: findTotalStarRating($, featuredItem),
+      numRatings: null,
+      selectedBy: null,
+      selectedByLink: null,
     };
     featuredVideos.push(featuredVideo);
   });

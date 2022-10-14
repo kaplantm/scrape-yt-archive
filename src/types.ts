@@ -11,6 +11,11 @@ export enum eraName {
   FEATURED_2 = "FEATURED_2",
   FEATURED_3 = "FEATURED_3",
   FEATURED_4 = "FEATURED_4",
+  FEATURED_5 = "FEATURED_5",
+  FEATURED_6 = "FEATURED_6",
+  FEATURED_7 = "FEATURED_7",
+  FEATURED_8 = "FEATURED_8",
+  FEATURED_9 = "FEATURED_9",
 }
 
 export type Era = {
@@ -43,19 +48,20 @@ export type Video = {
   description: string;
   author: string;
   videoId: string;
-  uploadDate?: string;
+  uploadDate: string | null;
   comments: number | null;
   tags: string[];
   categories: string[];
   duration: number | null;
   age: string | null;
   stars: number | null;
-  numRatings?: number;
+  numRatings: number | null;
 };
 
 export type FeaturedVideo = Video & {
   dateFeatured: string;
   dateFeaturedEpoch: number;
   timestampFeatured: string;
-  selectedBy?: string;
+  selectedBy: string | null;
+  selectedByLink: string | null;
 };

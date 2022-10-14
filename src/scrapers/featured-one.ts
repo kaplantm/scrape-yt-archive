@@ -53,6 +53,9 @@ export const featuredOneScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       age: null,
       stars: null,
       categories: [],
+      numRatings: null,
+      selectedBy: null,
+      selectedByLink: null,
     };
     featuredVideos.push(featuredVideo);
   });
