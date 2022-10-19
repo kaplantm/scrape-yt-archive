@@ -1,1327 +1,267 @@
 {
-  "2008120413": {
-    "timestamp": "20081204130433",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008120414": {
-    "timestamp": "20081204141758",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008120419": {
-    "timestamp": "20081204190156",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008120505": {
-    "timestamp": "20081205051608",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008120515": {
-    "timestamp": "20081205155350",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008120523": {
-    "timestamp": "20081205232232",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008120703": {
-    "timestamp": "20081207032014",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008120814": {
-    "timestamp": "20081208142741",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008120823": {
-    "timestamp": "20081208231041",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121000": {
-    "timestamp": "20081210003609",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121005": {
-    "timestamp": "20081210052930",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121106": {
-    "timestamp": "20081211063115",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121212": {
-    "timestamp": "20081212122641",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121315": {
-    "timestamp": "20081213153202",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121420": {
-    "timestamp": "20081214201411",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121504": {
-    "timestamp": "20081215042540",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121600": {
-    "timestamp": "20081216001621",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121601": {
-    "timestamp": "20081216010514",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121605": {
-    "timestamp": "20081216054436",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121705": {
-    "timestamp": "20081217054525",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121709": {
-    "timestamp": "20081217091652",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121720": {
-    "timestamp": "20081217204719",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121805": {
-    "timestamp": "20081218053311",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121905": {
-    "timestamp": "20081219053401",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008121922": {
-    "timestamp": "20081219220955",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122005": {
-    "timestamp": "20081220053444",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122105": {
-    "timestamp": "20081221053451",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122205": {
-    "timestamp": "20081222053448",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122300": {
-    "timestamp": "20081223003811",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122305": {
-    "timestamp": "20081223053505",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122406": {
-    "timestamp": "20081224065347",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122409": {
-    "timestamp": "20081224091703",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122414": {
-    "timestamp": "20081224140929",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122504": {
-    "timestamp": "20081225045553",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122506": {
-    "timestamp": "20081225065345",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122606": {
-    "timestamp": "20081226065415",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122615": {
-    "timestamp": "20081226155629",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122623": {
-    "timestamp": "20081226230545",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122706": {
-    "timestamp": "20081227065444",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122806": {
-    "timestamp": "20081228065452",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122906": {
-    "timestamp": "20081229065454",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008122910": {
-    "timestamp": "20081229100331",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008123009": {
-    "timestamp": "20081230094504",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008123103": {
-    "timestamp": "20081231033333",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2008123109": {
-    "timestamp": "20081231091709",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010109": {
-    "timestamp": "20090101094601",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010113": {
-    "timestamp": "20090101130443",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010200": {
-    "timestamp": "20090102003012",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010209": {
-    "timestamp": "20090102094645",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010223": {
-    "timestamp": "20090102232516",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010309": {
-    "timestamp": "20090103094654",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010314": {
-    "timestamp": "20090103141759",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010316": {
-    "timestamp": "20090103161526",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010409": {
-    "timestamp": "20090104094720",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010509": {
-    "timestamp": "20090105094728",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010514": {
-    "timestamp": "20090105144024",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010520": {
-    "timestamp": "20090105205926",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010609": {
-    "timestamp": "20090106094739",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010617": {
-    "timestamp": "20090106174917",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010622": {
-    "timestamp": "20090106222123",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010709": {
-    "timestamp": "20090107091725",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010809": {
-    "timestamp": "20090108094803",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009010909": {
-    "timestamp": "20090109094804",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011009": {
-    "timestamp": "20090110094814",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011017": {
-    "timestamp": "20090110175922",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011109": {
-    "timestamp": "20090111094822",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011209": {
-    "timestamp": "20090112094836",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011309": {
-    "timestamp": "20090113094851",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011401": {
-    "timestamp": "20090114010746",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011406": {
-    "timestamp": "20090114063251",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011409": {
-    "timestamp": "20090114091716",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011416": {
-    "timestamp": "20090114161610",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011419": {
-    "timestamp": "20090114195059",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011420": {
-    "timestamp": "20090114205913",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011423": {
-    "timestamp": "20090114230805",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011502": {
-    "timestamp": "20090115022515",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011509": {
-    "timestamp": "20090115094924",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011517": {
-    "timestamp": "20090115170658",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011609": {
-    "timestamp": "20090116094933",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011709": {
-    "timestamp": "20090117094939",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011809": {
-    "timestamp": "20090118094944",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009011909": {
-    "timestamp": "20090119094949",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009012009": {
-    "timestamp": "20090120094954",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009012020": {
-    "timestamp": "20090120203356",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009012109": {
-    "timestamp": "20090121091719",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009012203": {
-    "timestamp": "20090122033604",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009012209": {
-    "timestamp": "20090122095000",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009012222": {
-    "timestamp": "20090122223904",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009012320": {
-    "timestamp": "20090123205354",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009012323": {
-    "timestamp": "20090123235025",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009012420": {
-    "timestamp": "20090124205411",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009012504": {
-    "timestamp": "20090125040953",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009012520": {
-    "timestamp": "20090125205427",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009012721": {
-    "timestamp": "20090127213748",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009012809": {
-    "timestamp": "20090128091729",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009012821": {
-    "timestamp": "20090128213804",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009012921": {
-    "timestamp": "20090129213808",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009013014": {
-    "timestamp": "20090130142454",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009013116": {
-    "timestamp": "20090131164021",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009013119": {
-    "timestamp": "20090131191333",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009013121": {
-    "timestamp": "20090131213840",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020121": {
-    "timestamp": "20090201213906",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020202": {
-    "timestamp": "20090202025920",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020205": {
-    "timestamp": "20090202050300",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020206": {
-    "timestamp": "20090202062957",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020212": {
-    "timestamp": "20090202124233",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020214": {
-    "timestamp": "20090202141203",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020221": {
-    "timestamp": "20090202213920",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020302": {
-    "timestamp": "20090203022413",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020314": {
-    "timestamp": "20090203142420",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020317": {
-    "timestamp": "20090203172729",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020320": {
-    "timestamp": "20090203202257",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020321": {
-    "timestamp": "20090203214241",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020409": {
-    "timestamp": "20090204091735",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020421": {
-    "timestamp": "20090204213132",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020422": {
-    "timestamp": "20090204220303",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020500": {
-    "timestamp": "20090205000302",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020504": {
-    "timestamp": "20090205043103",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020509": {
-    "timestamp": "20090205095052",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020521": {
-    "timestamp": "20090205214322",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020600": {
-    "timestamp": "20090206001343",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020621": {
-    "timestamp": "20090206214325",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020711": {
-    "timestamp": "20090207110630",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020721": {
-    "timestamp": "20090207214337",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020821": {
-    "timestamp": "20090208214341",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020823": {
-    "timestamp": "20090208232652",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009020921": {
-    "timestamp": "20090209214352",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021013": {
-    "timestamp": "20090210130109",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021014": {
-    "timestamp": "20090210140324",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021021": {
-    "timestamp": "20090210214352",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021109": {
-    "timestamp": "20090211091736",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021111": {
-    "timestamp": "20090211114957",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021121": {
-    "timestamp": "20090211214355",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021203": {
-    "timestamp": "20090212032512",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021221": {
-    "timestamp": "20090212214401",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021315": {
-    "timestamp": "20090213153801",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021321": {
-    "timestamp": "20090213214415",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021400": {
-    "timestamp": "20090214003302",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021421": {
-    "timestamp": "20090214214418",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021516": {
-    "timestamp": "20090215160505",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021521": {
-    "timestamp": "20090215214425",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021613": {
-    "timestamp": "20090216135526",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021621": {
-    "timestamp": "20090216214442",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021721": {
-    "timestamp": "20090217214233",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021809": {
-    "timestamp": "20090218091750",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021821": {
-    "timestamp": "20090218214505",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021914": {
-    "timestamp": "20090219142706",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021915": {
-    "timestamp": "20090219155103",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009021921": {
-    "timestamp": "20090219214504",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009022021": {
-    "timestamp": "20090220214517",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009022112": {
-    "timestamp": "20090221120416",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009022121": {
-    "timestamp": "20090221214558",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009022221": {
-    "timestamp": "20090222214612",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009022301": {
-    "timestamp": "20090223011413",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009022321": {
-    "timestamp": "20090223214624",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009022420": {
-    "timestamp": "20090224203533",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009022421": {
-    "timestamp": "20090224214627",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009022509": {
-    "timestamp": "20090225091954",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009022523": {
-    "timestamp": "20090225235104",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009022614": {
-    "timestamp": "20090226143516",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009022615": {
-    "timestamp": "20090226150854",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009022616": {
-    "timestamp": "20090226164922",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009022620": {
-    "timestamp": "20090226205126",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009022704": {
-    "timestamp": "20090227042620",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009030113": {
-    "timestamp": "20090301130521",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009030305": {
-    "timestamp": "20090303053008",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009030320": {
-    "timestamp": "20090303204034",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009030409": {
-    "timestamp": "20090304094553",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009030414": {
-    "timestamp": "20090304140028",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009030416": {
-    "timestamp": "20090304160912",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009030417": {
-    "timestamp": "20090304175855",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009030517": {
-    "timestamp": "20090305170030",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009030519": {
-    "timestamp": "20090305193010",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009030521": {
-    "timestamp": "20090305213015",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009030623": {
-    "timestamp": "20090306230634",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009030904": {
-    "timestamp": "20090309040625",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009030917": {
-    "timestamp": "20090309170930",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031016": {
-    "timestamp": "20090310161549",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031100": {
-    "timestamp": "20090311002807",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031120": {
-    "timestamp": "20090311203017",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031201": {
-    "timestamp": "20090312015231",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031212": {
-    "timestamp": "20090312125632",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031222": {
-    "timestamp": "20090312222603",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031400": {
-    "timestamp": "20090314002056",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031414": {
-    "timestamp": "20090314144610",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031600": {
-    "timestamp": "20090316002223",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031615": {
-    "timestamp": "20090316150424",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031704": {
-    "timestamp": "20090317044832",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031708": {
-    "timestamp": "20090317083420",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031718": {
-    "timestamp": "20090317180839",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031720": {
-    "timestamp": "20090317205143",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031723": {
-    "timestamp": "20090317235841",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031803": {
-    "timestamp": "20090318033716",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031811": {
-    "timestamp": "20090318115337",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031817": {
-    "timestamp": "20090318171159",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031902": {
-    "timestamp": "20090319021038",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031903": {
-    "timestamp": "20090319030230",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031909": {
-    "timestamp": "20090319093222",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031911": {
-    "timestamp": "20090319112135",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009031917": {
-    "timestamp": "20090319171014",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009032010": {
-    "timestamp": "20090320101615",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009032011": {
-    "timestamp": "20090320110039",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009032112": {
-    "timestamp": "20090321124540",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009032122": {
-    "timestamp": "20090321220658",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009032221": {
-    "timestamp": "20090322214622",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009032303": {
-    "timestamp": "20090323031900",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009032318": {
-    "timestamp": "20090323181217",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009032408": {
-    "timestamp": "20090324084229",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009032415": {
-    "timestamp": "20090324151316",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009032421": {
-    "timestamp": "20090324210834",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009032503": {
-    "timestamp": "20090325031018",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
-  "2009032517": {
-    "timestamp": "20090325174834",
-    "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
-  },
   "2009032604": {
     "timestamp": "20090326040603",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009032616": {
     "timestamp": "20090326161552",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009032702": {
     "timestamp": "20090327020358",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009032716": {
     "timestamp": "20090327165833",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009032720": {
     "timestamp": "20090327203731",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009032817": {
     "timestamp": "20090328173250",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009032901": {
     "timestamp": "20090329013319",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009033019": {
     "timestamp": "20090330193528",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009033119": {
     "timestamp": "20090331194537",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009033121": {
     "timestamp": "20090331210601",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040113": {
     "timestamp": "20090401134312",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040120": {
     "timestamp": "20090401203728",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040204": {
     "timestamp": "20090402043949",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040216": {
     "timestamp": "20090402160815",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040218": {
     "timestamp": "20090402185243",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040305": {
     "timestamp": "20090403055614",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040315": {
     "timestamp": "20090403154837",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040406": {
     "timestamp": "20090404060834",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040415": {
     "timestamp": "20090404153226",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040423": {
     "timestamp": "20090404233522",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040501": {
     "timestamp": "20090405014104",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040518": {
     "timestamp": "20090405181418",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040601": {
     "timestamp": "20090406011745",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040617": {
     "timestamp": "20090406172036",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040714": {
     "timestamp": "20090407143659",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040722": {
     "timestamp": "20090407222036",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040816": {
     "timestamp": "20090408163242",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040819": {
     "timestamp": "20090408192729",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040820": {
     "timestamp": "20090408201948",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009040901": {
     "timestamp": "20090409015704",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041015": {
     "timestamp": "20090410153955",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041100": {
     "timestamp": "20090411004632",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041105": {
     "timestamp": "20090411054718",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041123": {
     "timestamp": "20090411231430",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041216": {
     "timestamp": "20090412165127",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041219": {
     "timestamp": "20090412194215",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041220": {
     "timestamp": "20090412203207",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041223": {
     "timestamp": "20090412233845",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041320": {
     "timestamp": "20090413201132",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041407": {
     "timestamp": "20090414073126",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041421": {
     "timestamp": "20090414211133",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041607": {
     "timestamp": "20090416072136",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041622": {
     "timestamp": "20090416224106",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041700": {
     "timestamp": "20090417001639",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041718": {
     "timestamp": "20090417184004",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041800": {
     "timestamp": "20090418001020",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009041816": {
     "timestamp": "20090418164650",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009042002": {
     "timestamp": "20090420021244",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009042100": {
     "timestamp": "20090421001605",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009042119": {
     "timestamp": "20090421192235",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009042120": {
     "timestamp": "20090421200514",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009042123": {
     "timestamp": "20090421231238",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   },
   "2009042201": {
     "timestamp": "20090422013412",
     "checked": "NOT_ATTEMPTED",
-    "eraName": "FEATURED_7"
+    "eraName": "FEATURED_8"
   }
 }
