@@ -74,7 +74,9 @@ export const scrapeTargets = async (
     const shouldCheck = onlyFeature
       ? selectedTargets[0].eraName === eraName[onlyFeature as eraName]
       : selectedTargets[0].checked !== CheckedStatus.FOUND;
-    return shouldCheck ? processTarget(target, onTargetScraped) : target;
+    return shouldCheck && parseInt(target.timestamp) > 20080514215055
+      ? processTarget(target, onTargetScraped)
+      : target;
   });
   const results = await allSynchronously(map);
 

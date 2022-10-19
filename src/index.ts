@@ -6,7 +6,8 @@ import { scrapeTargets } from "./scrape-targets";
 import { Snapshot } from "./types";
 import { getKeyFromTimeStamp, safeSplit, safeTrim } from "./utils";
 // TODO: final merged sheet - remove multiple appearances of same video on same day. take eariliest snapshot
-
+// TODO: find replace more less
+// fix translated issue in featured 6
 const targets: { [key: string]: Snapshot } = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, filePaths.outputs.snapshots), {
     encoding: "utf8",
@@ -39,8 +40,8 @@ const onTargetScraped = (snapshot: Snapshot) => {
 };
 
 const init = async () => {
-  genSnapshotsList();
-  // scrapeTargets(Object.values(targets), onTargetScraped);
+  // genSnapshotsList();
+  scrapeTargets(Object.values(targets), onTargetScraped);
 };
 
 init();

@@ -12,3 +12,4 @@ LIMIT=1 FEATURE=FEATURED_5 npm run start:mock:dev
 FEATURE=FEATURED_5 npm run start:dev
 
 detect video failed to load - id="error-screen"
+detect private video "This video is private" or "This is a private video. Please sign in to verify that you may see it." http://www.youtube.com/watch?v=zzIMbjA5m8s
