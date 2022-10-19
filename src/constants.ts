@@ -6,6 +6,7 @@ import { Era, eraName } from "./types";
 import { getEraBoundFromTimeStamp } from "./utils";
 import { featuredFiveScraper } from "./scrapers/featured-five";
 import { featuredSixScraper } from "./scrapers/featured-six";
+import { featuredSevenScraper } from "./scrapers/featured-seven";
 
 export const eras: { [key in eraName]: Era } = {
   [eraName.FEATURED_1]: {
@@ -47,16 +48,23 @@ export const eras: { [key in eraName]: Era } = {
     // ("Featured Videos") (white header bg) (hpVideoList - vlentry)
     name: eraName.FEATURED_6,
     start: getEraBoundFromTimeStamp("20080410125312"), // april 10 2008
-    end: getEraBoundFromTimeStamp("20090325031018"), // march 25 2009
+    end: getEraBoundFromTimeStamp("20081204015218"), // dec 4 2008
     scraper: featuredSixScraper,
   },
   [eraName.FEATURED_7]: {
-    // ("Featured Videos") (grid view)
+    // ("Featured Videos") (home page list)
     name: eraName.FEATURED_7,
-    start: getEraBoundFromTimeStamp("20090326040603"), // march 26 2009
-    end: getEraBoundFromTimeStamp("20090422013412"), // april 22 2009
-    scraper: featuredFourScraper, // TODO
+    start: getEraBoundFromTimeStamp("20081204130433"), // december 4 2008
+    end: getEraBoundFromTimeStamp("20090325031018"), // march 25 2009
+    scraper: featuredSevenScraper, // TODO
   },
+  // [eraName.FEATURED_7]: {
+  //   // ("Featured Videos") (grid view)
+  //   name: eraName.FEATURED_7,
+  //   start: getEraBoundFromTimeStamp("20090326040603"), // march 26 2009
+  //   end: getEraBoundFromTimeStamp("20090422013412"), // april 22 2009
+  //   scraper: featuredFourScraper, // TODO
+  // },
   [eraName.FEATURED_8]: {
     // ("Featured Videos") (blue header bg)
     name: eraName.FEATURED_8,
