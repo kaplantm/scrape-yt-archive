@@ -1,2 +1,2 @@
-/inputs/raw-snapshot-list.txt filter=lfs diff=lfs merge=lfs -text
 /inputs/raw-snapshots.txt filter=lfs diff=lfs merge=lfs -text
+/inputs/raw-snapshot-list.txt filter=lfs diff=lfs merge=lfs -text
