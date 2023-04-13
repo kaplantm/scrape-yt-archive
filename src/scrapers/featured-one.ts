@@ -37,7 +37,8 @@ export const featuredOneScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       .split("by");
     const authorLink = removeUrlTimestampPrefix(
       snapshot.timestamp,
-      featuredItem.find(".moduleFeaturedDetails a").attr("href")
+      featuredItem.find(".moduleFeaturedDetails a").attr("href"),
+      true
     );
     const [viewsText, commentsText] = $(details2).text().split("|");
 
