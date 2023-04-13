@@ -47,6 +47,7 @@ export const featuredOneScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       title: featuredItem.children(".moduleFeaturedTitle").text().trim(),
       views: parseInt(safeSplit(viewsText, "Views: ")[1]) || undefined,
       author: safeTrim(authorFromUploadDate),
+      authorUsername: authorLink?.split("=")[authorLink?.split("=").length],
       authorLink,
       videoId: getVideoId(featuredItem.children("a").attr("href")),
       uploadDate: safeTrim(uploadDateWithoutAuthor),

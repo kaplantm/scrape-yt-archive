@@ -57,7 +57,7 @@ export const createVideos = async (
     return { status: 200, data };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
-    console.log("****** here error createVideos", e);
+    console.log("****** ERROR create videos", videosRaw);
     return { status: 500, data: { error: `Server Error ${e?.message}` } };
   }
 };

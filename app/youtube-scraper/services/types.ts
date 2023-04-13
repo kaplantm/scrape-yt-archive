@@ -10,6 +10,7 @@ export type VideoDataRaw = {
     tags: string[],
     views: number,
     author: string,
+    authorUsername: string,
     authorLink: string,
     videoId: string,
     uploadDate: null,

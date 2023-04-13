@@ -47,12 +47,26 @@ model FeatureInstance {
   @@index([featureDateId, videoId])
 }
 
+model DisplayName {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  Users User[]
+}
+
+model Link {
+  id   Int    @id @default(autoincrement())
+  url  String @unique
+  User User[]
+}
+
 model User {
   id                Int               @id @default(autoincrement())
-  username          String            @unique  // this probably should've been display nameÏ
-  link              String            @unique
+  username          String            @unique
+  display_name      DisplayName[]
+  link              Link              @relation(fields: [linkId], references: [id])
   Videos            Video[]           @relation("author")
   Selected_features FeatureInstance[] @relation("selector")
+  linkId            Int
 }
 
 model FeatureDate {

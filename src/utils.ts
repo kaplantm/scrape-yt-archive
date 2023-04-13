@@ -9,10 +9,10 @@ export const removeUrlTimestampPrefix = (
   addYoutubeBase?: boolean
 ) =>
   url
-    ? url.replace(
-        `/web/${timestamp}/${addYoutubeBase ? "https://www.youtube.com/" : ""}`,
+    ? `${addYoutubeBase ? "https://www.youtube.com/" : ""}${url.replace(
+        `/web/${timestamp}/`,
         ""
-      )
+      )}`
     : undefined;
 
 export const isInEra = (era: Era, timestamp: number) => {

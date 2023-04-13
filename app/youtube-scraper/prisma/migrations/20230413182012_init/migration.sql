@@ -29,10 +29,26 @@ CREATE TABLE "FeatureInstance" (
 );
 
 -- CreateTable
+CREATE TABLE "DisplayName" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+
+    CONSTRAINT "DisplayName_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Link" (
+    "id" SERIAL NOT NULL,
+    "url" TEXT NOT NULL,
+
+    CONSTRAINT "Link_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "username" TEXT NOT NULL,
-    "link" TEXT NOT NULL,
+    "linkId" INTEGER NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -63,6 +79,12 @@ CREATE TABLE "Category" (
 );
 
 -- CreateTable
+CREATE TABLE "_DisplayNameToUser" (
+    "A" INTEGER NOT NULL,
+    "B" INTEGER NOT NULL
+);
+
+-- CreateTable
 CREATE TABLE "_TagToVideo" (
     "A" INTEGER NOT NULL,
     "B" INTEGER NOT NULL
@@ -87,10 +109,13 @@ CREATE INDEX "FeatureInstance_featureDateId_videoId_idx" ON "FeatureInstance"("f
 CREATE UNIQUE INDEX "FeatureInstance_videoId_featureDateId_key" ON "FeatureInstance"("videoId", "featureDateId");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
+CREATE UNIQUE INDEX "DisplayName_name_key" ON "DisplayName"("name");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User_link_key" ON "User"("link");
+CREATE UNIQUE INDEX "Link_url_key" ON "Link"("url");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "FeatureDate_epoch_date_key" ON "FeatureDate"("epoch_date");
@@ -103,6 +128,12 @@ CREATE UNIQUE INDEX "Tag_name_key" ON "Tag"("name");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Category_name_key" ON "Category"("name");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "_DisplayNameToUser_AB_unique" ON "_DisplayNameToUser"("A", "B");
+
+-- CreateIndex
+CREATE INDEX "_DisplayNameToUser_B_index" ON "_DisplayNameToUser"("B");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "_TagToVideo_AB_unique" ON "_TagToVideo"("A", "B");
@@ -130,6 +161,15 @@ ALTER TABLE "FeatureInstance" ADD CONSTRAINT "FeatureInstance_featureDateId_fkey
 
 -- AddForeignKey
 ALTER TABLE "FeatureInstance" ADD CONSTRAINT "FeatureInstance_videoId_fkey" FOREIGN KEY ("videoId") REFERENCES "Video"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "User" ADD CONSTRAINT "User_linkId_fkey" FOREIGN KEY ("linkId") REFERENCES "Link"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "_DisplayNameToUser" ADD CONSTRAINT "_DisplayNameToUser_A_fkey" FOREIGN KEY ("A") REFERENCES "DisplayName"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "_DisplayNameToUser" ADD CONSTRAINT "_DisplayNameToUser_B_fkey" FOREIGN KEY ("B") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "_TagToVideo" ADD CONSTRAINT "_TagToVideo_A_fkey" FOREIGN KEY ("A") REFERENCES "Tag"("id") ON DELETE CASCADE ON UPDATE CASCADE;

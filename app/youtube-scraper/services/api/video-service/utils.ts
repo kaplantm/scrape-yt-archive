@@ -15,7 +15,21 @@ export const getVideoUpsertArgs = (
         where: {
           username: videoRaw.author,
         },
-        create: { username: videoRaw.author, link: videoRaw.authorLink },
+        create: {
+          username: videoRaw.author,
+          link: {
+            connectOrCreate: {
+              where: { url: videoRaw.authorLink },
+              create: { url: videoRaw.authorLink },
+            },
+          },
+          display_name: {
+            connectOrCreate: {
+              where: { name: videoRaw.author },
+              create: { name: videoRaw.author },
+            },
+          },
+        },
       },
     },
     FeatureDate: {
@@ -62,7 +76,12 @@ export const getFeatureInstanceUpsertArgs = (
             },
             create: {
               username: videoRaw.selectedBy,
-              link: videoRaw.selectedByLink,
+              link: {
+                connectOrCreate: {
+                  where: { url: videoRaw.selectedByLink },
+                  create: { url: videoRaw.selectedByLink },
+                },
+              },
             },
           },
         },
