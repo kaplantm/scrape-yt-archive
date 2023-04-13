@@ -11,7 +11,7 @@ import {
 // starts only appear sometimes
 // https://web.archive.org/web/20050822154924/http://www.youtube.com/ - run time and stars
 const findTotalStarRating = ($: CheerioAPI, item: Cheerio<Element>) => {
-  let totalRating: number | null = null;
+  let totalRating: number | undefined = undefined;
   const found = item.find("nobr img.rating");
   console.log("****", found);
   item.find("nobr img").each((i, el) => {
@@ -77,24 +77,24 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
         .join(" ")
         .trim(),
       tags: tags.filter((el) => el),
-      views: parseInt(safeSplit(viewsText, "Views: ")[1]) || null,
+      views: parseInt(safeSplit(viewsText, "Views: ")[1]) || undefined,
       author: safeTrim(byText),
       authorLink: featuredItem.find(".video-username").attr("href"),
       videoId: getVideoId(title.children("a").attr("href")),
       uploadDate: safeTrim(safeSplit(addedText, "Added:")?.[1]),
-      comments: comments >= 0 ? comments : null,
+      comments: comments >= 0 ? comments : undefined,
       dateFeaturedEpoch: date.getTime(),
       dateFeatured: `${date.toUTCString()}`,
       timestampFeatured: snapshot.timestamp,
-      age: null,
+      age: undefined,
       categories: [],
       duration: convertDurationToSeconds(
         safeTrim(safeSplit(durationText, "Runtime:")[1])
       ),
       stars: findTotalStarRating($, featuredItem),
-      numRatings: null,
-      selectedBy: null,
-      selectedByLink: null,
+      numRatings: undefined,
+      selectedBy: undefined,
+      selectedByLink: undefined,
     };
     featuredVideos.push(featuredVideo);
   });

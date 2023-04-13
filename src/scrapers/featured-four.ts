@@ -10,7 +10,7 @@ import {
 
 // TODO: DRY?
 const findTotalStarRating = ($: CheerioAPI, item: Cheerio<Element>) => {
-  let totalRating: number | null = null;
+  let totalRating: number | undefined = undefined;
   item.find("nobr img.rating").each((i, el) => {
     const src = $(el).attr("src");
     if (src && !src.includes("star_sm_bg.gif")) {
@@ -68,12 +68,12 @@ export const featuredFourScraper = ($: CheerioAPI, snapshot: Snapshot) => {
         moreDescription || featuredItem.find(".vdesc").text()
       ),
       tags,
-      views: parseInt(views.replace(",", "")) || null,
+      views: parseInt(views.replace(",", "")) || undefined,
       author: safeTrim(author),
       authorLink: featuredItem.find(".video-username").attr("href"),
       videoId,
-      uploadDate: null,
-      comments: null,
+      uploadDate: undefined,
+      comments: undefined,
       stars: findTotalStarRating($, featuredItem),
       numRatings: parseInt(featuredItem.find("div.rating").text() || "0"),
       age: safeTrim(age),
@@ -81,8 +81,8 @@ export const featuredFourScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       dateFeatured: `${date.toUTCString()}`,
       timestampFeatured: snapshot.timestamp,
       categories: safeSplit(categories, " ").map((el) => safeTrim(el)),
-      selectedBy: null,
-      selectedByLink: null,
+      selectedBy: undefined,
+      selectedByLink: undefined,
     };
 
     featuredVideos.push(featuredVideo);

@@ -26,9 +26,9 @@ const findTotalStarRating = ($: CheerioAPI, item: Cheerio<Element>) => {
 export const featuredSixScraper = ($: CheerioAPI, snapshot: Snapshot) => {
   const featuredItems = $("#hpFeatured .vlentry");
   const selectedBy =
-    safeTrim(safeSplit($("#hpEditorHead").text(), ":")?.[1]) || null;
+    safeTrim(safeSplit($("#hpEditorHead").text(), ":")?.[1]) || undefined;
   const selectedByLink =
-    safeSplit($("#hpEditorHead a").attr("href"), "http://")?.[1] || null;
+    safeSplit($("#hpEditorHead a").attr("href"), "http://")?.[1] || undefined;
 
   const featuredVideos: FeaturedVideo[] = [];
   featuredItems.each((i, el) => {
@@ -63,15 +63,15 @@ export const featuredSixScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       ),
       description: safeTrim(moreDescription || description),
       tags: [],
-      views: parseInt(views.replace(",", "")) || null,
+      views: parseInt(views.replace(",", "")) || undefined,
       author: safeTrim(author),
       authorLink: featuredItem.find(".video-username").attr("href"),
       videoId,
-      uploadDate: null,
-      comments: null,
+      uploadDate: undefined,
+      comments: undefined,
       stars: findTotalStarRating($, featuredItem),
-      numRatings: null,
-      age: null,
+      numRatings: undefined,
+      age: undefined,
       dateFeaturedEpoch: date.getTime(),
       dateFeatured: `${date.toUTCString()}`,
       timestampFeatured: snapshot.timestamp,

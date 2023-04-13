@@ -39,24 +39,24 @@ export const featuredOneScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     const comments = parseInt((commentsText || "").split("Comments: ")[1]);
     const featuredVideo = {
       title: featuredItem.children(".moduleFeaturedTitle").text().trim(),
-      views: parseInt(safeSplit(viewsText, "Views: ")[1]) || null,
+      views: parseInt(safeSplit(viewsText, "Views: ")[1]) || undefined,
       author: safeTrim(authorFromUploadDate),
       authorLink: featuredItem.find(".video-username").attr("href"),
       videoId: getVideoId(featuredItem.children("a").attr("href")),
       uploadDate: safeTrim(uploadDateWithoutAuthor),
-      comments: comments >= 0 ? comments : null,
+      comments: comments >= 0 ? comments : undefined,
       dateFeaturedEpoch: date.getTime(),
       dateFeatured: `${date.toUTCString()}`,
       timestampFeatured: snapshot.timestamp,
       description: "",
       tags: [],
-      duration: null,
-      age: null,
-      stars: null,
+      duration: undefined,
+      age: undefined,
+      stars: undefined,
       categories: [],
-      numRatings: null,
-      selectedBy: null,
-      selectedByLink: null,
+      numRatings: undefined,
+      selectedBy: undefined,
+      selectedByLink: undefined,
     };
     featuredVideos.push(featuredVideo);
   });

@@ -1,24 +1,23 @@
 import { ApiResponse, ErrorData, VideoDataRaw } from "@/services/types";
 import { Video } from "@prisma/client";
 import { PrismaClient, Prisma } from "@prisma/client";
-import { getVideoCreateArgs } from "./utils";
+import { getFeatureInstanaceUpsertArgs, getVideoUpsertArgs } from "./utils";
 
 const prismaClient = new PrismaClient();
 
-export const createVideo = async (
-  videoRaw: VideoDataRaw
-): Promise<ApiResponse<Video>> => {
-  console.log("****** here createVideo");
-  try {
-    const data = await prismaClient.video.create(getVideoCreateArgs(videoRaw));
-    return { status: 200, data };
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  } catch (e: any) {
-    console.log("******errror", e);
-    return { status: 500, data: { error: `Server Error ${e?.message}` } };
-  }
-};
-
+// export const createVideo = async (
+//   videoRaw: VideoDataRaw
+// ): Promise<ApiResponse<Video>> => {
+//   console.log("****** here createVideo");
+//   try {
+//     const data = await prismaClient.video.create(getVideoCreateArgs(videoRaw));
+//     return { status: 200, data };
+//     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+//   } catch (e: any) {
+//     console.log("******errror", e);
+//     return { status: 500, data: { error: `Server Error ${e?.message}` } };
+//   }
+// };
 
 // https://traveling-coderman.net/code/synchronous-promise-loop/
 export async function allSynchronously<T>(
@@ -43,9 +42,18 @@ export const createVideos = async (
     // });
     const data = (
       await allSynchronously(
-        videosRaw.map((videoRaw) => async() => prismaClient.video.upsert(getVideoCreateArgs(videoRaw)))
+        videosRaw.map((videoRaw) => async () => {
+          const video = await prismaClient.video.upsert(
+            getVideoUpsertArgs(videoRaw)
+          );
+          await prismaClient.featureInstance.upsert(
+            getFeatureInstanaceUpsertArgs(videoRaw, video)
+          );
+          return video;
+        })
       )
     ).map((result) => result);
+
     return { status: 200, data };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {

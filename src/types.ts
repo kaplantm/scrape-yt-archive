@@ -44,24 +44,24 @@ export type RawSnapshotArray = [
 
 export type Video = {
   title: string;
-  views: number | null;
+  views: number | undefined;
   description: string;
   author: string;
   videoId: string;
-  uploadDate: string | null;
-  comments: number | null;
+  uploadDate: string | undefined;
+  comments: number | undefined;
   tags: string[];
   categories: string[];
-  duration: number | null;
-  age: string | null;
-  stars: number | null;
-  numRatings: number | null;
+  duration: number | undefined;
+  age: string | undefined;
+  stars: number | undefined;
+  numRatings: number | undefined;
 };
 
 export type FeaturedVideo = Video & {
   dateFeatured: string;
   dateFeaturedEpoch: number;
   timestampFeatured: string;
-  selectedBy: string | null;
-  selectedByLink: string | null;
+  selectedBy: string | undefined;
+  selectedByLink: string | undefined;
 };

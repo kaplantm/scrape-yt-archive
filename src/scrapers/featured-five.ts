@@ -9,7 +9,7 @@ import {
 } from "../utils";
 
 const findTotalStarRatingV1 = ($: CheerioAPI, item: Cheerio<Element>) => {
-  let totalRating: number | null = null;
+  let totalRating: number | undefined = undefined;
   item.find("img.rating").each((i, el) => {
     const src = $(el).attr("src");
     if (
@@ -45,9 +45,9 @@ export const featuredFiveScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     ? v1FeaturedItems
     : v2featuredItems;
   const selectedBy =
-    safeTrim(safeSplit($("#hpEditorHead").text(), ":")?.[1]) || null;
+    safeTrim(safeSplit($("#hpEditorHead").text(), ":")?.[1]) || undefined;
   const selectedByLink =
-    safeSplit($("#hpEditorHead a").attr("href"), "http://")?.[1] || null;
+    safeSplit($("#hpEditorHead a").attr("href"), "http://")?.[1] || undefined;
 
   const featuredVideos: FeaturedVideo[] = [];
   featuredItems.each((i, el) => {
@@ -89,15 +89,15 @@ export const featuredFiveScraper = ($: CheerioAPI, snapshot: Snapshot) => {
             .split("(more)\n                (less)")[0]
       ),
       tags: [],
-      views: parseInt(views.replace(",", "")) || null,
+      views: parseInt(views.replace(",", "")) || undefined,
       author: safeTrim(author),
       authorLink: featuredItem.find(".video-username").attr("href"),
       videoId,
-      uploadDate: null,
-      comments: null,
+      uploadDate: undefined,
+      comments: undefined,
       stars: findTotalStarRating($, featuredItem),
-      numRatings: null,
-      age: null,
+      numRatings: undefined,
+      age: undefined,
       dateFeaturedEpoch: date.getTime(),
       dateFeatured: `${date.toUTCString()}`,
       timestampFeatured: snapshot.timestamp,

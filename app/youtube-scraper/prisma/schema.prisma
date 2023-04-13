@@ -16,17 +16,17 @@ model Video {
   description     String
   videoUrlId      String            @unique
   uploadDate      String? // only sometimes displayed by youtube. i might not use this, but don't want to throw it away
-  tags            Tag[]
-  categories      Category[]
-  author          User?             @relation("author", fields: [authorId], references: [id])
+  Tags            Tag[]
+  Categories      Category[]
+  Author          User?             @relation("author", fields: [authorId], references: [id])
   authorId        Int?
-  featureInstance FeatureInstance[]
-  featureDate     FeatureDate?      @relation(fields: [featureDateId], references: [id])
-  featureDateId   Int?
+  FeatureInstance FeatureInstance[]
+  FeatureDate     FeatureDate       @relation(fields: [featureDateId], references: [id])
+  featureDateId   Int
   User            User?             @relation(fields: [userId], references: [id])
   userId          Int?
 
-  @@index([authorId, title])
+  @@index([authorId, title, videoUrlId])
 }
 
 model FeatureInstance {
@@ -36,15 +36,14 @@ model FeatureInstance {
   ratings       Int?
   stars         Int?
   views         Int?
-  selector      User?       @relation("selector", fields: [selectorId], references: [id])
+  Selector      User?       @relation("selector", fields: [selectorId], references: [id])
   selectorId    Int?
-  featureDate   FeatureDate @relation(fields: [featureDateId], references: [id])
+  FeatureDate   FeatureDate @relation(fields: [featureDateId], references: [id])
   featureDateId Int
-  Video         Video?      @relation(fields: [videoId], references: [id])
-  videoId       Int?
-  User          User?       @relation(fields: [userId], references: [id])
-  userId        Int?
+  Video         Video       @relation(fields: [videoId], references: [id])
+  videoId       Int
 
+  @@unique([videoId, featureDateId])
   @@index([featureDateId, videoId])
 }
 
@@ -52,9 +51,8 @@ model User {
   id                Int               @id @default(autoincrement())
   username          String            @unique
   link              String            @unique
-  videos            Video[]           @relation("author")
-  selected_features FeatureInstance[] @relation("selector")
-  featureInstance   FeatureInstance[]
+  Videos            Video[]           @relation("author")
+  Selected_features FeatureInstance[] @relation("selector")
   Video             Video[]
 }
 
@@ -68,11 +66,11 @@ model FeatureDate {
 model Tag {
   id     Int     @id @default(autoincrement())
   name   String  @unique
-  videos Video[]
+  Videos Video[]
 }
 
 model Category {
   id     Int     @id @default(autoincrement())
   name   String  @unique
-  videos Video[]
+  Videos Video[]
 }
