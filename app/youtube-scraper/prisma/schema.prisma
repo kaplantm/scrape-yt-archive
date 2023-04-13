@@ -11,37 +11,38 @@ datasource db {
 }
 
 model Video {
-  id              Int               @id @default(autoincrement())
-  title           String?
-  description     String
-  duration        Int?
-  videoUrlId      String            @unique
-  uploadDate      String? // only sometimes displayed by youtube. i might not use this, but don't want to throw it away
-  Tags            Tag[]
-  Categories      Category[]
-  Author          User?             @relation("author", fields: [authorId], references: [id])
-  authorId        Int?
-  FeatureInstance FeatureInstance[]
+  id                  Int                   @id @default(autoincrement())
+  title               String?
+  description         String
+  duration            Int?
+  videoUrlId          String                @unique
+  uploadDate          String? // only sometimes displayed by youtube. i might not use this, but don't want to throw it away
+  Tags                Tag[]
+  Categories          Category[]
+  Author              User?                 @relation("author", fields: [authorId], references: [id])
+  authorId            Int?
+  VideoScrapeInstances VideoScrapeInstance[]
 
   @@index([authorId, title, videoUrlId])
 }
 
-model FeatureInstance {
-  id            Int         @id @default(autoincrement())
-  age           String? // i might not use this, but don't want to throw it away
-  comments      Int?
-  ratings       Int?
-  stars         Float?
-  views         Int?
-  feature_type  String      @default("featured")
-  Selector      User?       @relation("selector", fields: [selectorId], references: [id])
-  selectorId    Int?
-  FeatureDate   FeatureDate @relation(fields: [featureDateId], references: [id])
-  featureDateId Int
-  Video         Video       @relation(fields: [videoId], references: [id])
-  videoId       Int
+model VideoScrapeInstance {
+  id                Int         @id @default(autoincrement())
+  age               String? // i might not use this, but don't want to throw it away
+  comments          Int?
+  ratings           Int?
+  stars             Float?
+  views             Int?
+  feature_type      String      @default("featured")
+  Selector          User?       @relation("selector", fields: [selectorId], references: [id])
+  selectorId        Int?
+  FeatureDate       FeatureDate @relation(fields: [featureDateId], references: [id])
+  featureDateId     Int
+  Video             Video       @relation(fields: [videoId], references: [id])
+  videoId           Int
+  wayback_timestamp BigInt
 
-  @@unique([videoId, featureDateId])
+  @@unique([videoId, wayback_timestamp])
   @@index([featureDateId, videoId])
 }
 
@@ -58,20 +59,19 @@ model Link {
 }
 
 model User {
-  id                Int               @id @default(autoincrement())
-  username          String            @unique
+  id                Int                   @id @default(autoincrement())
+  username          String                @unique
   display_name      DisplayName[]
-  link              Link              @relation(fields: [linkId], references: [id])
-  Videos            Video[]           @relation("author")
-  Selected_features FeatureInstance[] @relation("selector")
+  link              Link                  @relation(fields: [linkId], references: [id])
+  Videos            Video[]               @relation("author")
+  Selected_features VideoScrapeInstance[] @relation("selector")
   linkId            Int
 }
 
 model FeatureDate {
-  id                Int               @id @default(autoincrement())
-  epoch_date        BigInt            @unique
-  wayback_timestamp BigInt            @unique
-  FeatureInstance   FeatureInstance[]
+  id                  Int                   @id @default(autoincrement())
+  epoch_date          BigInt                @unique
+  VideoScrapeInstance VideoScrapeInstance[]
 }
 
 model Tag {

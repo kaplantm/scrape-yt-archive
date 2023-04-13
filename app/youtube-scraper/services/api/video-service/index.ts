@@ -1,7 +1,7 @@
 import { ApiResponse, ErrorData, VideoDataRaw } from "@/services/types";
 import { Video } from "@prisma/client";
 import { PrismaClient, Prisma } from "@prisma/client";
-import { getFeatureInstanceUpsertArgs, getVideoUpsertArgs } from "./utils";
+import { getVideoScrapeInstanceUpsertArgs, getVideoUpsertArgs } from "./utils";
 
 const prismaClient = new PrismaClient();
 
@@ -46,8 +46,9 @@ export const createVideos = async (
           const video = await prismaClient.video.upsert(
             getVideoUpsertArgs(videoRaw)
           );
-          await prismaClient.featureInstance.upsert(
-            getFeatureInstanceUpsertArgs(videoRaw, video)
+
+          await prismaClient.videoScrapeInstance.upsert(
+            getVideoScrapeInstanceUpsertArgs(videoRaw, video)
           );
           return video;
         })
@@ -58,6 +59,7 @@ export const createVideos = async (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
     console.log("****** ERROR create videos", videosRaw);
+    console.log("****** ERROR create videos", e);
     return { status: 500, data: { error: `Server Error ${e?.message}` } };
   }
 };

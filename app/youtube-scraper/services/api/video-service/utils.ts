@@ -32,17 +32,6 @@ export const getVideoUpsertArgs = (
         },
       },
     },
-    FeatureDate: {
-      connectOrCreate: {
-        where: {
-          epoch_date: videoRaw.dateFeaturedEpoch,
-        },
-        create: {
-          epoch_date: videoRaw.dateFeaturedEpoch,
-          wayback_timestamp: parseInt(videoRaw.timestampFeatured),
-        },
-      },
-    },
     Categories: {
       connectOrCreate: videoRaw.categories.map((category: string) => ({
         where: { name: category },
@@ -63,10 +52,10 @@ export const getVideoUpsertArgs = (
   };
 };
 
-export const getFeatureInstanceUpsertArgs = (
+export const getVideoScrapeInstanceUpsertArgs = (
   videoRaw: VideoDataRaw,
   video: Video
-): Prisma.FeatureInstanceUpsertArgs => {
+): Prisma.VideoScrapeInstanceUpsertArgs => {
   const selectorData = videoRaw.selectedBy
     ? {
         Selector: {
@@ -87,8 +76,15 @@ export const getFeatureInstanceUpsertArgs = (
         },
       }
     : {};
-  const upsertData: Prisma.FeatureInstanceUpsertArgs["create"] = {
-    FeatureDate: { connect: { id: video.featureDateId } },
+  const upsertData: Prisma.VideoScrapeInstanceUpsertArgs["create"] = {
+    FeatureDate: {
+      connectOrCreate: {
+        create: {
+          epoch_date: videoRaw.dateFeaturedEpoch,
+        },
+        where: { epoch_date: videoRaw.dateFeaturedEpoch },
+      },
+    },
     Video: { connect: { id: video.id } },
     age: videoRaw.age,
     feature_type: videoRaw.featureType,
@@ -96,13 +92,14 @@ export const getFeatureInstanceUpsertArgs = (
     ratings: videoRaw.numRatings,
     stars: videoRaw.stars,
     views: videoRaw.views,
+    wayback_timestamp: parseInt(videoRaw.timestampFeatured),
     ...selectorData,
   };
   return {
     where: {
-      videoId_featureDateId: {
+      videoId_wayback_timestamp: {
         videoId: video.id,
-        featureDateId: video.featureDateId,
+        wayback_timestamp: parseInt(videoRaw.timestampFeatured),
       },
     },
     create: upsertData,

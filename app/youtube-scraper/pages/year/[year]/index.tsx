@@ -1,5 +1,5 @@
 import { getRange } from "@/utils/num-utils";
-import { FeatureInstance, PrismaClient, Video } from "@prisma/client";
+import { PrismaClient, Video, VideoScrapeInstance } from "@prisma/client";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/router";
 
@@ -7,7 +7,7 @@ type PParams = {
   year: string;
 };
 
-type AgQueryType<T> = Partial<{ [key in T]: true }>;
+type AgQueryType<T extends string> = Partial<{ [key in T]: true }>;
 
 export const getStaticPaths: GetStaticPaths<PParams> = () => {
   const years = getRange(2005, new Date().getFullYear());
@@ -17,9 +17,7 @@ export const getStaticPaths: GetStaticPaths<PParams> = () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<{ data: any }, PParams> = async ({
-  params,
-}) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const year = parseInt((params as PParams).year);
   const prisma = new PrismaClient();
   const where = {
@@ -30,14 +28,14 @@ export const getStaticProps: GetStaticProps<{ data: any }, PParams> = async ({
       },
     },
   };
-  const instanceKeys: AgQueryType<keyof FeatureInstance> = {
+  const instanceKeys: AgQueryType<keyof VideoScrapeInstance> = {
     views: true,
     ratings: true,
     stars: true,
     comments: true,
   };
 
-  const featureInstances = await prisma.featureInstance.aggregate({
+  const featureInstances = await prisma.videoScrapeInstance.aggregate({
     _avg: instanceKeys,
     _count: { id: true },
     _max: instanceKeys,
@@ -56,7 +54,11 @@ export const getStaticProps: GetStaticProps<{ data: any }, PParams> = async ({
     _max: videoKeys,
     _min: videoKeys,
     _sum: videoKeys,
-    where,
+    where: {
+      VideoScrapeInstances: {
+        every: { FeatureDate: { is: where.FeatureDate } },
+      },
+    },
   });
 
   return {
@@ -79,6 +81,3 @@ const YearPage = ({ agg }: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export default YearPage;
-
-20050614234128;
-20060000000000;
