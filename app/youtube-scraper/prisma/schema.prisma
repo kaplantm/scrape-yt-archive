@@ -23,6 +23,8 @@ model Video {
   featureInstance FeatureInstance[]
   featureDate     FeatureDate?      @relation(fields: [featureDateId], references: [id])
   featureDateId   Int?
+  User            User?             @relation(fields: [userId], references: [id])
+  userId          Int?
 
   @@index([authorId, title])
 }
@@ -38,23 +40,22 @@ model FeatureInstance {
   selectorId    Int?
   featureDate   FeatureDate @relation(fields: [featureDateId], references: [id])
   featureDateId Int
-  Video   Video? @relation(fields: [videoId], references: [id])
-  videoId Int?
-  User    User?  @relation(fields: [userId], references: [id])
-  userId  Int?
-
+  Video         Video?      @relation(fields: [videoId], references: [id])
+  videoId       Int?
+  User          User?       @relation(fields: [userId], references: [id])
+  userId        Int?
 
   @@index([featureDateId, videoId])
 }
 
 model User {
-  id              Int               @id @default(autoincrement())
-  username        String            @unique
-  link            String            @unique
-  videos          Video[]           @relation("author")
-  selected_videos Video[]           @relation("selector")
-  FeatureInstance FeatureInstance[]
-  Video           Video[]
+  id                Int               @id @default(autoincrement())
+  username          String            @unique
+  link              String            @unique
+  videos            Video[]           @relation("author")
+  selected_features FeatureInstance[] @relation("selector")
+  featureInstance   FeatureInstance[]
+  Video             Video[]
 }
 
 model FeatureDate {
