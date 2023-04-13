@@ -5,6 +5,7 @@ import {
   getISOStringFromWaybackTimestamp,
   safeSplit,
   safeTrim,
+  removeUrlTimestampPrefix,
 } from "../utils";
 
 const getCurriedTextFromClassById =
@@ -33,7 +34,9 @@ export const featuredEightScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     const views = getTextFromClass(".video-view-count");
     const authorLink = featuredItem.find(".video-username a").attr("href");
     console.log(featuredItem.find(".video-username a"));
-    console.log("**** authorLink", authorLink);
+    console.log("**** authorLink",  authorLink
+    ? removeUrlTimestampPrefix(snapshot.timestamp, authorLink)
+    : undefined,);
     const featuredVideo = {
       title: getTextFromClass(".video-long-title a"),
       duration: convertDurationToSeconds(getTextFromClass(".video-time")),
@@ -41,7 +44,9 @@ export const featuredEightScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       tags: [],
       views: parseInt(views.replace(",", "")) || undefined,
       author: getTextFromClass(".video-username"),
-      authorLink,
+      authorLink: authorLink
+        ? removeUrlTimestampPrefix(snapshot.timestamp, authorLink)
+        : undefined,
       videoId,
       uploadDate: undefined,
       comments: undefined,

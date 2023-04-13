@@ -7,7 +7,6 @@ CREATE TABLE "Video" (
     "uploadDate" TEXT,
     "authorId" INTEGER,
     "featureDateId" INTEGER NOT NULL,
-    "userId" INTEGER,
 
     CONSTRAINT "Video_pkey" PRIMARY KEY ("id")
 );
@@ -116,9 +115,6 @@ ALTER TABLE "Video" ADD CONSTRAINT "Video_authorId_fkey" FOREIGN KEY ("authorId"
 
 -- AddForeignKey
 ALTER TABLE "Video" ADD CONSTRAINT "Video_featureDateId_fkey" FOREIGN KEY ("featureDateId") REFERENCES "FeatureDate"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Video" ADD CONSTRAINT "Video_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "FeatureInstance" ADD CONSTRAINT "FeatureInstance_selectorId_fkey" FOREIGN KEY ("selectorId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;

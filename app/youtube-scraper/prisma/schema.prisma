@@ -23,8 +23,6 @@ model Video {
   FeatureInstance FeatureInstance[]
   FeatureDate     FeatureDate       @relation(fields: [featureDateId], references: [id])
   featureDateId   Int
-  User            User?             @relation(fields: [userId], references: [id])
-  userId          Int?
 
   @@index([authorId, title, videoUrlId])
 }
@@ -53,7 +51,6 @@ model User {
   link              String            @unique
   Videos            Video[]           @relation("author")
   Selected_features FeatureInstance[] @relation("selector")
-  Video             Video[]
 }
 
 model FeatureDate {

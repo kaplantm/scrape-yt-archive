@@ -3,6 +3,9 @@ import { Era, eraName } from "./types";
 import fs from "fs";
 import path from "path";
 
+export const removeUrlTimestampPrefix = (timestamp: string, url: string) =>
+  url.replace(`/web/${timestamp}/`, "");
+
 export const isInEra = (era: Era, timestamp: number) => {
   return timestamp >= era.start && timestamp <= era.end;
 };
