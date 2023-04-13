@@ -22,8 +22,6 @@ model Video {
   Author          User?             @relation("author", fields: [authorId], references: [id])
   authorId        Int?
   FeatureInstance FeatureInstance[]
-  FeatureDate     FeatureDate       @relation(fields: [featureDateId], references: [id])
-  featureDateId   Int
 
   @@index([authorId, title, videoUrlId])
 }
@@ -73,7 +71,6 @@ model FeatureDate {
   id                Int               @id @default(autoincrement())
   epoch_date        BigInt            @unique
   wayback_timestamp BigInt            @unique
-  Video             Video[]
   FeatureInstance   FeatureInstance[]
 }
 

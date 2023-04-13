@@ -31,3 +31,8 @@ pg_dump youtube_scraped -f /Users/tonikaplan/Documents/youtube_scraped_backup_fe
 
 restore from dump
 psql youtube_scraped < /Users/tonikaplan/Documents/youtube_scraped_backup_feature_1.dump 
+
+
+scraped to db:
+- feature 1
+- feature 2
