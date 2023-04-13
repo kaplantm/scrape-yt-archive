@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Video {
+  id          Int        @id @default(autoincrement())
+  title       String?
+  description String
+  videoUrlId  String
+  uploadDate  String? // only sometimes displayed by youtube. i might not use this, but don't want to throw it away
+  age         String? // i might not use this, but don't want to throw it away
+  comments    Int?
+  ratings     Int?
+  stars       Int?
+  views       Int?
+  tags        Tag[]
+  categories  Category[]
+  selector    User?      @relation("selector", fields: [authorId], references: [id])
+  author      User?      @relation("author", fields: [selectorId], references: [id])
+  authorId    Int?
+  selectorId  Int?
+
+
+  @@index([authorId, title, selectorId])
+}
+
+model User {
+  id              Int     @id @default(autoincrement())
+  username        String  @unique
+  link            String  @unique
+  videos          Video[] @relation("author")
+  selected_videos Video[] @relation("selector")
+}
+
+model FeatureDate {
+  id         Int    @id @default(autoincrement())
+  epoch_date String @unique
+}
+
+model Tag {
+  id     Int     @id @default(autoincrement())
+  name   String  @unique
+  videos Video[]
+}
+
+model Category {
+  id     Int     @id @default(autoincrement())
+  name   String  @unique
+  videos Video[]
+}
