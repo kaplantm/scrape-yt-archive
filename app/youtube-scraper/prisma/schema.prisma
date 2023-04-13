@@ -11,38 +11,57 @@ datasource db {
 }
 
 model Video {
-  id          Int        @id @default(autoincrement())
-  title       String?
-  description String
-  videoUrlId  String
-  uploadDate  String? // only sometimes displayed by youtube. i might not use this, but don't want to throw it away
-  age         String? // i might not use this, but don't want to throw it away
-  comments    Int?
-  ratings     Int?
-  stars       Int?
-  views       Int?
-  tags        Tag[]
-  categories  Category[]
-  selector    User?      @relation("selector", fields: [authorId], references: [id])
-  author      User?      @relation("author", fields: [selectorId], references: [id])
-  authorId    Int?
-  selectorId  Int?
+  id              Int               @id @default(autoincrement())
+  title           String?
+  description     String
+  videoUrlId      String            @unique
+  uploadDate      String? // only sometimes displayed by youtube. i might not use this, but don't want to throw it away
+  tags            Tag[]
+  categories      Category[]
+  author          User?             @relation("author", fields: [authorId], references: [id])
+  authorId        Int?
+  featureInstance FeatureInstance[]
+  featureDate     FeatureDate?      @relation(fields: [featureDateId], references: [id])
+  featureDateId   Int?
+
+  @@index([authorId, title])
+}
+
+model FeatureInstance {
+  id            Int         @id @default(autoincrement())
+  age           String? // i might not use this, but don't want to throw it away
+  comments      Int?
+  ratings       Int?
+  stars         Int?
+  views         Int?
+  selector      User?       @relation("selector", fields: [selectorId], references: [id])
+  selectorId    Int?
+  featureDate   FeatureDate @relation(fields: [featureDateId], references: [id])
+  featureDateId Int
+  Video   Video? @relation(fields: [videoId], references: [id])
+  videoId Int?
+  User    User?  @relation(fields: [userId], references: [id])
+  userId  Int?
 
 
-  @@index([authorId, title, selectorId])
+  @@index([featureDateId, videoId])
 }
 
 model User {
-  id              Int     @id @default(autoincrement())
-  username        String  @unique
-  link            String  @unique
-  videos          Video[] @relation("author")
-  selected_videos Video[] @relation("selector")
+  id              Int               @id @default(autoincrement())
+  username        String            @unique
+  link            String            @unique
+  videos          Video[]           @relation("author")
+  selected_videos Video[]           @relation("selector")
+  FeatureInstance FeatureInstance[]
+  Video           Video[]
 }
 
 model FeatureDate {
-  id         Int    @id @default(autoincrement())
-  epoch_date String @unique
+  id              Int               @id @default(autoincrement())
+  epoch_date      BigInt            @unique
+  Video           Video[]
+  FeatureInstance FeatureInstance[]
 }
 
 model Tag {

@@ -79,6 +79,7 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       tags: tags.filter((el) => el),
       views: parseInt(safeSplit(viewsText, "Views: ")[1]) || null,
       author: safeTrim(byText),
+      authorLink: featuredItem.find(".video-username").attr("href"),
       videoId: getVideoId(title.children("a").attr("href")),
       uploadDate: safeTrim(safeSplit(addedText, "Added:")?.[1]),
       comments: comments >= 0 ? comments : null,

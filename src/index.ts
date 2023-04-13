@@ -26,7 +26,14 @@ const mutableTargets: { [key: string]: Snapshot } = JSON.parse(
 const onTargetScraped = async (snapshot: Snapshot) => {
   mutableTargets[getKeyFromTimeStamp(snapshot.timestamp)] = snapshot;
 
-  await axios.post("http://localhost:3000/api/videos", { snapshot });
+  try {
+    await axios.post(
+      "http://localhost:3000/api/videos",
+      snapshot.featuredVideos
+    );
+  } catch (e) {
+    console.log("oof something went wrong");
+  }
   // fs.writeFileSync(
   //   path.resolve(__dirname, filePaths.outputs.snapshots),
   //   JSON.stringify(mutableTargets)

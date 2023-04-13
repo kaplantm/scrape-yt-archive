@@ -1,4 +1,4 @@
-import { ApiResponse, VideoDataRaw } from "@/services/types";
+import { ApiResponse, ErrorData, VideoDataRaw } from "@/services/types";
 import { Video } from "@prisma/client";
 import { PrismaClient, Prisma } from "@prisma/client";
 import { getVideoCreateArgs } from "./utils";
@@ -8,26 +8,48 @@ const prismaClient = new PrismaClient();
 export const createVideo = async (
   videoRaw: VideoDataRaw
 ): Promise<ApiResponse<Video>> => {
+  console.log("****** here createVideo");
   try {
     const data = await prismaClient.video.create(getVideoCreateArgs(videoRaw));
     return { status: 200, data };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
+    console.log("******errror", e);
     return { status: 500, data: { error: `Server Error ${e?.message}` } };
   }
 };
 
+
+// https://traveling-coderman.net/code/synchronous-promise-loop/
+export async function allSynchronously<T>(
+  resolvables: (() => Promise<T>)[]
+): Promise<T[]> {
+  const results = [];
+  for (const resolvable of resolvables) {
+    results.push(await resolvable());
+  }
+  return results;
+}
+
+// TODO: now better batch updates
 export const createVideos = async (
   videosRaw: VideoDataRaw[]
-): Promise<ApiResponse<Prisma.BatchPayload>> => {
+): Promise<ApiResponse<Video[]>> => {
+  console.log("****** here createVideos");
   try {
-    const data = await prismaClient.video.createMany({
-      data: videosRaw.map((videoRaw) => getVideoCreateArgs(videoRaw).data),
-      skipDuplicates: true,
-    });
+    // const data = await prismaClient.video.createMany({
+    //   data: videosRaw.map((videoRaw) => getVideoCreateArgs(videoRaw).data),
+    //   skipDuplicates: true,
+    // });
+    const data = (
+      await allSynchronously(
+        videosRaw.map((videoRaw) => async() => prismaClient.video.upsert(getVideoCreateArgs(videoRaw)))
+      )
+    ).map((result) => result);
     return { status: 200, data };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
+    console.log("****** here error createVideos", e);
     return { status: 500, data: { error: `Server Error ${e?.message}` } };
   }
 };
@@ -43,7 +65,6 @@ export const getVideo = async (
     return { status: 500, data: { error: `Server Error ${e?.message}` } };
   }
 };
-
 
 export const getVideos = async (
   args: Prisma.VideoFindManyArgs

@@ -70,6 +70,7 @@ export const featuredFourScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       tags,
       views: parseInt(views.replace(",", "")) || null,
       author: safeTrim(author),
+      authorLink: featuredItem.find(".video-username").attr("href"),
       videoId,
       uploadDate: null,
       comments: null,

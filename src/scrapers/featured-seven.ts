@@ -33,7 +33,7 @@ export const featuredSevenScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     );
     const getTextFromClass = getCurriedTextFromClassById(featuredItem);
     const views = getTextFromClass(".video-view-count");
-
+console.log("*************herrre")
     const featuredVideo = {
       title: getTextFromClass(".video-long-title a"),
       duration: convertDurationToSeconds(getTextFromClass(".video-time")),
@@ -41,6 +41,7 @@ export const featuredSevenScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       tags: [],
       views: parseInt(views.replace(",", "")) || null,
       author: getTextFromClass(".video-username"),
+      authorLink: featuredItem.find(".video-username").attr("href"),
       videoId,
       uploadDate: null,
       comments: null,

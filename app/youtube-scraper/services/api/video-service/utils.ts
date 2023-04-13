@@ -15,25 +15,32 @@ export const getVideoCreateArgs = (
     ratings: videoRaw.numRatings,
     stars: videoRaw.stars,
     views: videoRaw.views,
-    selector: getConnectOrCreate({
-      username: videoRaw.selectedBy,
-      link: videoRaw.selectedByLink,
+    // selector: getConnectOrCreate({
+    //   username: videoRaw.selectedBy,
+    //   link: videoRaw.selectedByLink,
+    // }),
+    author: {
+      connectOrCreate: {
+        where: {
+          username: videoRaw.author,
+        },
+        create: { username: videoRaw.author, link: videoRaw.authorLink },
+      },
+    },
+    // author: {
+    //   create: {
+    //     username: videoRaw.author,
+    //     link: videoRaw.authorLink,
+    //   },
+    // },
+    featureDate: getConnectOrCreate({
+      epoch_date: videoRaw.dateFeaturedEpoch,
     }),
-    author: getConnectOrCreate({
-      username: videoRaw.author,
-      link: videoRaw.authorLink,
-    }),
-    tags: getConnectOrCreateMany(
-      videoRaw.tags.map((tag: string) => ({ name: tag }))
-    ),
     categories: getConnectOrCreateMany(
       videoRaw.categories.map((category: string) => ({ name: category }))
     ),
-  },
-  include: {
-    author: true,
-    selector: true,
-    tags: true,
-    categories: true,
+    tags: getConnectOrCreateMany(
+      videoRaw.tags.map((tag: string) => ({ name: tag }))
+    ),
   },
 });

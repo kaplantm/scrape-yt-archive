@@ -67,6 +67,7 @@ export const featuredThreeScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       tags,
       views: parseInt(safeSplit(views, "Views: ")[1].replace(",", "")) || null,
       author: safeTrim(safeSplit(author, "From:")[1]),
+      authorLink: featuredItem.find(".video-username").attr("href"),
       videoId,
       uploadDate: null,
       comments: null,
