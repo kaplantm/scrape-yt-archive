@@ -13,7 +13,7 @@ import {
 } from "./utils";
 
 const scrapeTarget = async (snapshot: Snapshot) => {
-  console.log("snapshot.eraName", snapshot.eraName)
+  console.log("snapshot.eraName", snapshot.eraName);
   const scraper = eras[snapshot.eraName]?.scraper;
 
   if (!scraper) {
@@ -21,8 +21,6 @@ const scrapeTarget = async (snapshot: Snapshot) => {
   }
 
   try {
-    console.log("**** scraping", snapshot.timestamp);
-
     const mock = mockTargets ? featureMocks[snapshot.eraName] : undefined;
 
     if (process.env.MOCK && !mock) {
@@ -32,17 +30,24 @@ const scrapeTarget = async (snapshot: Snapshot) => {
     let data = mock;
 
     if (!data) {
+      console.log(
+        `////////// STARTING wayback request for ${snapshot.timestamp} //////////`
+      );
       // await sleep();
       data = (await axios.get(getWaybackUrl(snapshot.timestamp)))?.data;
     }
 
     if (!data) {
+      console.log(
+        `////////// COMPLETED wayback request for ${snapshot.timestamp} - ERROR //////////`
+      );
       throw new Error(`no data found for snapshot ${snapshot.timestamp}`);
     }
 
     const $ = load(data);
-
-    console.log("scraped - found", snapshot.timestamp);
+    console.log(
+      `////////// COMPLETED wayback request for ${snapshot.timestamp} - SUCCESS //////////`
+    );
     return {
       ...snapshot,
       checked: CheckedStatus.FOUND,
@@ -69,19 +74,24 @@ export const scrapeTargets = async (
   targets: Snapshot[],
   onTargetScraped: (snapshot: Snapshot) => void
 ) => {
-    // const selectedTargets = targetLimit ? targets.slice(0, targetLimit) : targets;
+  const selectedTargets = targetLimit ? targets.slice(0, targetLimit) : targets;
 
-    const selectedTargets = targets.slice(0, 1);
+  // const map = selectedTargets.map((target) => () => {
+  //   // const shouldCheck = onlyFeature
+  //   //   ? selectedTargets[0].eraName === eraName[onlyFeature as eraName]
+  //   //   : selectedTargets[0].checked !== CheckedStatus.FOUND;
+  //   // && parseInt(target.timestamp) > 20080514215055
+  //   // return shouldCheck ? processTarget(target, onTargetScraped) : target;
+  //   return processTarget(target, onTargetScraped);
+  // });
 
-    const map = selectedTargets.map((target) => () => {
-      // const shouldCheck = onlyFeature
-      //   ? selectedTargets[0].eraName === eraName[onlyFeature as eraName]
-      //   : selectedTargets[0].checked !== CheckedStatus.FOUND;
-      // && parseInt(target.timestamp) > 20080514215055
-      // return shouldCheck ? processTarget(target, onTargetScraped) : target;
-      return processTarget(target, onTargetScraped);
-    });
-    const results = await allSynchronously(map);
+  const map = selectedTargets.map((target) => () => {
+    const shouldCheck = onlyFeature
+      ? target.eraName === eraName[onlyFeature as eraName]
+      : target.checked !== CheckedStatus.FOUND;
+    return shouldCheck ? processTarget(target, onTargetScraped) : target;
+  });
+  const results = await allSynchronously(map);
 
-    return results;
+  return results;
 };

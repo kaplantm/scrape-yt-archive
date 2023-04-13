@@ -4,6 +4,7 @@ import {
   convertDurationToSeconds,
   getISOStringFromWaybackTimestamp,
   getVideoId,
+  removeUrlTimestampPrefix,
   safeSplit,
   safeTrim,
 } from "../utils";
@@ -48,9 +49,11 @@ export const featuredFourScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     const age = safeSplit(safeSplit(facets, "Added:")[1], "\n")[0];
     const categories = safeSplit(safeSplit(facets, "in Category:")[1], "\n")[0];
 
+    const facetLinks = featuredItem.find(".vfacets");
+    const authorLink = facetLinks.children("a").last().attr("href");
     const author = safeSplit(safeSplit(facets, "From:")[1], "\n")[0];
 
-    console.log({ author, facets });
+    console.log({ author, authorLink });
     const views = safeSplit(safeSplit(facets, "Views:")[1], "\n")[0];
 
     const videoId = getVideoId(title.find("a").attr("href"));
@@ -68,14 +71,14 @@ export const featuredFourScraper = ($: CheerioAPI, snapshot: Snapshot) => {
         moreDescription || featuredItem.find(".vdesc").text()
       ),
       tags,
-      views: parseInt(views.replace(",", "")) || undefined,
+      views: parseInt(views.replace(/,/g, "")) || undefined,
       author: safeTrim(author),
-      authorLink: featuredItem.find(".video-username").attr("href"),
+      authorLink: removeUrlTimestampPrefix(snapshot.timestamp, authorLink),
       videoId,
       uploadDate: undefined,
       comments: undefined,
       stars: findTotalStarRating($, featuredItem),
-      numRatings: parseInt(featuredItem.find("div.rating").text() || "0"),
+      numRatings: parseInt(featuredItem.find("div.rating").last().text() || "0"),
       age: safeTrim(age),
       dateFeaturedEpoch: date.getTime(),
       dateFeatured: `${date.toUTCString()}`,

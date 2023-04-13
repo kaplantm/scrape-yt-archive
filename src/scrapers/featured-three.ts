@@ -4,6 +4,7 @@ import {
   convertDurationToSeconds,
   getISOStringFromWaybackTimestamp,
   getVideoId,
+  removeUrlTimestampPrefix,
   safeSplit,
   safeTrim,
 } from "../utils";
@@ -56,6 +57,7 @@ export const featuredThreeScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       .removeAttr("style")
       .text();
 
+    console.log("***8*** a ", featuredItem.find(".facets > a"));
     const featuredVideo = {
       title: safeTrim(safeSplit(safeTrim(title.text()), "\n")[0]),
       duration: convertDurationToSeconds(
@@ -65,9 +67,13 @@ export const featuredThreeScraper = ($: CheerioAPI, snapshot: Snapshot) => {
         moreDescription || featuredItem.find(".desc").text()
       ),
       tags,
-      views: parseInt(safeSplit(views, "Views: ")[1].replace(",", "")) || undefined,
+      views:
+        parseInt(safeSplit(views, "Views: ")[1].replace(",", "")) || undefined,
       author: safeTrim(safeSplit(author, "From:")[1]),
-      authorLink: featuredItem.find(".video-username").attr("href"),
+      authorLink: removeUrlTimestampPrefix(
+        snapshot.timestamp,
+        featuredItem.find(".facets > a").attr("href")
+      ),
       videoId,
       uploadDate: undefined,
       comments: undefined,
@@ -77,7 +83,8 @@ export const featuredThreeScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       dateFeaturedEpoch: date.getTime(),
       dateFeatured: `${date.toUTCString()}`,
       timestampFeatured: snapshot.timestamp,
-      categories: safeSplit(categories, " ").map((el) => safeTrim(el)),
+      categories:
+        safeSplit(categories, " ").map((el) => safeTrim(el)) || undefined,
       selectedBy: undefined,
       selectedByLink: undefined,
     };

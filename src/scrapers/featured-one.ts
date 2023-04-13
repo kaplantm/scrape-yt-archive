@@ -3,6 +3,7 @@ import { FeaturedVideo, Snapshot } from "../types";
 import {
   getISOStringFromWaybackTimestamp,
   getVideoId,
+  removeUrlTimestampPrefix,
   safeSplit,
   safeTrim,
 } from "../utils";
@@ -34,6 +35,10 @@ export const featuredOneScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     const [uploadDateWithoutAuthor, authorFromUploadDate] = (uploadDate || "")
       .replace("By:", "by")
       .split("by");
+    const authorLink = removeUrlTimestampPrefix(
+      snapshot.timestamp,
+      featuredItem.find(".moduleFeaturedDetails a").attr("href")
+    );
     const [viewsText, commentsText] = $(details2).text().split("|");
 
     const comments = parseInt((commentsText || "").split("Comments: ")[1]);
@@ -41,7 +46,7 @@ export const featuredOneScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       title: featuredItem.children(".moduleFeaturedTitle").text().trim(),
       views: parseInt(safeSplit(viewsText, "Views: ")[1]) || undefined,
       author: safeTrim(authorFromUploadDate),
-      authorLink: featuredItem.find(".video-username").attr("href"),
+      authorLink,
       videoId: getVideoId(featuredItem.children("a").attr("href")),
       uploadDate: safeTrim(uploadDateWithoutAuthor),
       comments: comments >= 0 ? comments : undefined,

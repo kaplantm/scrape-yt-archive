@@ -12,19 +12,66 @@ const getCurriedTextFromClassById =
   (featuredItem: Cheerio<Element>) => (query: string) =>
     safeTrim(featuredItem.find(query).text());
 
-export const featuredEightScraper = ($: CheerioAPI, snapshot: Snapshot) => {
-  const container = $('.homepage-content-block:contains("Featured Videos")');
-  const featuredItems = container.find(".video-cell");
+// const getSpotlightVideos = (
+//   items: Cheerio<Element>,
+//   $: CheerioAPI,
+//   snapshot: Snapshot,
 
-  console.log("*****", { featuredItems: featuredItems.length });
+//   date: Date
+// ) => {
+//   const featuredVideos: FeaturedVideo[] = [];
+//   items.each((i, el) => {
+//     const featuredItem = $(el);
+//     const videoId = safeSplit(
+//       featuredItem.find(".video-long-title a").attr("id"),
+//       "video-long-title-"
+//     )[1];
+
+//     const getTextFromClass = getCurriedTextFromClassById(featuredItem);
+//     const views = getTextFromClass(".video-view-count");
+//     const authorLink = featuredItem.find(".video-username a").attr("href");
+
+//     const featuredVideo = {
+//       title: getTextFromClass(".video-long-title a"),
+//       duration: convertDurationToSeconds(getTextFromClass(".video-time")),
+//       description: getTextFromClass(".video-description"),
+//       tags: [],
+//       views: parseInt(views.replace(/,/g, "")) || undefined,
+//       author: getTextFromClass(".video-username"),
+//       authorLink: authorLink
+//         ? removeUrlTimestampPrefix(snapshot.timestamp, authorLink)
+//         : undefined,
+//       videoId,
+//       uploadDate: undefined,
+//       comments: undefined,
+//       stars: undefined,
+//       numRatings: undefined,
+//       age: undefined,
+//       dateFeaturedEpoch: date.getTime(),
+//       dateFeatured: `${date.toUTCString()}`,
+//       timestampFeatured: snapshot.timestamp,
+//       categories: [],
+//       selectedBy: undefined,
+//       selectedByLink: undefined,
+//       featureType: "spotlight",
+//     };
+
+//     featuredVideos.push(featuredVideo);
+//   });
+//   return featuredVideos;
+// };
+
+const getFeaturedVideos = (
+  items: Cheerio<Element>,
+  $: CheerioAPI,
+  snapshot: Snapshot,
+  featureType = "featured"
+) => {
+  const isoDateFeatured = getISOStringFromWaybackTimestamp(snapshot.timestamp);
+  const date = new Date(isoDateFeatured);
   const featuredVideos: FeaturedVideo[] = [];
-  featuredItems.each((i, el) => {
+  items.each((i, el) => {
     const featuredItem = $(el);
-    const isoDateFeatured = getISOStringFromWaybackTimestamp(
-      snapshot.timestamp
-    );
-    const date = new Date(isoDateFeatured);
-
     const videoId = safeSplit(
       featuredItem.find(".video-long-title a").attr("id"),
       "video-long-title-"
@@ -33,16 +80,15 @@ export const featuredEightScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     const getTextFromClass = getCurriedTextFromClassById(featuredItem);
     const views = getTextFromClass(".video-view-count");
     const authorLink = featuredItem.find(".video-username a").attr("href");
-    console.log(featuredItem.find(".video-username a"));
-    console.log("**** authorLink",  authorLink
-    ? removeUrlTimestampPrefix(snapshot.timestamp, authorLink)
-    : undefined,);
+
+    const stars = featuredItem.find(".ratingVS").attr("title");
+
     const featuredVideo = {
       title: getTextFromClass(".video-long-title a"),
       duration: convertDurationToSeconds(getTextFromClass(".video-time")),
       description: getTextFromClass(".video-description"),
       tags: [],
-      views: parseInt(views.replace(",", "")) || undefined,
+      views: parseInt(views.replace(/,/g, "")) || undefined,
       author: getTextFromClass(".video-username"),
       authorLink: authorLink
         ? removeUrlTimestampPrefix(snapshot.timestamp, authorLink)
@@ -50,7 +96,7 @@ export const featuredEightScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       videoId,
       uploadDate: undefined,
       comments: undefined,
-      stars: undefined,
+      stars: stars !== undefined ? parseFloat(stars) : undefined,
       numRatings: undefined,
       age: undefined,
       dateFeaturedEpoch: date.getTime(),
@@ -59,9 +105,23 @@ export const featuredEightScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       categories: [],
       selectedBy: undefined,
       selectedByLink: undefined,
+      featureType,
     };
 
     featuredVideos.push(featuredVideo);
   });
   return featuredVideos;
+};
+export const featuredEightScraper = ($: CheerioAPI, snapshot: Snapshot) => {
+  const featuredContainer = $(
+    '.homepage-content-block:contains("Featured Videos")'
+  );
+  const featuredItems = featuredContainer.find(".video-cell");
+  const spotlightContainer = $("#homepage-video-list");
+  const spotlightItems = spotlightContainer.find(".video-cell");
+
+  return [
+    ...getFeaturedVideos(featuredItems, $, snapshot),
+    ...getFeaturedVideos(spotlightItems, $, snapshot, "spotlight"),
+  ];
 };

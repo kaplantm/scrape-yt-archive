@@ -4,6 +4,7 @@ import {
   convertDurationToSeconds,
   getISOStringFromWaybackTimestamp,
   getVideoId,
+  removeUrlTimestampPrefix,
   safeSplit,
   safeTrim,
 } from "../utils";
@@ -12,8 +13,6 @@ import {
 // https://web.archive.org/web/20050822154924/http://www.youtube.com/ - run time and stars
 const findTotalStarRating = ($: CheerioAPI, item: Cheerio<Element>) => {
   let totalRating: number | undefined = undefined;
-  const found = item.find("nobr img.rating");
-  console.log("****", found);
   item.find("nobr img").each((i, el) => {
     const src = $(el).attr("src");
     if (src && !src.includes("star_sm_bg.gif")) {
@@ -58,9 +57,11 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       splitDetails2.length === 3 ? splitDetails2[2] : splitDetails2[1]
     );
 
-    const comments = parseInt(
-      safeTrim(safeSplit(commentsText, "Comments: ")[1])
-    );
+    const commentsNumText = safeTrim(safeSplit(commentsText, "Comments: ")[1]);
+
+    const comments = commentsNumText ? parseInt(commentsNumText) : undefined;
+
+    console.log("splitDetails2", { splitDetails2, commentsText, comments });
 
     const tagsText = featuredItem.find(".moduleEntryTags").text();
     const tags = safeSplit(safeSplit(tagsText, "Tags //")[1], ":").map((el) =>
@@ -79,10 +80,10 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       tags: tags.filter((el) => el),
       views: parseInt(safeSplit(viewsText, "Views: ")[1]) || undefined,
       author: safeTrim(byText),
-      authorLink: featuredItem.find(".video-username").attr("href"),
+      authorLink: removeUrlTimestampPrefix(snapshot.timestamp, featuredItem.find(".moduleEntryDetails a").attr("href"), true),
       videoId: getVideoId(title.children("a").attr("href")),
       uploadDate: safeTrim(safeSplit(addedText, "Added:")?.[1]),
-      comments: comments >= 0 ? comments : undefined,
+      comments,
       dateFeaturedEpoch: date.getTime(),
       dateFeatured: `${date.toUTCString()}`,
       timestampFeatured: snapshot.timestamp,

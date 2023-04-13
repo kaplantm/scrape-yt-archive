@@ -3,8 +3,17 @@ import { Era, eraName } from "./types";
 import fs from "fs";
 import path from "path";
 
-export const removeUrlTimestampPrefix = (timestamp: string, url: string) =>
-  url.replace(`/web/${timestamp}/`, "");
+export const removeUrlTimestampPrefix = (
+  timestamp: string,
+  url?: string,
+  addYoutubeBase?: boolean
+) =>
+  url
+    ? url.replace(
+        `/web/${timestamp}/${addYoutubeBase ? "https://www.youtube.com/" : ""}`,
+        ""
+      )
+    : undefined;
 
 export const isInEra = (era: Era, timestamp: number) => {
   return timestamp >= era.start && timestamp <= era.end;
@@ -57,7 +66,10 @@ export const getEraBoundFromTimeStamp = (timestamp: string) =>
   parseInt(getKeyFromTimeStamp(timestamp));
 
 // https://stackoverflow.com/a/9640417
-export const convertDurationToSeconds = (duration: string): number => {
+export const convertDurationToSeconds = (
+  duration: string
+): number | undefined => {
+  if (!duration && duration !== "0") return undefined;
   const p = duration.split(":");
   let s = 0;
   let m = 1;

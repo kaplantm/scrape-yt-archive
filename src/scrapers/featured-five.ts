@@ -4,13 +4,15 @@ import {
   convertDurationToSeconds,
   getISOStringFromWaybackTimestamp,
   getVideoId,
+  removeUrlTimestampPrefix,
   safeSplit,
   safeTrim,
 } from "../utils";
 
 const findTotalStarRatingV1 = ($: CheerioAPI, item: Cheerio<Element>) => {
   let totalRating: number | undefined = undefined;
-  item.find("img.rating").each((i, el) => {
+  
+  item.find(".rating").each((i, el) => {
     const src = $(el).attr("src");
     if (
       src &&
@@ -67,6 +69,7 @@ export const featuredFiveScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     );
 
     const author = safeSplit(safeSplit(facets || info, "From:")[1], "\n")[0];
+    const authorLink = featuredItem.find(".hpVfacetLeft a").attr("href");
 
     const views = safeSplit(safeSplit(facets || info, "Views:")[1], "\n")[0];
 
@@ -89,9 +92,9 @@ export const featuredFiveScraper = ($: CheerioAPI, snapshot: Snapshot) => {
             .split("(more)\n                (less)")[0]
       ),
       tags: [],
-      views: parseInt(views.replace(",", "")) || undefined,
+      views: parseInt(views.replace(/,/g, "")) || undefined,
       author: safeTrim(author),
-      authorLink: featuredItem.find(".video-username").attr("href"),
+      authorLink: removeUrlTimestampPrefix(snapshot.timestamp, authorLink),
       videoId,
       uploadDate: undefined,
       comments: undefined,

@@ -4,7 +4,7 @@ import { filePaths } from "./constants";
 import { genSnapshotsList } from "./gen-snapshots-list";
 import { scrapeTargets } from "./scrape-targets";
 import { Snapshot } from "./types";
-import { getKeyFromTimeStamp, safeSplit, safeTrim } from "./utils";
+import { getKeyFromTimeStamp, onlyFeature, safeSplit, safeTrim } from "./utils";
 import axios from "axios";
 // TODO: final merged sheet - remove multiple appearances of same video on same day. take eariliest snapshot
 // TODO: find replace more less
@@ -26,14 +26,18 @@ const mutableTargets: { [key: string]: Snapshot } = JSON.parse(
 const onTargetScraped = async (snapshot: Snapshot) => {
   mutableTargets[getKeyFromTimeStamp(snapshot.timestamp)] = snapshot;
 
+  // console.log("scraped", snapshot.featuredVideos)
   try {
+    console.log(`////////// STARTING save data request for ${snapshot.timestamp} //////////`)
     await axios.post(
       "http://localhost:3000/api/videos",
       snapshot.featuredVideos
     );
   } catch (e) {
-    console.log("oof something went wrong");
+    console.log(`////////// COMPLETED save data request for ${snapshot.timestamp} - ERROR //////////`)
+    console.log(snapshot)
   }
+  console.log(`////////// COMPLETED save data request for ${snapshot.timestamp} //////////`)
   // fs.writeFileSync(
   //   path.resolve(__dirname, filePaths.outputs.snapshots),
   //   JSON.stringify(mutableTargets)
@@ -50,7 +54,7 @@ const onTargetScraped = async (snapshot: Snapshot) => {
 };
 
 const init = async () => {
-  // genSnapshotsList();
+  genSnapshotsList();
   scrapeTargets(Object.values(targets), onTargetScraped);
 };
 

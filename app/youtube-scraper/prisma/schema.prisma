@@ -14,6 +14,7 @@ model Video {
   id              Int               @id @default(autoincrement())
   title           String?
   description     String
+  duration        Int?
   videoUrlId      String            @unique
   uploadDate      String? // only sometimes displayed by youtube. i might not use this, but don't want to throw it away
   Tags            Tag[]
@@ -32,8 +33,9 @@ model FeatureInstance {
   age           String? // i might not use this, but don't want to throw it away
   comments      Int?
   ratings       Int?
-  stars         Int?
+  stars         Float?
   views         Int?
+  feature_type  String      @default("featured")
   Selector      User?       @relation("selector", fields: [selectorId], references: [id])
   selectorId    Int?
   FeatureDate   FeatureDate @relation(fields: [featureDateId], references: [id])
@@ -54,10 +56,11 @@ model User {
 }
 
 model FeatureDate {
-  id              Int               @id @default(autoincrement())
-  epoch_date      BigInt            @unique
-  Video           Video[]
-  FeatureInstance FeatureInstance[]
+  id                Int               @id @default(autoincrement())
+  epoch_date        BigInt            @unique
+  wayback_timestamp BigInt            @unique
+  Video             Video[]
+  FeatureInstance   FeatureInstance[]
 }
 
 model Tag {

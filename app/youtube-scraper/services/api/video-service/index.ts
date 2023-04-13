@@ -1,7 +1,7 @@
 import { ApiResponse, ErrorData, VideoDataRaw } from "@/services/types";
 import { Video } from "@prisma/client";
 import { PrismaClient, Prisma } from "@prisma/client";
-import { getFeatureInstanaceUpsertArgs, getVideoUpsertArgs } from "./utils";
+import { getFeatureInstanceUpsertArgs, getVideoUpsertArgs } from "./utils";
 
 const prismaClient = new PrismaClient();
 
@@ -47,7 +47,7 @@ export const createVideos = async (
             getVideoUpsertArgs(videoRaw)
           );
           await prismaClient.featureInstance.upsert(
-            getFeatureInstanaceUpsertArgs(videoRaw, video)
+            getFeatureInstanceUpsertArgs(videoRaw, video)
           );
           return video;
         })

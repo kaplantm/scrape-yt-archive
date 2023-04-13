@@ -4,6 +4,7 @@ import {
   convertDurationToSeconds,
   getISOStringFromWaybackTimestamp,
   getVideoId,
+  removeUrlTimestampPrefix,
   safeSplit,
   safeTrim,
 } from "../utils";
@@ -50,12 +51,19 @@ export const featuredSixScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     const views = safeSplit(safeSplit(facets || info, "Views:")[1], "\n")[0];
 
     const videoId = getVideoId(title.attr("href"));
-    const description = featuredItem.find(".vldesc").text();
+    const classSafeVideoId = videoId.replace(/-/g, "");
+    const description = featuredItem
+      .find(`#BeginvidDesc${classSafeVideoId}`)
+      .text();
     const moreDescription = featuredItem
-      .find(`#RemainvidDesc${videoId}`)
+      .find(`#RemainvidDesc${classSafeVideoId}`)
       .removeAttr("style")
       .text();
 
+    const authorLink = removeUrlTimestampPrefix(
+      snapshot.timestamp,
+      featuredItem.find(".vlfrom a").attr("href")
+    );
     const featuredVideo = {
       title: safeTrim(safeSplit(safeTrim(title.text()), "\n")[0]),
       duration: convertDurationToSeconds(
@@ -63,9 +71,9 @@ export const featuredSixScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       ),
       description: safeTrim(moreDescription || description),
       tags: [],
-      views: parseInt(views.replace(",", "")) || undefined,
+      views: parseInt(views.replace(/,/g, "")) || undefined,
       author: safeTrim(author),
-      authorLink: featuredItem.find(".video-username").attr("href"),
+      authorLink,
       videoId,
       uploadDate: undefined,
       comments: undefined,

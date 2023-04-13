@@ -23,4 +23,5 @@ export type VideoDataRaw = {
     categories: string[],
     selectedBy: string,
     selectedByLink: string
+    featureType?: string
 }

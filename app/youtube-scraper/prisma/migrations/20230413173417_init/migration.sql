@@ -3,6 +3,7 @@ CREATE TABLE "Video" (
     "id" SERIAL NOT NULL,
     "title" TEXT,
     "description" TEXT NOT NULL,
+    "duration" INTEGER,
     "videoUrlId" TEXT NOT NULL,
     "uploadDate" TEXT,
     "authorId" INTEGER,
@@ -17,8 +18,9 @@ CREATE TABLE "FeatureInstance" (
     "age" TEXT,
     "comments" INTEGER,
     "ratings" INTEGER,
-    "stars" INTEGER,
+    "stars" DOUBLE PRECISION,
     "views" INTEGER,
+    "feature_type" TEXT NOT NULL DEFAULT 'featured',
     "selectorId" INTEGER,
     "featureDateId" INTEGER NOT NULL,
     "videoId" INTEGER NOT NULL,
@@ -39,6 +41,7 @@ CREATE TABLE "User" (
 CREATE TABLE "FeatureDate" (
     "id" SERIAL NOT NULL,
     "epoch_date" BIGINT NOT NULL,
+    "wayback_timestamp" BIGINT NOT NULL,
 
     CONSTRAINT "FeatureDate_pkey" PRIMARY KEY ("id")
 );
@@ -91,6 +94,9 @@ CREATE UNIQUE INDEX "User_link_key" ON "User"("link");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "FeatureDate_epoch_date_key" ON "FeatureDate"("epoch_date");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "FeatureDate_wayback_timestamp_key" ON "FeatureDate"("wayback_timestamp");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Tag_name_key" ON "Tag"("name");
