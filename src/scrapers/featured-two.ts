@@ -61,13 +61,16 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
 
     const comments = commentsNumText ? parseInt(commentsNumText) : undefined;
 
-    console.log("splitDetails2", { splitDetails2, commentsText, comments });
-
     const tagsText = featuredItem.find(".moduleEntryTags").text();
     const tags = safeSplit(safeSplit(tagsText, "Tags //")[1], ":").map((el) =>
       safeTrim(el)
     );
 
+    const authorLink = removeUrlTimestampPrefix(
+      snapshot.timestamp,
+      featuredItem.find(".moduleEntryDetails a").attr("href"),
+      true
+    );
     const featuredVideo = {
       title: safeTrim(title.text()),
       description: safeSplit(
@@ -80,7 +83,8 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       tags: tags.filter((el) => el),
       views: parseInt(safeSplit(viewsText, "Views: ")[1]) || undefined,
       author: safeTrim(byText),
-      authorLink: removeUrlTimestampPrefix(snapshot.timestamp, featuredItem.find(".moduleEntryDetails a").attr("href"), true),
+      authorLink,
+      authorUsername: authorLink?.split("=")[authorLink?.split("=").length],
       videoId: getVideoId(title.children("a").attr("href")),
       uploadDate: safeTrim(safeSplit(addedText, "Added:")?.[1]),
       comments,

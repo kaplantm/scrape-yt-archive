@@ -24,3 +24,10 @@ detect private video "This video is private" or "This is a private video. Please
 
 git lfs pull
 start postgres locally postgres -D /usr/local/var/postgres
+
+
+backup
+pg_dump youtube_scraped -f /Users/tonikaplan/Documents/youtube_scraped_backup_feature_1.dump 
+
+restore from dump
+psql youtube_scraped < /Users/tonikaplan/Documents/youtube_scraped_backup_feature_1.dump 

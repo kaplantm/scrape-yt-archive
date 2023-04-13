@@ -34,7 +34,7 @@ export async function allSynchronously<T>(
 export const createVideos = async (
   videosRaw: VideoDataRaw[]
 ): Promise<ApiResponse<Video[]>> => {
-  console.log("****** here createVideos");
+  console.log(`****** here createVideos ${videosRaw?.length ? videosRaw[0].timestampFeatured : "no featured videos?"} count: ${videosRaw.length}`);
   try {
     // const data = await prismaClient.video.createMany({
     //   data: videosRaw.map((videoRaw) => getVideoCreateArgs(videoRaw).data),
