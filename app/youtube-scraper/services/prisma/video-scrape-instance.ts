@@ -68,6 +68,10 @@ export const getFirstVideoScrapeInstance = async (
 ) =>
   (await client.videoScrapeInstance.findFirst({
     orderBy: { [key]: sort },
-    include: { Video: true, FeatureDate: true, Selector: true },
+    include: {
+      Video: { include: { VideoScrapeInstances: true, Author: { include: { display_name: true, link: true } } } },
+      FeatureDate: true,
+      Selector: { include: { display_name: true, link: true } },
+    },
     where: { [key]: { not: null } },
   })) || null;

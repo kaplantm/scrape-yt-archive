@@ -33,6 +33,7 @@ model VideoScrapeInstance {
   ratings           Int?
   stars             Float?
   views             Int?
+  display_name      String // TODO: now add this for name at time of the snapshot
   feature_type      String      @default("featured")
   Selector          User?       @relation("selector", fields: [selectorId], references: [id])
   selectorId        Int?
@@ -46,6 +47,7 @@ model VideoScrapeInstance {
   @@index([featureDateId, videoId])
 }
 
+// TODO: now migation to add multiple author links
 model DisplayName {
   id    Int    @id @default(autoincrement())
   name  String @unique
@@ -61,10 +63,10 @@ model Link {
 model User {
   id                Int                   @id @default(autoincrement())
   username          String                @unique
-  display_name      DisplayName[]
+  DisplayName      DisplayName[]
   link              Link                  @relation(fields: [linkId], references: [id])
   Videos            Video[]               @relation("author")
-  Selected_features VideoScrapeInstance[] @relation("selector")
+  SelectedFeatures VideoScrapeInstance[] @relation("selector")
   linkId            Int
 }
 

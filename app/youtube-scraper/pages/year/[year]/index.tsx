@@ -1,4 +1,4 @@
-import YearPageContainer from "@/page_containers/year";
+import YearPageContainer from "@/components/page_containers/year";
 import { getFirstVideoScrapeInstance } from "@/services/prisma/video-scrape-instance";
 import { getRange } from "@/utils/num-utils";
 import { PrismaClient, Video, VideoScrapeInstance } from "@prisma/client";
@@ -9,9 +9,6 @@ import { ComponentProps } from "react";
 type PParams = {
   year: string;
 };
-
-type AgQueryType<T extends string> = Partial<{ [key in T]: true }>;
-
 export const getStaticPaths: GetStaticPaths<PParams> = () => {
   const years = getRange(2005, new Date().getFullYear());
   return {
@@ -21,7 +18,9 @@ export const getStaticPaths: GetStaticPaths<PParams> = () => {
 };
 
 const prisma = new PrismaClient();
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps<
+  ComponentProps<typeof YearPageContainer>
+> = async ({ params }) => {
   const year = parseInt((params as PParams).year);
   const where = {
     FeatureDate: {
@@ -63,6 +62,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       topVideos,
+      featureInstances,
     },
   };
 };
