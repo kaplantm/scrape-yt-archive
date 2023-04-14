@@ -1,7 +1,8 @@
-import { ApiResponse, ErrorData, VideoDataRaw } from "@/services/types";
+import { ApiResponse, VideoDataRaw } from "@/services/types";
 import { Video } from "@prisma/client";
 import { PrismaClient, Prisma } from "@prisma/client";
-import { getVideoScrapeInstanceUpsertArgs, getVideoUpsertArgs } from "./utils";
+import { getVideoUpsertArgs } from "../../prisma/video";
+import { getVideoScrapeInstanceUpsertArgs } from "../../prisma/video-scrape-instance";
 
 const prismaClient = new PrismaClient();
 
@@ -34,7 +35,11 @@ export async function allSynchronously<T>(
 export const createVideos = async (
   videosRaw: VideoDataRaw[]
 ): Promise<ApiResponse<Video[]>> => {
-  console.log(`****** here createVideos ${videosRaw?.length ? videosRaw[0].timestampFeatured : "no featured videos?"} count: ${videosRaw.length}`);
+  console.log(
+    `****** here createVideos ${
+      videosRaw?.length ? videosRaw[0].timestampFeatured : "no featured videos?"
+    } count: ${videosRaw.length}`
+  );
   try {
     // const data = await prismaClient.video.createMany({
     //   data: videosRaw.map((videoRaw) => getVideoCreateArgs(videoRaw).data),
@@ -58,8 +63,6 @@ export const createVideos = async (
     return { status: 200, data };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
-    console.log("****** ERROR create videos", videosRaw);
-    console.log("****** ERROR create videos", e);
     return { status: 500, data: { error: `Server Error ${e?.message}` } };
   }
 };

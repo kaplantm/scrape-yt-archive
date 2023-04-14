@@ -1,7 +1,10 @@
+import YearPageContainer from "@/page_containers/year";
+import { getFirstVideoScrapeInstance } from "@/services/prisma/video-scrape-instance";
 import { getRange } from "@/utils/num-utils";
 import { PrismaClient, Video, VideoScrapeInstance } from "@prisma/client";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/router";
+import { ComponentProps } from "react";
 
 type PParams = {
   year: string;
@@ -17,9 +20,9 @@ export const getStaticPaths: GetStaticPaths<PParams> = () => {
   };
 };
 
+const prisma = new PrismaClient();
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const year = parseInt((params as PParams).year);
-  const prisma = new PrismaClient();
   const where = {
     FeatureDate: {
       epoch_date: {
@@ -28,56 +31,44 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       },
     },
   };
-  const instanceKeys: AgQueryType<keyof VideoScrapeInstance> = {
-    views: true,
-    ratings: true,
-    stars: true,
-    comments: true,
-  };
 
   const featureInstances = await prisma.videoScrapeInstance.aggregate({
-    _avg: instanceKeys,
-    _count: { id: true },
-    _max: instanceKeys,
-    _min: instanceKeys,
-    _sum: instanceKeys,
+    _avg: {
+      ratings: true,
+      stars: true,
+      comments: true,
+    },
     where,
   });
 
-  const videoKeys: AgQueryType<keyof Video> = {
-    duration: true,
+  const topVideos = {
+    mostViewedVideo: await getFirstVideoScrapeInstance(prisma),
+    leastViewedVideo: await getFirstVideoScrapeInstance(prisma, "views", "asc"),
+    mostRatedVideo: await getFirstVideoScrapeInstance(prisma, "ratings"),
+    leastRatedVideo: await getFirstVideoScrapeInstance(
+      prisma,
+      "ratings",
+      "asc"
+    ),
+    topRatedVideo: await getFirstVideoScrapeInstance(prisma, "stars"),
+    bottomRatedVideo: await getFirstVideoScrapeInstance(prisma, "stars", "asc"),
+    mostDiscussed: await getFirstVideoScrapeInstance(prisma, "comments"),
+    leastDiscussed: await getFirstVideoScrapeInstance(
+      prisma,
+      "comments",
+      "asc"
+    ),
   };
-
-  const videos = await prisma.video.aggregate({
-    _avg: videoKeys,
-    _count: { id: true },
-    _max: videoKeys,
-    _min: videoKeys,
-    _sum: videoKeys,
-    where: {
-      VideoScrapeInstances: {
-        every: { FeatureDate: { is: where.FeatureDate } },
-      },
-    },
-  });
 
   return {
     props: {
-      agg: { featureInstances, videos },
+      topVideos,
     },
   };
 };
 
-const YearPage = ({ agg }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const router = useRouter();
-  const { year } = router.query as PParams;
-
-  return (
-    <div>
-      <header>{year}</header>
-      <pre>{JSON.stringify(agg, null, 2)}</pre>
-    </div>
-  );
-};
+const YearPage = (props: ComponentProps<typeof YearPageContainer>) => (
+  <YearPageContainer {...props} />
+);
 
 export default YearPage;
