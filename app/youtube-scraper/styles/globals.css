@@ -27,6 +27,7 @@ body {
 }
 
 
+/* Used to wrap youtube iframe so it flexes */
 .video-container {
   width: 100%;
   flex: 1;
@@ -40,4 +41,16 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.hide-scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

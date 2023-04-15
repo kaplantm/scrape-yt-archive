@@ -1,89 +1,110 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// generator client {
+//   provider = "prisma-client-js"
+//   output = "../node_modules/.prisma/client" // https://github.com/prisma/prisma/issues/2584#issuecomment-646414549
+// }
+
 generator client {
   provider = "prisma-client-js"
+  output = "../node_modules/.prisma/client"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
 model Video {
-  id                  Int                   @id @default(autoincrement())
-  title               String?
-  description         String
-  duration            Int?
-  videoUrlId          String                @unique
-  uploadDate          String? // only sometimes displayed by youtube. i might not use this, but don't want to throw it away
-  Tags                Tag[]
-  Categories          Category[]
-  Author              User?                 @relation("author", fields: [authorId], references: [id])
-  authorId            Int?
+  id                   Int                   @id @default(autoincrement())
+  youtubeVideoId       String                @unique
+  uploadDate           String? // only sometimes displayed by youtube. i might not use this, but don't want to throw it away
+  // RELATIONS
+  Author               User                  @relation("author", fields: [authorId], references: [id])
+  authorId             Int
   VideoScrapeInstances VideoScrapeInstance[]
+  Links                Link[]
 
-  @@index([authorId, title, videoUrlId])
+  @@index([authorId, youtubeVideoId])
 }
 
 model VideoScrapeInstance {
-  id                Int         @id @default(autoincrement())
-  age               String? // i might not use this, but don't want to throw it away
-  comments          Int?
-  ratings           Int?
-  stars             Float?
-  views             Int?
-  display_name      String // TODO: now add this for name at time of the snapshot
-  feature_type      String      @default("featured")
-  Selector          User?       @relation("selector", fields: [selectorId], references: [id])
-  selectorId        Int?
-  FeatureDate       FeatureDate @relation(fields: [featureDateId], references: [id])
-  featureDateId     Int
-  Video             Video       @relation(fields: [videoId], references: [id])
-  videoId           Int
-  wayback_timestamp BigInt
+  id               Int         @id @default(autoincrement())
+  title            String
+  description      String?     @db.LongText
+  duration         Int?
+  age              String? // i might not use this, but don't want to throw it away
+  comments         Int?
+  ratings          Int?
+  stars            Float?
+  views            Int?
+  featureType      String      @default("featured")
+  waybackTimestamp BigInt
+  // RELATIONS
+  Selector         User?       @relation("selector", fields: [selectorId], references: [id])
+  selectorId       Int?
+  FeatureDate      FeatureDate @relation(fields: [featureDateId], references: [id])
+  featureDateId    Int
+  Video            Video       @relation(fields: [videoId], references: [id])
+  videoId          Int
+  DisplayName      ChannelName @relation(fields: [displayNameId], references: [id])
+  displayNameId    Int
+  Link             Link        @relation(fields: [linkId], references: [id])
+  linkId           Int
+  Tags             Tag[]
+  Categories       Category[]
 
-  @@unique([videoId, wayback_timestamp])
-  @@index([featureDateId, videoId])
+  @@unique([videoId, waybackTimestamp])
+  @@index([featureDateId, videoId, title])
 }
 
-// TODO: now migation to add multiple author links
-model DisplayName {
-  id    Int    @id @default(autoincrement())
-  name  String @unique
-  Users User[]
+model ChannelName {
+  id                   Int                   @id @default(autoincrement())
+  name                 String                @unique
+  UserWithUsername     User?                 @relation("username")
+  UsersWithDisplayName User[]
+  VideoScrapeInstance  VideoScrapeInstance[]
 }
 
 model Link {
-  id   Int    @id @default(autoincrement())
-  url  String @unique
-  User User[]
+  id                  Int                   @id @default(autoincrement())
+  url                 String                @unique
+  videoId             Int?
+  // RELATIONS
+  User                User[]
+  Video               Video?                @relation(fields: [videoId], references: [id])
+  VideoScrapeInstance VideoScrapeInstance[]
 }
 
 model User {
-  id                Int                   @id @default(autoincrement())
-  username          String                @unique
-  DisplayName      DisplayName[]
-  link              Link                  @relation(fields: [linkId], references: [id])
-  Videos            Video[]               @relation("author")
+  id               Int                   @id @default(autoincrement())
+  // RELATIONS
+  Username         ChannelName           @relation("username", fields: [usernameId], references: [id])
+  usernameId       Int                   @unique
+  DisplayName      ChannelName[]
+  Links            Link[]
+  Videos           Video[]               @relation("author")
   SelectedFeatures VideoScrapeInstance[] @relation("selector")
-  linkId            Int
 }
 
 model FeatureDate {
   id                  Int                   @id @default(autoincrement())
-  epoch_date          BigInt                @unique
+  // RELATIONS
+  epochDate           BigInt                @unique
   VideoScrapeInstance VideoScrapeInstance[]
 }
 
 model Tag {
-  id     Int     @id @default(autoincrement())
-  name   String  @unique
-  Videos Video[]
+  id                  Int                   @id @default(autoincrement())
+  name                String                @unique
+  // RELATIONS
+  VideoScrapeInstance VideoScrapeInstance[]
 }
 
 model Category {
-  id     Int     @id @default(autoincrement())
-  name   String  @unique
-  Videos Video[]
+  id                  Int                   @id @default(autoincrement())
+  name                String                @unique
+  // RELATIONS
+  VideoScrapeInstance VideoScrapeInstance[]
 }

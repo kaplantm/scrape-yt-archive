@@ -23,8 +23,8 @@ detect private video "This video is private" or "This is a private video. Please
 
 
 git lfs pull
-start postgres locally postgres -D /usr/local/var/postgres
-
+start postgres locally postgres -D /usr/local/var/postgres - swapped from postgress to mysql so i can use sequelace gui
+brew services start mysql
 
 backup
 pg_dump youtube_scraped -f /Users/tonikaplan/Documents/youtube_scraped_backup_feature_1.dump 
@@ -33,6 +33,19 @@ restore from dump
 psql youtube_scraped < /Users/tonikaplan/Documents/youtube_scraped_backup_feature_1.dump 
 
 
-scraped to db:
-- feature 1
-- feature 2
+<!-- // TODO: now migation to add multiple author links -->
+<!-- // TODO: videos have multiple links -->
+<!-- // TODO: now multiple usernames? -->
+<!-- // move duration, title, description to videofeatureinstance -->
+// write fails to file
+
+// Ideas:
+// longest time featured
+// most featured feature user
+// list all titles
+
+
+// Pages:
+// all time page
+// month details page
+

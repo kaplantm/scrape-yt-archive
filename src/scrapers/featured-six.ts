@@ -50,7 +50,11 @@ export const featuredSixScraper = ($: CheerioAPI, snapshot: Snapshot) => {
 
     const views = safeSplit(safeSplit(facets || info, "Views:")[1], "\n")[0];
 
-    const videoId = getVideoId(title.attr("href"));
+    const videoLink = removeUrlTimestampPrefix(
+      snapshot.timestamp,
+      title.attr("href")
+    );
+    const videoId = getVideoId(videoLink);
     const classSafeVideoId = videoId.replace(/-/g, "");
     const description = featuredItem
       .find(`#BeginvidDesc${classSafeVideoId}`)
@@ -75,6 +79,7 @@ export const featuredSixScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       author: safeTrim(author),
       authorLink,
       videoId,
+      videoLink,
       uploadDate: undefined,
       comments: undefined,
       stars: findTotalStarRating($, featuredItem),

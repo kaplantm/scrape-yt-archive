@@ -43,9 +43,11 @@ export const featuredSevenScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     );
     const date = new Date(isoDateFeatured);
 
-    const videoId = getVideoId(
+    const videoLink = removeUrlTimestampPrefix(
+      snapshot.timestamp,
       featuredItem.find(".video-long-title a").attr("href")
     );
+    const videoId = getVideoId(videoLink);
     const getTextFromClass = getCurriedTextFromClassById(featuredItem);
     const views = getTextFromClass(".video-view-count");
 
@@ -61,6 +63,7 @@ export const featuredSevenScraper = ($: CheerioAPI, snapshot: Snapshot) => {
         featuredItem.find(".video-username a").attr("href")
       ),
       videoId,
+      videoLink,
       uploadDate: undefined,
       comments: undefined,
       stars:

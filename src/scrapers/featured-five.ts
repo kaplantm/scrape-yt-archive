@@ -11,7 +11,7 @@ import {
 
 const findTotalStarRatingV1 = ($: CheerioAPI, item: Cheerio<Element>) => {
   let totalRating: number | undefined = undefined;
-  
+
   item.find(".rating").each((i, el) => {
     const src = $(el).attr("src");
     if (
@@ -69,11 +69,18 @@ export const featuredFiveScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     );
 
     const author = safeSplit(safeSplit(facets || info, "From:")[1], "\n")[0];
-    const authorLink = featuredItem.find(".hpVfacetLeft a").attr("href");
+    const authorLink = removeUrlTimestampPrefix(
+      snapshot.timestamp,
+      featuredItem.find(".hpVfacetLeft a").attr("href")
+    );
 
     const views = safeSplit(safeSplit(facets || info, "Views:")[1], "\n")[0];
 
-    const videoId = getVideoId(title.find("a").attr("href"));
+    const videoLink = removeUrlTimestampPrefix(
+      snapshot.timestamp,
+      title.find("a").attr("href")
+    );
+    const videoId = getVideoId(videoLink);
     const moreDescription = featuredItem
       .find(`#RemainvidDesc${videoId}`)
       .removeAttr("style")
@@ -96,6 +103,7 @@ export const featuredFiveScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       author: safeTrim(author),
       authorLink: removeUrlTimestampPrefix(snapshot.timestamp, authorLink),
       videoId,
+      videoLink,
       uploadDate: undefined,
       comments: undefined,
       stars: findTotalStarRating($, featuredItem),

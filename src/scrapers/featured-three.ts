@@ -50,7 +50,11 @@ export const featuredThreeScraper = ($: CheerioAPI, snapshot: Snapshot) => {
 
     const [ageWithoutCategory, categories] = age.split("in Category:");
 
-    const videoId = getVideoId(title.find("a").attr("href"));
+    const videoLink = removeUrlTimestampPrefix(
+      snapshot.timestamp,
+      title.find("a").attr("href")
+    );
+    const videoId = getVideoId(videoLink);
 
     const moreDescription = featuredItem
       .find(`#RemainvidDesc${videoId}`)
@@ -75,6 +79,7 @@ export const featuredThreeScraper = ($: CheerioAPI, snapshot: Snapshot) => {
         featuredItem.find(".facets > a").attr("href")
       ),
       videoId,
+      videoLink,
       uploadDate: undefined,
       comments: undefined,
       stars: findTotalStarRating($, featuredItem),

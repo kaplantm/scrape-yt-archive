@@ -12,55 +12,6 @@ const getCurriedTextFromClassById =
   (featuredItem: Cheerio<Element>) => (query: string) =>
     safeTrim(featuredItem.find(query).text());
 
-// const getSpotlightVideos = (
-//   items: Cheerio<Element>,
-//   $: CheerioAPI,
-//   snapshot: Snapshot,
-
-//   date: Date
-// ) => {
-//   const featuredVideos: FeaturedVideo[] = [];
-//   items.each((i, el) => {
-//     const featuredItem = $(el);
-//     const videoId = safeSplit(
-//       featuredItem.find(".video-long-title a").attr("id"),
-//       "video-long-title-"
-//     )[1];
-
-//     const getTextFromClass = getCurriedTextFromClassById(featuredItem);
-//     const views = getTextFromClass(".video-view-count");
-//     const authorLink = featuredItem.find(".video-username a").attr("href");
-
-//     const featuredVideo = {
-//       title: getTextFromClass(".video-long-title a"),
-//       duration: convertDurationToSeconds(getTextFromClass(".video-time")),
-//       description: getTextFromClass(".video-description"),
-//       tags: [],
-//       views: parseInt(views.replace(/,/g, "")) || undefined,
-//       author: getTextFromClass(".video-username"),
-//       authorLink: authorLink
-//         ? removeUrlTimestampPrefix(snapshot.timestamp, authorLink)
-//         : undefined,
-//       videoId,
-//       uploadDate: undefined,
-//       comments: undefined,
-//       stars: undefined,
-//       numRatings: undefined,
-//       age: undefined,
-//       dateFeaturedEpoch: date.getTime(),
-//       dateFeatured: `${date.toUTCString()}`,
-//       timestampFeatured: snapshot.timestamp,
-//       categories: [],
-//       selectedBy: undefined,
-//       selectedByLink: undefined,
-//       featureType: "spotlight",
-//     };
-
-//     featuredVideos.push(featuredVideo);
-//   });
-//   return featuredVideos;
-// };
-
 const getFeaturedVideos = (
   items: Cheerio<Element>,
   $: CheerioAPI,
@@ -72,6 +23,11 @@ const getFeaturedVideos = (
   const featuredVideos: FeaturedVideo[] = [];
   items.each((i, el) => {
     const featuredItem = $(el);
+
+    const videoLink = removeUrlTimestampPrefix(
+      snapshot.timestamp,
+      featuredItem.find(".video-long-title a").attr("id")
+    );
     const videoId = safeSplit(
       featuredItem.find(".video-long-title a").attr("id"),
       "video-long-title-"
@@ -79,7 +35,10 @@ const getFeaturedVideos = (
 
     const getTextFromClass = getCurriedTextFromClassById(featuredItem);
     const views = getTextFromClass(".video-view-count");
-    const authorLink = featuredItem.find(".video-username a").attr("href");
+    const authorLink = removeUrlTimestampPrefix(
+      snapshot.timestamp,
+      featuredItem.find(".video-username a").attr("href")
+    );
 
     const stars = featuredItem.find(".ratingVS").attr("title");
 
@@ -90,9 +49,8 @@ const getFeaturedVideos = (
       tags: [],
       views: parseInt(views.replace(/,/g, "")) || undefined,
       author: getTextFromClass(".video-username"),
-      authorLink: authorLink
-        ? removeUrlTimestampPrefix(snapshot.timestamp, authorLink)
-        : undefined,
+      authorLink: removeUrlTimestampPrefix(snapshot.timestamp, authorLink),
+      videoLink,
       videoId,
       uploadDate: undefined,
       comments: undefined,

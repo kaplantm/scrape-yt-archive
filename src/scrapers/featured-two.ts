@@ -71,6 +71,11 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       featuredItem.find(".moduleEntryDetails a").attr("href"),
       true
     );
+
+    const videoLink = removeUrlTimestampPrefix(
+      snapshot.timestamp,
+      title.children("a").attr("href")
+    );
     const featuredVideo = {
       title: safeTrim(title.text()),
       description: safeSplit(
@@ -85,7 +90,8 @@ export const featuredTwoScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       author: safeTrim(byText),
       authorLink,
       authorUsername: authorLink?.split("=")[authorLink?.split("=").length],
-      videoId: getVideoId(title.children("a").attr("href")),
+      videoId: getVideoId(videoLink),
+      videoLink,
       uploadDate: safeTrim(safeSplit(addedText, "Added:")?.[1]),
       comments,
       dateFeaturedEpoch: date.getTime(),

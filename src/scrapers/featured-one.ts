@@ -42,6 +42,10 @@ export const featuredOneScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     );
     const [viewsText, commentsText] = $(details2).text().split("|");
 
+    const videoLink = removeUrlTimestampPrefix(
+      snapshot.timestamp,
+      featuredItem.children("a").attr("href")
+    );
     const comments = parseInt((commentsText || "").split("Comments: ")[1]);
     const featuredVideo = {
       title: featuredItem.children(".moduleFeaturedTitle").text().trim(),
@@ -49,7 +53,8 @@ export const featuredOneScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       author: safeTrim(authorFromUploadDate),
       authorUsername: authorLink?.split("=")[authorLink?.split("=").length],
       authorLink,
-      videoId: getVideoId(featuredItem.children("a").attr("href")),
+      videoId: getVideoId(videoLink),
+      videoLink,
       uploadDate: safeTrim(uploadDateWithoutAuthor),
       comments: comments >= 0 ? comments : undefined,
       dateFeaturedEpoch: date.getTime(),

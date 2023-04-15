@@ -29,8 +29,8 @@ const onTargetScraped = async (snapshot: Snapshot) => {
   // console.log("scraped", snapshot.featuredVideos)
   try {
     console.log(`////////// STARTING save data request for ${snapshot.timestamp} //////////`)
-    await axios.post(
-      "http://localhost:3000/api/videos",
+    await axios.put(
+      "http://localhost:3000/api/video-scrape-instances",
       snapshot.featuredVideos
     );
   } catch (e) {
