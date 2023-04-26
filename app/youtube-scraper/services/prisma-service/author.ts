@@ -13,4 +13,23 @@ export const authorRawQueries = {
       start,
       end
     )}`,
+  mostFeaturedAuthor: async (start: number, end: number): Promise<CountResult> =>
+    prisma.$queryRaw`
+    SELECT 
+    User.id,
+    ChannelName.name,
+    COUNT(DISTINCT(Video.id)) as count
+    FROM 
+      VideoScrapeInstance
+      INNER JOIN FeatureDate on FeatureDate.id = VideoScrapeInstance.featureDateId
+      INNER JOIN Video ON Video.id = VideoScrapeInstance.videoId
+      INNER JOIN User ON User.id = Video.authorId 
+      INNER JOIN _ChannelNameToUser ON _ChannelNameToUser.B = User.id
+      INNER JOIN ChannelName ON ChannelName.id = _ChannelNameToUser.A
+    ${getWhereEpochDateWithin(start, end)}
+    GROUP BY 
+      User.id, ChannelName.name
+    ORDER BY 
+      COUNT(DISTINCT(Video.id)) DESC
+    LIMIT 5`,
 };

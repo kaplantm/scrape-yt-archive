@@ -3,10 +3,9 @@ import VideoCallout from "components/HighlightedVideo";
 import { generatePageStaticProps } from "./helpers/page-generation";
 import { Fragment, memo } from "react";
 
-type foo = Awaited<ReturnType<typeof generatePageStaticProps>>;
 const YearPageContainer = (props: Awaited<ReturnType<typeof generatePageStaticProps>>) => {
   console.log("***** YearPageContainer", props);
-  const { highlightedFeaturedVideos, mostLeastList, counts } = props;
+  const { highlightedFeaturedVideos, mostLeastList, counts, mostFeaturedAuthors } = props;
 
   const router = useRouter();
   const { year } = router.query;
@@ -31,6 +30,20 @@ const YearPageContainer = (props: Awaited<ReturnType<typeof generatePageStaticPr
               </section>
             )
         )}
+      {!!mostFeaturedAuthors?.length && (
+        <div className="flex gap-5">
+          <p>Most Featured Authors</p>
+          <ul className="flex gap-5">
+            {mostFeaturedAuthors.map((el) => (
+              <li key={el.name}>
+                <a target="_blank" href={`https://www.youtube.com/@${el.name}`}>
+                  {el.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       {Object.values(counts).map((el) => !!el?.value && <p key={el.label}>{`${el.value} ${el.label}`}</p>)}
       <section>
         <div className="grid grid-cols-2 gap-4">

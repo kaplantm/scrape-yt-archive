@@ -76,7 +76,6 @@ export const getVideoScrapeCreateInput = (
 });
 
 export const getFirstVideoScrapeInstance = async (
-  prisma: PrismaClient,
   key: keyof VideoScrapeInstance = "views",
   sort = "desc",
   where?: Prisma.VideoScrapeInstanceWhereInput
@@ -102,12 +101,10 @@ export const getFirstVideoScrapeInstance = async (
   })) || null;
 
 export const getMostAndLeastScrapeInstance = async ({
-  prisma,
   key,
   options: { most, least, sentiment },
   where,
 }: {
-  prisma: PrismaClient;
   key: keyof VideoScrapeInstance;
   options: {
     most: string;
@@ -116,8 +113,8 @@ export const getMostAndLeastScrapeInstance = async ({
   };
   where?: Prisma.VideoScrapeInstanceWhereInput;
 }) => {
-  const mostVideoScrapeInstance = await getFirstVideoScrapeInstance(prisma, key, "desc", where);
-  const leastVideoScrapeInstance = await getFirstVideoScrapeInstance(prisma, key, "asc", where);
+  const mostVideoScrapeInstance = await getFirstVideoScrapeInstance(key, "desc", where);
+  const leastVideoScrapeInstance = await getFirstVideoScrapeInstance(key, "asc", where);
   return {
     most: {
       videoScrapeInstance: mostVideoScrapeInstance,
@@ -178,18 +175,18 @@ export const videoScrapeInstanceRawQueries = {
                   ORDER BY latestFeature ASC
                   LIMIT 1) AS late
                 ${getWhereEpochDateWithin(start, end)}
-                ORDER BY timeDiff DESC`,
+                ORDER BY timeDiff DESC LIMIT 1`,
 };
 
 export const getLongestTimeFeatured = async (start: number, end: number) => {
-  const data = (await videoScrapeInstanceRawQueries.longestTimeFeatured(start, end)) as VideoScrapeInstance & {
+  const instance = (await videoScrapeInstanceRawQueries.longestTimeFeatured(start, end))[0] as VideoScrapeInstance & {
     timeDiff: number;
   };
 
   return {
     most: {
-      videoScrapeInstance: data,
-      value: data.timeDiff ? roundToNearest(msToDays(data.timeDiff)) : 0,
+      videoScrapeInstance: await getFirstVideoScrapeInstance("id","asc", {id: instance.id}),
+      value: instance.timeDiff ? `${roundToNearest(msToDays(instance.timeDiff))} Day(s)` : 0,
       label: "Longest Time Featued",
       sentiment: "positive",
     },
