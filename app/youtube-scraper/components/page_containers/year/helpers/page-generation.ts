@@ -44,37 +44,33 @@ export const generatePageStaticProps = async ({ params }: GetStaticPropsContext)
     mostLeastList: [
       {
         value: await tagRawQueries.mostFeaturedTags(start, end),
-        label: "Most popular tags",
+        label: "Top tags",
         sentiment: "positive",
       },
-      {
-        value: await tagRawQueries.leastFeaturedTags(start, end),
-        label: "Least popular tags",
-        sentiment: "negative",
-      },
+      // {
+      //   value: await tagRawQueries.leastFeaturedTags(start, end),
+      //   label: "Least popular tags",
+      //   sentiment: "negative",
+      // },
       {
         value: await categoryRawQueries.mostFeaturedCategories(start, end),
-        label: "Most popular categories",
+        label: "Top categories",
         sentiment: "positive",
       },
-      {
-        value: await categoryRawQueries.leastFeaturedCategories(start, end),
-        label: "Least popular categories",
-        sentiment: "negative",
-      },
+      // {
+      //   value: await categoryRawQueries.leastFeaturedCategories(start, end),
+      //   label: "Least popular categories",
+      //   sentiment: "negative",
+      // },
     ],
     counts: await batchRawSql({
-      authorsCount: {
-        label: "Authors Featured",
-        value: (await authorRawQueries.uniqueVideoAuthorsInTimePeriod(start, end))[0].count,
-      },
-      numScrapes: {
-        label: "Page Snapshops",
-        value: (await videoScrapeInstanceRawQueries.uniqueWaybackTimestamps(start, end))[0].count,
-      },
       numFeatured: {
         label: "Featured Videos",
         value: (await videoScrapeInstanceRawQueries.uniqueVideosAsFeatured(start, end))[0].count,
+      },
+      authorsCount: {
+        label: "Featured Authors",
+        value: (await authorRawQueries.uniqueVideoAuthorsInTimePeriod(start, end))[0].count,
       },
       numSpotlight: {
         label: "Spotlight Videos",
@@ -84,7 +80,11 @@ export const generatePageStaticProps = async ({ params }: GetStaticPropsContext)
         label: "Categories",
         value: (await categoryRawQueries.uniqueTagsTimePeriod(start, end))[0].count,
       },
-      tagsCount: { label: "Tags", value: (await tagRawQueries.uniqueTagsTimePeriod(start, end))[0].count },
+      tagsCount: { label: "Unique Tags", value: (await tagRawQueries.uniqueTagsTimePeriod(start, end))[0].count },
+      numScrapes: {
+        label: "Page Snapshops",
+        value: (await videoScrapeInstanceRawQueries.uniqueWaybackTimestamps(start, end))[0].count,
+      },
     }),
     mostFeaturedAuthors: await authorRawQueries.mostFeaturedAuthor(start, end),
   };

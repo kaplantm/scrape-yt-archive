@@ -11,40 +11,47 @@ const YearPageContainer = (props: Awaited<ReturnType<typeof generatePageStaticPr
   const { year } = router.query;
 
   return (
-    <div className="p-8">
-      <header>
-        {year}
-        <h1>Featured Videos: {year} Year in Review</h1>
-      </header>
-      {!!mostLeastList.length &&
-        mostLeastList.map(
-          (el) =>
-            !!el.value?.length && (
-              <section className="flex gap-5" key={el.label}>
-                <p>{el.label}:</p>
-                <ul className="flex gap-5">
-                  {el.value.map((val) => (
-                    <li key={val.name}>{val.name}</li>
+    <div>
+      <div className="flex gap-10 mb-10">
+        <header>
+          <h1 className="text-3xl">Featured Videos</h1>
+          <span className="text-9xl font-bold text-slate-500">{year}</span>
+        </header>
+        {!!mostLeastList.length && (
+          <>
+            {mostLeastList.map(
+              (el) =>
+                !!el.value?.length && (
+                  <section className="flex flex-col items-start" key={el.label}>
+                    <p className="pb-1">{el.label}:</p>
+                    <ul className="flex flex-col gap-1 border-l-slate-400 border-l-8 border-t-slate-400 border-t-8 pl-2">
+                      {el.value.map((val) => (
+                        <li key={val.name}>{val.name}</li>
+                      ))}
+                    </ul>
+                  </section>
+                )
+            )}
+            {!!mostFeaturedAuthors?.length && (
+              <section className="flex flex-col items-start">
+                <p className="pb-1">Top Video Authors:</p>
+                <ul className="flex flex-col gap-1 border-l-slate-400 border-l-8 border-t-slate-400 border-t-8 pl-2">
+                  {mostFeaturedAuthors.map((el) => (
+                    <li key={el.name}>
+                      <a target="_blank" href={`https://www.youtube.com/@${el.name}`}>
+                        {el.name}
+                      </a>
+                    </li>
                   ))}
                 </ul>
               </section>
-            )
+            )}
+            <div className="flex flex-col gap-2 items-start">
+              {Object.values(counts).map((el) => !!el?.value && <p key={el.label}><span className="text-lg font-bold text-slate-400">{parseInt(el.value)}</span> {el.label}</p>)}
+            </div>
+          </>
         )}
-      {!!mostFeaturedAuthors?.length && (
-        <div className="flex gap-5">
-          <p>Most Featured Authors</p>
-          <ul className="flex gap-5">
-            {mostFeaturedAuthors.map((el) => (
-              <li key={el.name}>
-                <a target="_blank" href={`https://www.youtube.com/@${el.name}`}>
-                  {el.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      {Object.values(counts).map((el) => !!el?.value && <p key={el.label}>{`${el.value} ${el.label}`}</p>)}
+      </div>
       <section>
         <div className="grid grid-cols-2 gap-4">
           {highlightedFeaturedVideos?.map(({ most, least }) => (
