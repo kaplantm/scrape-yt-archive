@@ -41,11 +41,88 @@ psql youtube_scraped < /Users/tonikaplan/Documents/youtube_scraped_backup_featur
 
 // Ideas:
 // longest time featured
+-- // https://www.geeksengine.com/database/subquery/subquery-in-join-operation.php
+
+SELECT DISTINCT vsiOuter.videoId,
+       earliestFeature,
+       latestFeature,
+       (earliestFeature-latestFeature) AS diff
+FROM VideoScrapeInstance AS vsiOuter
+JOIN FeatureDate ON FeatureDate.id = vsiOuter.featureDateId
+JOIN 
+  (SELECT DISTINCT vsiInner.videoId,
+          fdInner.epochDate AS earliestFeature
+   FROM VideoScrapeInstance AS vsiInner
+   JOIN FeatureDate AS fdInner ON fdInner.id = vsiInner.featureDateId
+   GROUP BY vsiInner.videoId,
+            fdInner.epochDate
+   ORDER BY earliestFeature DESC) AS earliest ON vsiOuter.videoId = earliest.videoId
+JOIN
+  (SELECT DISTINCT vsiInnerTwo.videoId,
+          fdInnerTwo.epochDate AS latestFeature
+   FROM VideoScrapeInstance AS vsiInnerTwo
+   JOIN FeatureDate AS fdInnerTwo ON fdInnerTwo.id = vsiInnerTwo.featureDateId
+   GROUP BY vsiInnerTwo.videoId,
+            fdInnerTwo.epochDate
+   ORDER BY latestFeature ASC)AS latest ON vsiOuter.videoId = latest.videoId
+   ORDER BY latestFeature
+
+
 // most featured feature user
-// list all titles
+SELECT 
+User.id,
+ChannelName.name,
+COUNT(DISTINCT(Video.id))
+FROM 
+  VideoScrapeInstance
+  INNER JOIN Video ON Video.id = VideoScrapeInstance.videoId
+  INNER JOIN User ON User.id = Video.authorId 
+  INNER JOIN _ChannelNameToUser ON _ChannelNameToUser.B = User.id
+  INNER JOIN ChannelName ON ChannelName.id = _ChannelNameToUser.A
+GROUP BY 
+  User.id, ChannelName.name
+ORDER BY 
+  COUNT(DISTINCT(Video.id)) DESC
+
+// list all titles on fe page
 
 
 // Pages:
 // all time page
 // month details page
 
+
+
+
+
+
+
+
+
+
+
+
+SELECT DISTINCT vsi.videoId,
+                earliestFeature,
+                latestFeature,
+                (earliestFeature-latestFeature) AS diff 
+FROM VideoScrapeInstance AS vsi
+JOIN
+  (SELECT vsiInner.videoId,
+          fdInner.epochDate AS earliestFeature
+   FROM VideoScrapeInstance AS vsiInner
+   JOIN FeatureDate AS fdInner ON fdInner.id = vsiInner.featureDateId
+   GROUP BY vsiInner.videoId,
+            fdInner.epochDate
+   ORDER BY earliestFeature DESC
+   LIMIT 1) AS early
+JOIN
+  (SELECT vsiInner.videoId,
+          fdInner.epochDate AS latestFeature
+   FROM VideoScrapeInstance AS vsiInner
+   JOIN FeatureDate AS fdInner ON fdInner.id = vsiInner.featureDateId
+   GROUP BY vsiInner.videoId,
+            fdInner.epochDate
+   ORDER BY latestFeature ASC
+   LIMIT 1) AS late
+ORDER BY diff DESC

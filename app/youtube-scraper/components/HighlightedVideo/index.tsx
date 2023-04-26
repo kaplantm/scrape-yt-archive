@@ -13,6 +13,9 @@ const HighlightedVideo = ({
   sentiment?: string // TODO should be enum
 }) => {
   const { Video, Selector } = videoScrapeInstance;
+  if(!Video){
+    return null
+  }
   return (
     <div className={clsx("flex gap-5 flex-col bg-zinc-900 rounded-md py-8 px-16 items-start border-slate-700 border")}>
       {label && (

@@ -14,7 +14,7 @@ CREATE TABLE `Video` (
 CREATE TABLE `VideoScrapeInstance` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(191) NOT NULL,
-    `description` VARCHAR(191) NULL,
+    `description` LONGTEXT NULL,
     `duration` INTEGER NULL,
     `age` VARCHAR(191) NULL,
     `comments` INTEGER NULL,

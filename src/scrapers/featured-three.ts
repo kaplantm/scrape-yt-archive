@@ -61,7 +61,6 @@ export const featuredThreeScraper = ($: CheerioAPI, snapshot: Snapshot) => {
       .removeAttr("style")
       .text();
 
-    console.log("***8*** a ", featuredItem.find(".facets > a"));
     const featuredVideo = {
       title: safeTrim(safeSplit(safeTrim(title.text()), "\n")[0]),
       duration: convertDurationToSeconds(

@@ -5,17 +5,14 @@ import {
   getWhereEpochDateWithin,
   videoScrapeInstanceJoinFeatureDate,
 } from "./utils/raw-queries";
+import prisma from "prisma/app-client";
+import { CountResult } from "types/generic-db-types";
 
-export const getVideoWhereUniqueInput = <T>(
-  youtubeVideoId: string
-): Prisma.VideoWhereUniqueInput => ({
+export const getVideoWhereUniqueInput = (youtubeVideoId: string): Prisma.VideoWhereUniqueInput => ({
   youtubeVideoId,
 });
 
-export const getVideoCreateInput = <T>(
-  videoRaw: VideoDataRaw,
-  author: T & Pick<User, "id">
-): Prisma.VideoCreateInput => ({
+export const getVideoCreateInput = (videoRaw: VideoDataRaw, author: T & Pick<User, "id">): Prisma.VideoCreateInput => ({
   youtubeVideoId: videoRaw.videoId,
   uploadDate: videoRaw.uploadDate,
   Author: { connect: { id: author.id } },
@@ -29,10 +26,9 @@ export const getVideoCreateInput = <T>(
   },
 });
 
-
 export const videoRawQueries = {
-  uniqueVideoIdsInTimePeriod: (start: number, end: number) =>
-    Prisma.sql`SELECT COUNT(DISTINCT videoId) as count ${fromVideoScrapeInstance} ${videoScrapeInstanceJoinFeatureDate} ${getWhereEpochDateWithin(
+  uniqueVideoIdsInTimePeriod: async (start: number, end: number): Promise<CountResult> =>
+    prisma.$queryRaw`SELECT COUNT(DISTINCT videoId) as count ${fromVideoScrapeInstance} ${videoScrapeInstanceJoinFeatureDate} ${getWhereEpochDateWithin(
       start,
       end
     )}`,

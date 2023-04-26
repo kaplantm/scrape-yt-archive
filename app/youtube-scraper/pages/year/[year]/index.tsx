@@ -16,9 +16,9 @@ export const getStaticProps: GetStaticProps = async (props: GetStaticPropsContex
 });
 
 const YearPage = (props: ComponentProps<typeof YearPageContainer>) => {
-
-  return <p>foo</p>
-  // return <YearPageContainer {...props} />;
+  console.log(props);
+  // return <p>foo</p>;
+  return <YearPageContainer {...props} />;
 };
 
 export default YearPage;

@@ -17,7 +17,7 @@ const DebugPrettyJSON = ({ data }: { data: Obj | unknown[] }) => {
 
       {open && (
         <>
-          <div className="border-slate-800 border rounded-md overflow-scroll p-5 hide-scroll backdrop-blur-sm bg-slate-500/50">
+          <div className="border-slate-800 border rounded-md overflow-scroll p-5 hide-scroll backdrop-blur-sm bg-teal-950/50">
             <pre>{JSON.stringify(data, null, 2)}</pre>
           </div>
         </>

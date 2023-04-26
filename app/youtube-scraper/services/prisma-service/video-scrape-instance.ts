@@ -2,6 +2,7 @@ import { VideoDataRaw } from "services/types";
 import { getVideoCreateInput, getVideoWhereUniqueInput } from "./video";
 import { getFeatureDateCreateInput, getFeatureDateWhereUniqueInput } from "./feature-date";
 import { Prisma, PrismaClient, User, VideoScrapeInstance } from "@prisma/client";
+import prisma from "prisma/app-client";
 import { getChannelNameCreateInput, getChannelNameWhereUniqueInput } from "./channel-name";
 import {
   fromVideoScrapeInstance,
@@ -9,6 +10,8 @@ import {
   videoJoinVideoScraperInstance,
   videoScrapeInstanceJoinFeatureDate,
 } from "./utils/raw-queries";
+import { msToDays } from "utils/time-utils";
+import { roundToNearest } from "utils/num-utils";
 
 export const getVideoScrapeWhereInput = (
   videoId: number,
@@ -131,19 +134,63 @@ export const getMostAndLeastScrapeInstance = async ({
 };
 
 export const videoScrapeInstanceRawQueries = {
-  uniqueWaybackTimestamps: (start: number, end: number) =>
-    Prisma.sql`SELECT COUNT(DISTINCT waybackTimestamp) as count ${fromVideoScrapeInstance} ${videoScrapeInstanceJoinFeatureDate} ${getWhereEpochDateWithin(
+  uniqueWaybackTimestamps: async (start: number, end: number) =>
+    prisma.$queryRaw`SELECT COUNT(DISTINCT waybackTimestamp) as count ${fromVideoScrapeInstance} ${videoScrapeInstanceJoinFeatureDate} ${getWhereEpochDateWithin(
       start,
       end
     )}`,
-    uniqueVideosAsFeatured: (start: number, end: number) =>
-    Prisma.sql`SELECT COUNT(DISTINCT Video.id) as count ${fromVideoScrapeInstance} ${videoJoinVideoScraperInstance} ${videoScrapeInstanceJoinFeatureDate} ${getWhereEpochDateWithin(
+  uniqueVideosAsFeatured: async (start: number, end: number) =>
+    prisma.$queryRaw`SELECT COUNT(DISTINCT Video.id) as count ${fromVideoScrapeInstance} ${videoJoinVideoScraperInstance} ${videoScrapeInstanceJoinFeatureDate} ${getWhereEpochDateWithin(
       start,
       end
     )} AND featureType = "featured"`,
-    uniqueVideosAsSpotlight: (start: number, end: number) =>
-    Prisma.sql`SELECT COUNT(DISTINCT Video.id) as count ${fromVideoScrapeInstance} ${videoJoinVideoScraperInstance} ${videoScrapeInstanceJoinFeatureDate} ${getWhereEpochDateWithin(
+  uniqueVideosAsSpotlight: async (start: number, end: number) =>
+    prisma.$queryRaw`SELECT COUNT(DISTINCT Video.id) as count ${fromVideoScrapeInstance} ${videoJoinVideoScraperInstance} ${videoScrapeInstanceJoinFeatureDate} ${getWhereEpochDateWithin(
       start,
       end
     )} AND featureType = "spotlight"`,
+  longestTimeFeatured: async (start: number, end: number) =>
+    prisma.$queryRaw`
+                SELECT DISTINCT vsi.*,
+                                earliestFeature,
+                                latestFeature,
+                                (earliestFeature-latestFeature) AS timeDiff,
+                                FeatureDate.epochDate as epochDate
+                FROM VideoScrapeInstance AS vsi
+                JOIN FeatureDate
+                JOIN
+                  (SELECT vsiInner.videoId,
+                          fdInner.epochDate AS earliestFeature
+                  FROM VideoScrapeInstance AS vsiInner
+                  JOIN FeatureDate AS fdInner ON fdInner.id = vsiInner.featureDateId
+                  GROUP BY vsiInner.videoId,
+                            fdInner.epochDate
+                  ORDER BY earliestFeature DESC
+                  LIMIT 1) AS early
+                JOIN
+                  (SELECT vsiInner.videoId,
+                          fdInner.epochDate AS latestFeature
+                  FROM VideoScrapeInstance AS vsiInner
+                  JOIN FeatureDate AS fdInner ON fdInner.id = vsiInner.featureDateId
+                  GROUP BY vsiInner.videoId,
+                            fdInner.epochDate
+                  ORDER BY latestFeature ASC
+                  LIMIT 1) AS late
+                ${getWhereEpochDateWithin(start, end)}
+                ORDER BY timeDiff DESC`,
+};
+
+export const getLongestTimeFeatured = async (start: number, end: number) => {
+  const data = (await videoScrapeInstanceRawQueries.longestTimeFeatured(start, end)) as VideoScrapeInstance & {
+    timeDiff: number;
+  };
+
+  return {
+    most: {
+      videoScrapeInstance: data,
+      value: data.timeDiff ? roundToNearest(msToDays(data.timeDiff)) : 0,
+      label: "Longest Time Featued",
+      sentiment: "positive",
+    },
+  };
 };

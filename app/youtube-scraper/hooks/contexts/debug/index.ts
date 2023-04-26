@@ -18,11 +18,7 @@ export function useDebugContextState(): DebugContextState {
   const [debugData, setDebugData] = useState<DebugContextState["debugData"]>(DebugContextDefaultState.debugData);
 
   const updateDebugData = useCallback((newDebugData: Obj) => {
-    setDebugData((prev) => {
-      const newData = { ...prev, ...newDebugData };
-      console.log("updateDebugData", { prev, newData, delta: newDebugData });
-      return newData;
-    });
+    setDebugData((prev) => ({ ...prev, ...newDebugData }));
   }, []);
 
   return {
