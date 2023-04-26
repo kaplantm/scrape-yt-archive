@@ -37,7 +37,7 @@ export const generatePageStaticProps = async ({ params }: GetStaticPropsContext)
       await getMostLeast({ key: "ratings", options: { most: "Most Rating", least: "Fewest Ratings" } }),
       await getMostLeast({ key: "stars", options: { most: "Top Rated", least: "Lowest Rated" } }),
       await getMostLeast({ key: "comments", options: { most: "Most Comments", least: "Fewest Comments" } }),
-      await getMostLeast({ key: "duration", options: { most: "Longest", least: "Shorted" } }),
+      await getMostLeast({ key: "duration", options: { most: "Longest", least: "Shortest" } }),
       await getLongestTimeFeatured(start, end),
     ],
     // Using raw queries for some logic not supported by prisma around count distinct
@@ -63,14 +63,13 @@ export const generatePageStaticProps = async ({ params }: GetStaticPropsContext)
         sentiment: "negative",
       },
     ],
-    // counts: await batchRawSql({
-    //   authorsCount: await authorRawQueries.uniqueVideoAuthorsInTimePeriod(start, end),
-    //   videosCount: await videoRawQueries.uniqueVideoIdsInTimePeriod(start, end),
-    //   numScrapes: await videoScrapeInstanceRawQueries.uniqueWaybackTimestamps(start, end),
-    //   numFeatured: await videoScrapeInstanceRawQueries.uniqueVideosAsFeatured(start, end),
-    //   numSpotlight: await videoScrapeInstanceRawQueries.uniqueVideosAsSpotlight(start, end),
-    //   categoriesCount: await categoryRawQueries.uniqueTagsTimePeriod(start, end),
-    //   tagsCount: await tagRawQueries.uniqueTagsTimePeriod(start, end),
-    // }),
+    counts: await batchRawSql({
+      authorsCount: { label: "Authors Featured", value: (await authorRawQueries.uniqueVideoAuthorsInTimePeriod(start, end))[0].count },
+      numScrapes: { label: "Page Snapshops", value: (await videoScrapeInstanceRawQueries.uniqueWaybackTimestamps(start, end))[0].count },
+      numFeatured: { label: "Featured Videos", value: (await videoScrapeInstanceRawQueries.uniqueVideosAsFeatured(start, end))[0].count },
+      numSpotlight: { label: "Spotlight Videos", value: (await videoScrapeInstanceRawQueries.uniqueVideosAsSpotlight(start, end))[0].count },
+      categoriesCount: { label: "Categories", value: (await categoryRawQueries.uniqueTagsTimePeriod(start, end))[0].count },
+      tagsCount: { label: "Tags", value: (await tagRawQueries.uniqueTagsTimePeriod(start, end))[0].count },
+    }),
   };
 };

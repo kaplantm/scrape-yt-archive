@@ -87,6 +87,7 @@ export const getFirstVideoScrapeInstance = async (
       Video: {
         include: {
           Links: true,
+          // TODO: now include just 1?
           VideoScrapeInstances: true,
           Author: {
             include: { DisplayName: true, Links: true, Username: true },

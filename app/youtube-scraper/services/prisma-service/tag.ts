@@ -1,19 +1,6 @@
 import prisma from "prisma/app-client";
-import { Prisma } from "@prisma/client";
 import { getWhereEpochDateWithin } from "./utils/raw-queries";
 import { CountResult } from "types/generic-db-types";
-
-export const getTagsByFrequency = async (sort: "desc" | "asc" = "desc", where?: Prisma.TagWhereInput) =>
-  (await prisma.category.findMany({
-    include: {
-      _count: {
-        select: { VideoScrapeInstance: true },
-      },
-    },
-    orderBy: { VideoScrapeInstance: { _count: sort } },
-    take: 5,
-    where,
-  })) || null;
 
 const getMostPopularTags = async (start: number, end: number): Promise<CountResult> =>
   prisma.$queryRaw`
@@ -47,7 +34,7 @@ export const tagRawQueries = {
   uniqueTagsTimePeriod: async (start: number, end: number): Promise<CountResult> =>
     prisma.$queryRaw`
       SELECT 
-        COUNT(DISTINCT authorId) as count 
+        COUNT(DISTINCT _TagToVideoScrapeInstance.A) as count 
       FROM 
         VideoScrapeInstance 
         INNER JOIN FeatureDate ON FeatureDate.id = VideoScrapeInstance.featureDateId 

@@ -41,7 +41,7 @@ LIMIT 5
 
 export const categoryRawQueries = {
   uniqueTagsTimePeriod: async (start: number, end: number): Promise<CountResult> =>
-    prisma.$queryRaw`SELECT COUNT(DISTINCT authorId) as count ${fromVideoScrapeInstance} ${videoScrapeInstanceJoinFeatureDate} ${videoJoinVideoScraperInstance} ${categoryToVideoScrapeInstanceJoinVideoScrapeInstance} ${getWhereEpochDateWithin(
+    prisma.$queryRaw`SELECT COUNT(DISTINCT _CategoryToVideoScrapeInstance.A) as count ${fromVideoScrapeInstance} ${videoScrapeInstanceJoinFeatureDate} ${videoJoinVideoScraperInstance} ${categoryToVideoScrapeInstanceJoinVideoScrapeInstance} ${getWhereEpochDateWithin(
       start,
       end
     )}`,

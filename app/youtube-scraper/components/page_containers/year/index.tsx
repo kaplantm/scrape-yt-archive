@@ -6,7 +6,7 @@ import { Fragment, memo } from "react";
 type foo = Awaited<ReturnType<typeof generatePageStaticProps>>;
 const YearPageContainer = (props: Awaited<ReturnType<typeof generatePageStaticProps>>) => {
   console.log("***** YearPageContainer", props);
-  const { highlightedFeaturedVideos, mostLeastList } = props;
+  const { highlightedFeaturedVideos, mostLeastList, counts } = props;
 
   const router = useRouter();
   const { year } = router.query;
@@ -31,6 +31,7 @@ const YearPageContainer = (props: Awaited<ReturnType<typeof generatePageStaticPr
               </section>
             )
         )}
+      {Object.values(counts).map((el) => !!el?.value && <p key={el.label}>{`${el.value} ${el.label}`}</p>)}
       <section>
         <div className="grid grid-cols-2 gap-4">
           {highlightedFeaturedVideos?.map(({ most, least }) => (
