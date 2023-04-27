@@ -6,7 +6,7 @@ import {
 import prisma from "prisma/app-client";
 import { GetStaticPropsContext } from "next";
 import { getRange } from "utils/num-utils";
-import { easyEpochDate } from "utils/time-utils";
+import { easyEpochDate, secondsToHHMMSS } from "utils/time-utils";
 import { batchRawSql } from "utils/prisma-utils";
 import { authorRawQueries } from "services/prisma-service/author";
 import { videoRawQueries } from "services/prisma-service/video";
@@ -28,16 +28,13 @@ export const generatePageStaticProps = async ({ params }: GetStaticPropsContext)
   const getMostLeast = async (params: Pick<Parameters<typeof getMostAndLeastScrapeInstance>[0], "key" | "options">) =>
     getMostAndLeastScrapeInstance({ where: whereFeatureDateInYear, ...params });
 
-  // const foo = await tagRawQueries.mostFeaturedTags(start, end)
-  // throw new Error(JSON.stringify(foo))
-  console.log("********", { start, end });
   return {
     highlightedFeaturedVideos: [
       await getMostLeast({ key: "views", options: { most: "Most Viewed", least: "Least Viewed" } }),
-      await getMostLeast({ key: "ratings", options: { most: "Most Rating", least: "Fewest Ratings" } }),
+      await getMostLeast({ key: "ratings", options: { most: "Most Rated", least: "Fewest Ratings" } }),
       await getMostLeast({ key: "stars", options: { most: "Top Rated", least: "Lowest Rated" } }),
       await getMostLeast({ key: "comments", options: { most: "Most Comments", least: "Fewest Comments" } }),
-      await getMostLeast({ key: "duration", options: { most: "Longest", least: "Shortest" } }),
+      await getMostLeast({ key: "duration", options: { most: "Longest", least: "Shortest", transformValue: (value)=> secondsToHHMMSS(value) } }),
       await getLongestTimeFeatured(start, end),
     ],
     // Using raw queries for some logic not supported by prisma around count distinct

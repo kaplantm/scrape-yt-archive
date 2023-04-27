@@ -18,7 +18,7 @@ const HighlightedVideo = ({
     return null
   }
   return (
-    <div className={clsx("flex gap-5 flex-col bg-zinc-900 rounded-md py-8 px-16 items-start border-slate-700 border")}>
+    <div className={clsx("flex gap-5 flex-col bg-zinc-900 rounded-md py-8 px-8 items-start border-slate-700 border")}>
       {label && (
         <div className="flex gap-10 items-center">
           <h5
@@ -28,7 +28,7 @@ const HighlightedVideo = ({
                 "bg-red-900": sentiment == "negative",
                 "bg-slate-700": sentiment == "neutral",
               },
-              "-ml-10 px-8 py-2 rounded-md"
+              "px-4 py-2 rounded-md"
             )}
           >
             {label}
@@ -38,8 +38,8 @@ const HighlightedVideo = ({
       )}
       <div className="video-container rounded-md overflow-hidden">
         <iframe
-          width="560"
-          height="315"
+          width="336"
+          height="189"
           src={`https://www.youtube-nocookie.com/embed/${Video.youtubeVideoId}`}
           title={`YouTube video player - ${videoScrapeInstance.title}`}
           frameBorder="0"
@@ -53,7 +53,7 @@ const HighlightedVideo = ({
             {videoScrapeInstance.title}
           </a>
         </li>
-        <li>{videoScrapeInstance.description}</li>
+        <li className="max-h-20 overflow-auto">{videoScrapeInstance.description}</li>
         <li>
           Uploaded by{" "}
           <a target="_blank" href={`https://www.youtube.com/@${Video.Author.Username.name}`}>
@@ -70,7 +70,7 @@ const HighlightedVideo = ({
         )}
       </ul>
 
-      <details className="z-10 max-h-8">
+      <details className="z-10 h-6">
         <summary>Stats for Nerds</summary>
 
         <ul className="flex flex-col gap-2 bg-zinc-900 p-4 rounded-md border-slate-700 border">

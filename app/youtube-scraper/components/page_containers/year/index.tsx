@@ -4,7 +4,6 @@ import { generatePageStaticProps } from "./helpers/page-generation";
 import { Fragment, memo } from "react";
 
 const YearPageContainer = (props: Awaited<ReturnType<typeof generatePageStaticProps>>) => {
-  console.log("***** YearPageContainer", props);
   const { highlightedFeaturedVideos, mostLeastList, counts, mostFeaturedAuthors } = props;
 
   const router = useRouter();
@@ -47,33 +46,43 @@ const YearPageContainer = (props: Awaited<ReturnType<typeof generatePageStaticPr
               </section>
             )}
             <div className="flex flex-col gap-2 items-start">
-              {Object.values(counts).map((el) => !!el?.value && <p key={el.label}><span className="text-lg font-bold text-slate-400">{parseInt(el.value)}</span> {el.label}</p>)}
+              {Object.values(counts).map(
+                (el) =>
+                  !!el?.value && (
+                    <p key={el.label}>
+                      <span className="text-lg font-bold text-slate-400">{parseInt(el.value)}</span> {el.label}
+                    </p>
+                  )
+              )}
             </div>
           </>
         )}
       </div>
       <section>
-        <div className="grid grid-cols-2 gap-4">
-          {highlightedFeaturedVideos?.map(({ most, least }) => (
-            <Fragment key={most.label}>
-              {most?.videoScrapeInstance && (
-                <VideoCallout
-                  label={most.label}
-                  value={most.value?.toString()}
-                  sentiment={most.sentiment}
-                  videoScrapeInstance={most.videoScrapeInstance}
-                />
-              )}
-              {least?.videoScrapeInstance && (
-                <VideoCallout
-                  label={least.label}
-                  value={least.label}
-                  sentiment={least.sentiment}
-                  videoScrapeInstance={least.videoScrapeInstance}
-                />
-              )}
-            </Fragment>
-          ))}
+        <div className="grid grid-cols-4 gap-4">
+          {highlightedFeaturedVideos?.map(
+            ({ most, least }) =>
+              !!(most || least) && (
+                <Fragment key={most?.label || least?.label}>
+                  {most?.videoScrapeInstance && (
+                    <VideoCallout
+                      label={most.label}
+                      value={most.value}
+                      sentiment={most.sentiment}
+                      videoScrapeInstance={most.videoScrapeInstance}
+                    />
+                  )}
+                  {least?.videoScrapeInstance && (
+                    <VideoCallout
+                      label={least.label}
+                      value={least.value}
+                      sentiment={least.sentiment}
+                      videoScrapeInstance={least.videoScrapeInstance}
+                    />
+                  )}
+                </Fragment>
+              )
+          )}
         </div>
       </section>
     </div>

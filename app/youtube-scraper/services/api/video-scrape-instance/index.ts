@@ -35,11 +35,7 @@ export async function allSynchronously<T>(
 export const upsertVideoScrapInstance = async (
   videosRaw: VideoDataRaw[]
 ): Promise<ApiResponse<VideoScrapeInstance[]>> => {
-  console.log(
-    `****** here createVideos ${
-      videosRaw?.length ? videosRaw[0].timestampFeatured : "no featured videos?"
-    } count: ${videosRaw.length}`
-  );
+
   try {
     const data = (
       await allSynchronously(

@@ -102,7 +102,7 @@ export const getFirstVideoScrapeInstance = async (
 
 export const getMostAndLeastScrapeInstance = async ({
   key,
-  options: { most, least, sentiment },
+  options: { most, least, sentiment, transformValue },
   where,
 }: {
   key: keyof VideoScrapeInstance;
@@ -110,21 +110,24 @@ export const getMostAndLeastScrapeInstance = async ({
     most: string;
     least: string;
     sentiment?: "postive" | "negative" | "neutral";
+    transformValue?: (val: any) => string;
   };
   where?: Prisma.VideoScrapeInstanceWhereInput;
 }) => {
   const mostVideoScrapeInstance = await getFirstVideoScrapeInstance(key, "desc", where);
   const leastVideoScrapeInstance = await getFirstVideoScrapeInstance(key, "asc", where);
+  const defaultTransformer = (val: any) => `${val} ${key}`;
+  const transformer = transformValue || defaultTransformer;
   return {
     most: {
       videoScrapeInstance: mostVideoScrapeInstance,
-      value: mostVideoScrapeInstance ? mostVideoScrapeInstance[key] : null,
+      value: mostVideoScrapeInstance ? transformer(mostVideoScrapeInstance[key]) : null,
       label: most,
       sentiment: sentiment || "positive",
     },
     least: {
       videoScrapeInstance: leastVideoScrapeInstance,
-      value: leastVideoScrapeInstance ? leastVideoScrapeInstance[key] : null,
+      value: leastVideoScrapeInstance ? transformer(leastVideoScrapeInstance[key]) : null,
       label: least,
       sentiment: sentiment || "negative",
     },
@@ -183,9 +186,19 @@ export const getLongestTimeFeatured = async (start: number, end: number) => {
     timeDiff: number;
   };
 
+  console.log("*****instance", {
+    instance: await videoScrapeInstanceRawQueries.longestTimeFeatured(start, end),
+    start,
+    end,
+  });
+
+  if (!instance?.id) {
+    return {};
+  }
+
   return {
     most: {
-      videoScrapeInstance: await getFirstVideoScrapeInstance("id","asc", {id: instance.id}),
+      videoScrapeInstance: await getFirstVideoScrapeInstance("id", "asc", { id: instance.id }),
       value: instance.timeDiff ? `${roundToNearest(msToDays(instance.timeDiff))} Day(s)` : 0,
       label: "Longest Time Featued",
       sentiment: "positive",
