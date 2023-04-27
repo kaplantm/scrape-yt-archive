@@ -126,3 +126,9 @@ JOIN
    ORDER BY latestFeature ASC
    LIMIT 1) AS late
 ORDER BY diff DESC
+
+
+
+- most viewed in value column
+- video stretching
+- debug fixed

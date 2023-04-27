@@ -3,22 +3,17 @@ import {
   getMostAndLeastScrapeInstance,
   videoScrapeInstanceRawQueries,
 } from "services/prisma-service/video-scrape-instance";
-import prisma from "prisma/app-client";
 import { GetStaticPropsContext } from "next";
-import { getRange } from "utils/num-utils";
 import { easyEpochDate, secondsToHHMMSS } from "utils/time-utils";
 import { batchRawSql } from "utils/prisma-utils";
 import { authorRawQueries } from "services/prisma-service/author";
-import { videoRawQueries } from "services/prisma-service/video";
 import { tagRawQueries } from "services/prisma-service/tag";
 import { categoryRawQueries } from "services/prisma-service/category";
+import { years } from "utils/path-utils";
 
 type PageParams = { year: string };
 
-export const generatePageStaticPaths = () => {
-  const years = getRange(2005, new Date().getFullYear());
-  return years.map((year) => ({ params: { year: year.toString() } }));
-};
+export const generatePageStaticPaths = () => years.map((year) => ({ params: { year: year.toString() } }));
 
 export const generatePageStaticProps = async ({ params }: GetStaticPropsContext) => {
   const year = parseInt((params as PageParams).year);
@@ -34,7 +29,10 @@ export const generatePageStaticProps = async ({ params }: GetStaticPropsContext)
       await getMostLeast({ key: "ratings", options: { most: "Most Rated", least: "Fewest Ratings" } }),
       await getMostLeast({ key: "stars", options: { most: "Top Rated", least: "Lowest Rated" } }),
       await getMostLeast({ key: "comments", options: { most: "Most Comments", least: "Fewest Comments" } }),
-      await getMostLeast({ key: "duration", options: { most: "Longest", least: "Shortest", transformValue: (value)=> secondsToHHMMSS(value) } }),
+      await getMostLeast({
+        key: "duration",
+        options: { most: "Longest", least: "Shortest", transformValue: (value) => secondsToHHMMSS(value) },
+      }),
       await getLongestTimeFeatured(start, end),
     ],
     // Using raw queries for some logic not supported by prisma around count distinct

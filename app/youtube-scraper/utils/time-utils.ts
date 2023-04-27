@@ -18,6 +18,14 @@ export const secondsToHHMMSS = (totalSeconds: number) => {
 };
 
 export const easyEpochDate = (year: number, month = 1, day = 1) =>
-  new Date(`${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}T00:00:00`).getTime();
+  new Date(`${year}-${month.toString().padStart(2, "0")}-${day.toString().padStart(2, "0")}T00:00:00`).getTime();
 
 export const msToDays = (ms: bigint) => (ms ? parseFloat(ms / (1000n * 60n * 60n * 24n)) : 0);
+
+export const monthNames =  new Array(12).fill(0).map((_, i) => {
+  return new Date(`${i + 1}/1/2005`).toLocaleDateString(undefined, {month: 'long'})
+})
+
+export const daysInMonth = (month:number, year: number) => {
+  return new Date(year, month, 0).getDate();
+};
