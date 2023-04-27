@@ -132,3 +132,5 @@ ORDER BY diff DESC
 - most viewed in value column
 - video stretching
 - debug fixed
+- mobile
+- header

@@ -8,7 +8,7 @@ import { getKeyFromTimeStamp, onlyFeature, safeSplit, safeTrim } from "./utils";
 import axios from "axios";
 // TODO: final merged sheet - remove multiple appearances of same video on same day. take eariliest snapshot
 // TODO: find replace more less
-// fix translated issue in featured 6
+// fix tranredd issue in featured 6
 const targets: { [key: string]: Snapshot } = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, filePaths.outputs.snapshots), {
     encoding: "utf8",

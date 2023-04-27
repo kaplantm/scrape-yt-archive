@@ -1,8 +1,8 @@
-import YearPageContainer from "components/page_containers/year";
+import SummaryPageContainer from "components/page_containers/summary";
 import {
   generatePageStaticPaths,
   generatePageStaticProps,
-} from "components/page_containers/year/helpers/page-generation";
+} from "components/page_containers/summary/helpers/page-generation";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import React, { ComponentProps } from "react";
 
@@ -15,10 +15,8 @@ export const getStaticProps: GetStaticProps = async (props: GetStaticPropsContex
   props: await generatePageStaticProps(props),
 });
 
-const YearPage = (props: ComponentProps<typeof YearPageContainer>) => {
-  console.log(props);
-  // return <p>foo</p>;
-  return <YearPageContainer {...props} />;
+const YearPage = (props: ComponentProps<typeof SummaryPageContainer>) => {
+  return <SummaryPageContainer {...props} />;
 };
 
 export default YearPage;

@@ -1,3 +1,6 @@
+import { chunk } from "./array-utils";
+import { getRange } from "./num-utils";
+
 // source: https://stackoverflow.com/a/6313008
 export const secondsToHHMMSS = (totalSeconds: number) => {
   const sec_num = totalSeconds;
@@ -22,10 +25,34 @@ export const easyEpochDate = (year: number, month = 1, day = 1) =>
 
 export const msToDays = (ms: bigint) => (ms ? parseFloat(ms / (1000n * 60n * 60n * 24n)) : 0);
 
-export const monthNames =  new Array(12).fill(0).map((_, i) => {
-  return new Date(`${i + 1}/1/2005`).toLocaleDateString(undefined, {month: 'long'})
-})
+export const monthNames = new Array(12).fill(0).map((_, i) => {
+  return new Date(`${i + 1}/1/2005`).toLocaleDateString(undefined, { month: "long" });
+});
 
-export const daysInMonth = (month:number, year: number) => {
+export const daysInMonth = (month: number, year: number) => {
   return new Date(year, month, 0).getDate();
+};
+
+export const getWeekDays = (format = "long") => {
+  const baseDate = new Date(Date.UTC(2017, 0, 2)); // just a Monday
+  const weekDays = [];
+  for (let i = 0; i < 7; i++) {
+    weekDays.push(baseDate.toLocaleDateString(undefined, { weekday: format }));
+    baseDate.setDate(baseDate.getDate() + 1);
+  }
+  return weekDays;
+};
+
+export const weekDays = getWeekDays();
+
+export const getCalendarArray = (month: number, year: number) => {
+  const startDayOfWeek = new Date(`${month}/1/${year}`).getDay();
+  const lastDayOfMonth = daysInMonth(month, year);
+  return [...new Array(startDayOfWeek), ...getRange(1, lastDayOfMonth + 1)];
+};
+
+export const addDays = (date: string, days = 1) => {
+  const result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
 };

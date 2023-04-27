@@ -18,7 +18,7 @@ const HighlightedVideo = ({
     return null
   }
   return (
-    <div className={clsx("flex gap-5 flex-col bg-zinc-900 rounded-md py-8 px-8 items-start border-slate-700 border")}>
+    <div className={clsx("flex gap-5 flex-col bg-zinc-900 rounded-md py-8 px-8 items-start border-red-700 border")}>
       {label && (
         <div className="flex gap-10 items-center">
           <h5
@@ -26,7 +26,7 @@ const HighlightedVideo = ({
               {
                 "bg-cyan-700": sentiment == "positive",
                 "bg-red-900": sentiment == "negative",
-                "bg-slate-700": sentiment == "neutral",
+                "bg-red-700": sentiment == "neutral",
               },
               "px-4 py-2 rounded-md"
             )}
@@ -73,7 +73,7 @@ const HighlightedVideo = ({
       <details className="z-10 h-6">
         <summary>Stats for Nerds</summary>
 
-        <ul className="flex flex-col gap-2 bg-zinc-900 p-4 rounded-md border-slate-700 border">
+        <ul className="flex flex-col gap-2 bg-zinc-900 p-4 rounded-md border-red-700 border">
           <li>VideoId: {Video.youtubeVideoId}</li>
           <li>Author username: {Video.Author?.Username.name}</li>
           <li>Author display name at time of feature: {videoScrapeInstance.DisplayName.name}</li>
