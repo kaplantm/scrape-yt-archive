@@ -24,20 +24,16 @@ const mutableTargets: { [key: string]: Snapshot } = JSON.parse(
 );
 
 const onTargetScraped = async (snapshot: Snapshot) => {
-  mutableTargets[getKeyFromTimeStamp(snapshot.timestamp)] = snapshot;
+  // mutableTargets[getKeyFromTimeStamp(snapshot.timestamp)] = snapshot;
 
-  // console.log("scraped", snapshot.featuredVideos)
   try {
-    console.log(`////////// STARTING save data request for ${snapshot.timestamp} //////////`)
-    await axios.put(
-      "http://localhost:3000/api/video-scrape-instances",
-      snapshot.featuredVideos
-    );
+    console.log(`////////// STARTING save data request for ${snapshot.timestamp} //////////`);
+    await axios.put("http://localhost:3000/api/video-scrape-instances", snapshot.featuredVideos);
+    console.log(`////////// COMPLETED save data request for ${snapshot.timestamp} //////////`);
   } catch (e) {
-    console.log(`////////// COMPLETED save data request for ${snapshot.timestamp} - ERROR //////////`)
-    console.log(snapshot)
+    console.log(`////////// COMPLETED save data request for ${snapshot.timestamp} - ERROR //////////`);
+    console.log(snapshot);
   }
-  console.log(`////////// COMPLETED save data request for ${snapshot.timestamp} //////////`)
   // fs.writeFileSync(
   //   path.resolve(__dirname, filePaths.outputs.snapshots),
   //   JSON.stringify(mutableTargets)
