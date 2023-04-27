@@ -200,7 +200,7 @@ export const getLongestTimeFeatured = async (start: number, end: number) => {
     most: {
       videoScrapeInstance: await getFirstVideoScrapeInstance("id", "asc", { id: instance.id }),
       value: instance.timeDiff ? `${roundToNearest(msToDays(instance.timeDiff))} Day(s)` : 0,
-      label: "Longest Time Featued",
+      label: "Longest Time Featured",
       sentiment: "positive",
     },
   };

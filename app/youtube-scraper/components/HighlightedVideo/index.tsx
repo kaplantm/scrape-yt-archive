@@ -20,7 +20,7 @@ const HighlightedVideo = ({
   return (
     <div className={clsx("flex gap-5 flex-col bg-zinc-900 rounded-md py-8 px-8 items-start border-red-700 border")}>
       {label && (
-        <div className="flex gap-10 items-center">
+        <div className="flex gap-10 items-center w-full place-content-between">
           <h5
             className={clsx(
               {
@@ -28,12 +28,12 @@ const HighlightedVideo = ({
                 "bg-red-900": sentiment == "negative",
                 "bg-red-700": sentiment == "neutral",
               },
-              "px-4 py-2 rounded-md"
+              "px-4 py-2 rounded-md whitespace-nowrap"
             )}
           >
             {label}
           </h5>
-          <span>{value}</span>
+          <span className="whitespace-nowrap">{value}</span>
         </div>
       )}
       <div className="video-container rounded-md overflow-hidden">
@@ -47,16 +47,16 @@ const HighlightedVideo = ({
           allowFullScreen
         ></iframe>
       </div>
-      <ul>
+      <ul className="w-full">
         <li>
-          <a target="_blank" href={`https://www.youtube.com/watch?v=${Video.youtubeVideoId}`}>
+          <a target="_blank" href={`https://www.youtube.com/watch?v=${Video.youtubeVideoId}`} className="font-lg font-bold underline">
             {videoScrapeInstance.title}
           </a>
         </li>
         <li className="max-h-20 overflow-auto">{videoScrapeInstance.description}</li>
-        <li>
+        <li className="mt-2">
           Uploaded by{" "}
-          <a target="_blank" href={`https://www.youtube.com/@${Video.Author.Username.name}`}>
+          <a target="_blank" href={`https://www.youtube.com/@${Video.Author.Username.name}`} className="text-cyan-600 underline">
             {Video.Author.Username.name}
           </a>
         </li>

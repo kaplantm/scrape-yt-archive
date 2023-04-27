@@ -14,12 +14,7 @@ const findTotalStarRatingV1 = ($: CheerioAPI, item: Cheerio<Element>) => {
 
   item.find(".rating").each((i, el) => {
     const src = $(el).attr("src");
-    if (
-      src &&
-      !src.includes("star_sm_bg.gif") &&
-      !src.includes("_off") &&
-      !src.includes("_empty")
-    ) {
+    if (src && !src.includes("star_sm_bg.gif") && !src.includes("_off") && !src.includes("_empty")) {
       if (!totalRating) {
         totalRating = 0;
       }
@@ -43,20 +38,14 @@ const findTotalStarRating = ($: CheerioAPI, item: Cheerio<Element>) => {
 export const featuredFiveScraper = ($: CheerioAPI, snapshot: Snapshot) => {
   const v1FeaturedItems = $("#hpFeaturedList .vEntry");
   const v2featuredItems = $("#hpFeatured .vEntry");
-  const featuredItems = v1FeaturedItems?.length
-    ? v1FeaturedItems
-    : v2featuredItems;
-  const selectedBy =
-    safeTrim(safeSplit($("#hpEditorHead").text(), ":")?.[1]) || undefined;
-  const selectedByLink =
-    safeSplit($("#hpEditorHead a").attr("href"), "http://")?.[1] || undefined;
+  const featuredItems = v1FeaturedItems?.length ? v1FeaturedItems : v2featuredItems;
+  const selectedBy = safeTrim(safeSplit($("#hpEditorHead").text(), ":")?.[1]) || undefined;
+  const selectedByLink = safeSplit($("#hpEditorHead a").attr("href"), "http://")?.[1] || undefined;
 
   const featuredVideos: FeaturedVideo[] = [];
   featuredItems.each((i, el) => {
     const featuredItem = $(el);
-    const isoDateFeatured = getISOStringFromWaybackTimestamp(
-      snapshot.timestamp
-    );
+    const isoDateFeatured = getISOStringFromWaybackTimestamp(snapshot.timestamp);
     const date = new Date(isoDateFeatured);
     const title = featuredItem.find(".vtitle");
     const facets = safeTrim(featuredItem.find(".vfacets").text());
@@ -64,39 +53,25 @@ export const featuredFiveScraper = ($: CheerioAPI, snapshot: Snapshot) => {
 
     const categoriesV1 = featuredItem.find(".vfacets .hpVfacetRight").text();
     const categoriesV2 = featuredItem.find(".vMore").text();
-    const categories = safeTrim(
-      safeSplit(categoriesV1 || categoriesV2, "More in")[1]
-    );
+    const categories = safeTrim(safeSplit(categoriesV1 || categoriesV2, "More in")[1]);
 
     const author = safeSplit(safeSplit(facets || info, "From:")[1], "\n")[0];
     const authorLink = removeUrlTimestampPrefix(
       snapshot.timestamp,
-      featuredItem.find(".hpVfacetLeft a").attr("href")
+      featuredItem.find(".hpVfacetLeft a").attr("href") || featuredItem.find(".vInfo a").attr("href")
     );
 
     const views = safeSplit(safeSplit(facets || info, "Views:")[1], "\n")[0];
 
-    const videoLink = removeUrlTimestampPrefix(
-      snapshot.timestamp,
-      title.find("a").attr("href")
-    );
+    const videoLink = removeUrlTimestampPrefix(snapshot.timestamp, title.find("a").attr("href"));
     const videoId = getVideoId(videoLink);
-    const moreDescription = featuredItem
-      .find(`#RemainvidDesc${videoId}`)
-      .removeAttr("style")
-      .text();
+    const moreDescription = featuredItem.find(`#RemainvidDesc${videoId}`).removeAttr("style").text();
 
     const featuredVideo = {
       title: safeTrim(safeSplit(safeTrim(title.text()), "\n")[0]),
-      duration: convertDurationToSeconds(
-        safeTrim(featuredItem.find(".runtime").text())
-      ),
+      duration: convertDurationToSeconds(safeTrim(featuredItem.find(".runtime").text())),
       description: safeTrim(
-        moreDescription ||
-          featuredItem
-            .find(".vdesc")
-            .text()
-            .split("(more)\n                (less)")[0]
+        moreDescription || featuredItem.find(".vdesc").text().split("(more)\n                (less)")[0]
       ),
       tags: [],
       views: parseInt(views.replace(/,/g, "")) || undefined,

@@ -22,6 +22,8 @@ detect video failed to load - id="error-screen"
 detect private video "This video is private" or "This is a private video. Please sign in to verify that you may see it." http://www.youtube.com/watch?v=zzIMbjA5m8s
 
 
+mysqldump --databases youtube_scraped > /Users/tonikaplan/Documents/youtubescraperbkup/youtube_scraped_dump.sql --user root
+
 git lfs pull
 start postgres locally postgres -D /usr/local/var/postgres - swapped from postgress to mysql so i can use sequelace gui
 brew services start mysql

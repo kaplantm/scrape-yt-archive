@@ -67,15 +67,14 @@ export const scrapeTargets = async (targets: Snapshot[], onTargetScraped: (snaps
   // });
 
   const map = selectedTargets.map((target) => async () => {
-    const shouldCheck = onlyFeature
-      ? target.eraName === eraName[onlyFeature as eraName]
-      : target.checked !== CheckedStatus.FOUND;
-
+    if (target.eraName !== eraName[onlyFeature as eraName]) {
+      return target;
+    }
     let foundInstancesCount = 0;
     try {
       console.log(`////////// START check if already scraped  ${target.timestamp} //////////`);
-      const result =  await axios.get(`http://localhost:3000/api/video-scrape-instances?timestamp=${target.timestamp}`);
-      console.log({result: result.data?.length})
+      const result = await axios.get(`http://localhost:3000/api/video-scrape-instances?timestamp=${target.timestamp}`);
+      console.log({ result: result.data?.length });
       foundInstancesCount = (
         await axios.get(`http://localhost:3000/api/video-scrape-instances?timestamp=${target.timestamp}`)
       )?.data?.length;
@@ -84,7 +83,7 @@ export const scrapeTargets = async (targets: Snapshot[], onTargetScraped: (snaps
       console.log(`////////// NOT FOUND - Error ${target.timestamp} //////////`);
     }
 
-    return shouldCheck && !foundInstancesCount ? processTarget(target, onTargetScraped) : target;
+    return !foundInstancesCount ? processTarget(target, onTargetScraped) : target;
   });
   const results = await allSynchronously(map);
 

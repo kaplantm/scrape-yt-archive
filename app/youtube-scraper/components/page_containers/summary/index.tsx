@@ -14,7 +14,8 @@ const SummaryPageContainer = (props: Awaited<ReturnType<typeof generatePageStati
       <div className="flex gap-10 mb-10">
         <header>
           <h1 className="text-3xl">Featured Videos</h1>
-          <span className="text-9xl font-bold text-red-500">{year || `2005-${new Date().getFullYear()}`}</span>
+          {/* TODO: now not hardcode, use latest scrape? */}
+          <span className="text-9xl font-bold text-red-500">{year || "2005-2023"}</span>
         </header>
         {!!mostLeastList.length && (
           <>

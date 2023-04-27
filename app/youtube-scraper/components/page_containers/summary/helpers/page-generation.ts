@@ -10,6 +10,7 @@ import { authorRawQueries } from "services/prisma-service/author";
 import { tagRawQueries } from "services/prisma-service/tag";
 import { categoryRawQueries } from "services/prisma-service/category";
 import { years } from "utils/path-utils";
+import { commas } from "utils/num-utils";
 
 type PageParams = { year: string };
 
@@ -26,10 +27,38 @@ export const generatePageStaticProps = async ({ params }: GetStaticPropsContext)
 
   return {
     highlightedFeaturedVideos: [
-      await getMostLeast({ key: "views", options: { most: "Most Viewed", least: "Least Viewed" } }),
-      await getMostLeast({ key: "ratings", options: { most: "Most Rated", least: "Fewest Ratings" } }),
-      await getMostLeast({ key: "stars", options: { most: "Top Rated", least: "Lowest Rated" } }),
-      await getMostLeast({ key: "comments", options: { most: "Most Comments", least: "Fewest Comments" } }),
+      await getMostLeast({
+        key: "views",
+        options: {
+          most: "Most Viewed",
+          least: "Least Viewed",
+          transformValue: (value) => `${commas(value)} View${!value || value > 1 ? "s" : ""}`,
+        },
+      }),
+      await getMostLeast({
+        key: "ratings",
+        options: {
+          most: "Most Rated",
+          least: "Fewest Ratings",
+          transformValue: (value) => `${value} Rating${!value || value > 1 ? "s" : ""}`,
+        },
+      }),
+      await getMostLeast({
+        key: "stars",
+        options: {
+          most: "Top Rated",
+          least: "Lowest Rated",
+          transformValue: (value) => `${value} Star${!value || value > 1 ? "s" : ""}`,
+        },
+      }),
+      await getMostLeast({
+        key: "comments",
+        options: {
+          most: "Most Comments",
+          least: "Fewest Comments",
+          transformValue: (value) => `${value} Commment${!value || value > 1 ? "s" : ""}`,
+        },
+      }),
       await getMostLeast({
         key: "duration",
         options: { most: "Longest", least: "Shortest", transformValue: (value) => secondsToHHMMSS(value) },
