@@ -28,7 +28,7 @@ const Nav = () => {
               "font-bold border rounded": !year,
             })}
           >
-            All Time
+            All Data
           </a>
         </div>
         {year && (

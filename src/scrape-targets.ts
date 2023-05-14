@@ -71,17 +71,17 @@ export const scrapeTargets = async (targets: Snapshot[], onTargetScraped: (snaps
       return target;
     }
     let foundInstancesCount = 0;
-    // try {
-    //   console.log(`////////// START check if already scraped  ${target.timestamp} //////////`);
-    //   const result = await axios.get(`http://localhost:3000/api/video-scrape-instances?timestamp=${target.timestamp}`);
-    //   console.log({ result: result.data?.length });
-    //   foundInstancesCount = (
-    //     await axios.get(`http://localhost:3000/api/video-scrape-instances?timestamp=${target.timestamp}`)
-    //   )?.data?.length;
-    //   console.log(`////////// ${foundInstancesCount ? "FOUND" : "NOT FOUND"} ${target.timestamp} //////////`);
-    // } catch (e) {
-    //   console.log(`////////// NOT FOUND - Error ${target.timestamp} //////////`);
-    // }
+    try {
+      console.log(`////////// START check if already scraped  ${target.timestamp} //////////`);
+      const result = await axios.get(`http://localhost:3000/api/video-scrape-instances?timestamp=${target.timestamp}`);
+      console.log({ result: result.data?.length });
+      foundInstancesCount = (
+        await axios.get(`http://localhost:3000/api/video-scrape-instances?timestamp=${target.timestamp}`)
+      )?.data?.length;
+      console.log(`////////// ${foundInstancesCount ? "FOUND" : "NOT FOUND"} ${target.timestamp} //////////`);
+    } catch (e) {
+      console.log(`////////// NOT FOUND - Error ${target.timestamp} //////////`);
+    }
 
     return !foundInstancesCount ? processTarget(target, onTargetScraped) : target;
   });

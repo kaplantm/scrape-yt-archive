@@ -50,7 +50,9 @@ const getVideoData = (
   );
 
   const stars = featuredItem.find(".ratingVS").attr("title");
-  const category = featuredItem.find(".fm2-category-titleText").text();
+  const category =
+    featuredItem.find(".fm2-category-titleText").text() ||
+    featuredItem.find(".feeditem-compressed-category-title").text();
   console.log({
     duration: getTextFromClass(".video-time"),
   });
@@ -61,9 +63,7 @@ const getVideoData = (
     duration: convertDurationToSeconds(getTextFromClass(".video-time")),
     description: getTextFromClass(".video-description"),
     tags: [],
-    views:
-      parseInt(views.replace(/,/g, "").replace("views", "")) ||
-      undefined,
+    views: parseInt(views.replace(/,/g, "").replace("views", "")) || undefined,
     author:
       getTextFromClass(".video-username") || safeTrim(authorInfoDiv.text()),
     authorLink: removeUrlTimestampPrefix(snapshot.timestamp, authorLink),
@@ -87,6 +87,10 @@ export const featuredNineScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     const title = cheerioFeed.find(".fm2-titleText");
     const feedId = title.attr("id");
     const featureLabel = title.text();
+
+    // Reccomended videos don't have authors so we can't save them - and they are custom anyway
+    if (featureLabel.includes("Recommended")) return;
+
     const guestEditorProfileLink = cheerioFeed.find(
       ".guest-editor-profile-link a"
     );

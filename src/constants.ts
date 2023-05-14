@@ -65,22 +65,15 @@ export const eras: { [key in eraName]: Era } = {
     name: eraName.FEATURED_8,
     start: getEraBoundFromTimeStamp("20090326040603"), // march 26 2009
     end: getEraBoundFromTimeStamp("20090422013412"), // april 22 2009
-    scraper: featuredEightScraper, // TODO
+    scraper: featuredEightScraper, 
   },
   [eraName.FEATURED_9]: {
-    // ("Featured Videos") (blue header bg)
+    // ("Featured Videos") (blue header bg and no blue bg)
     name: eraName.FEATURED_9,
-    start: getEraBoundFromTimeStamp("20090423001139"), // april 23 2009
-    end: getEraBoundFromTimeStamp("20100127201814"), // jan 27 2010
-    scraper: featuredNineScraper, // TODO
+    start: getEraBoundFromTimeStamp("20090326040603"), // march 26 2009
+    end: getEraBoundFromTimeStamp("20100929040831"), // sept 29 2010
+    scraper: featuredNineScraper,
   },
-  // [eraName.FEATURED_9]: {
-  //   //  sidebar!
-  //   name: eraName.FEATURED_9,
-  //   start: getEraBoundFromTimeStamp("20101007011142"), // oct 7 2010
-  //   end: getEraBoundFromTimeStamp("20111201005550"), // dec 1 2011
-  //   scraper: featuredFourScraper, // TODO
-  // },
 };
 
 export const erasArray = Object.values(eras);
