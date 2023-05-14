@@ -1,16 +1,30 @@
 import { ApiResponse, VideoDataRaw } from "services/types";
 import { Video, VideoScrapeInstance } from "@prisma/client";
 import { PrismaClient, Prisma } from "@prisma/client";
-import { getChannelNameCreateInput, getChannelNameWhereUniqueInput } from "services/prisma-service/channel-name";
-import { getUserCreateInput, getUserWhereUniqueInput } from "services/prisma-service/user";
-import { getVideoScrapeCreateInput, getVideoScrapeWhereInput } from "services/prisma-service/video-scrape-instance";
-import { getVideoCreateInput, getVideoWhereUniqueInput } from "services/prisma-service/video";
+import {
+  getChannelNameCreateInput,
+  getChannelNameWhereUniqueInput,
+} from "services/prisma-service/channel-name";
+import {
+  getUserCreateInput,
+  getUserWhereUniqueInput,
+} from "services/prisma-service/user";
+import {
+  getVideoScrapeCreateInput,
+  getVideoScrapeWhereInput,
+} from "services/prisma-service/video-scrape-instance";
+import {
+  getVideoCreateInput,
+  getVideoWhereUniqueInput,
+} from "services/prisma-service/video";
 import { NextApiRequest } from "next";
 
 const prismaClient = new PrismaClient();
 
 // https://traveling-coderman.net/code/synchronous-promise-loop/
-export async function allSynchronously<T>(resolvables: (() => Promise<T>)[]): Promise<T[]> {
+export async function allSynchronously<T>(
+  resolvables: (() => Promise<T>)[]
+): Promise<T[]> {
   const results = [];
   for (const resolvable of resolvables) {
     results.push(await resolvable());
@@ -22,9 +36,13 @@ export const getVideoScrapeInstances = async (
   query: NextApiRequest["query"]
 ): Promise<ApiResponse<VideoScrapeInstance[]>> => {
   try {
-    const whereTimestamp = query.timestamp ? { waybackTimestamp: BigInt(query.timestamp as string) } : undefined;
-    const instances = await prismaClient.videoScrapeInstance.findMany({ where: whereTimestamp });
-    console.log({whereTimestamp, instances})
+    const whereTimestamp = query.timestamp
+      ? { waybackTimestamp: BigInt(query.timestamp as string) }
+      : undefined;
+    const instances = await prismaClient.videoScrapeInstance.findMany({
+      where: whereTimestamp,
+    });
+    console.log({ whereTimestamp, instances });
     return { status: 200, data: instances || [] };
   } catch (e: any) {
     return { status: 500, data: { error: `Server Error ${e?.message}` } };
@@ -39,6 +57,7 @@ export const upsertVideoScrapInstance = async (
     const data = (
       await allSynchronously(
         videosRaw.map((videoRaw) => async () => {
+          // Author
           const channelNameData = await prismaClient.channelName.upsert({
             create: getChannelNameCreateInput(videoRaw.author),
             update: getChannelNameCreateInput(videoRaw.author),
@@ -50,17 +69,55 @@ export const upsertVideoScrapInstance = async (
             where: getUserWhereUniqueInput(channelNameData.id),
           });
 
+          // Selector
+          let selectorData = undefined;
+          if (videoRaw.selectedBy && videoRaw.selectedByLink) {
+            const selectorChannelNameData =
+              await prismaClient.channelName.upsert({
+                create: getChannelNameCreateInput(videoRaw.selectedBy),
+                update: getChannelNameCreateInput(videoRaw.selectedBy),
+                where: getChannelNameWhereUniqueInput(videoRaw.selectedBy),
+              });
+            selectorData = await prismaClient.user.upsert({
+              create: getUserCreateInput({
+                author: videoRaw.selectedBy,
+                authorLink: videoRaw.selectedByLink,
+              }),
+              update: getUserCreateInput({
+                author: videoRaw.selectedBy,
+                authorLink: videoRaw.selectedByLink,
+              }),
+              where: getUserWhereUniqueInput(selectorChannelNameData.id),
+            });
+          }
+          
           const videoData = await prismaClient.video.upsert({
             create: getVideoCreateInput(videoRaw, authorData),
             update: getVideoCreateInput(videoRaw, authorData),
             where: getVideoWhereUniqueInput(videoRaw.videoId),
           });
 
-          const videoScrapeInstanceData = await prismaClient.videoScrapeInstance.upsert({
-            create: getVideoScrapeCreateInput(videoRaw, authorData),
-            update: getVideoScrapeCreateInput(videoRaw, authorData),
-            where: getVideoScrapeWhereInput(videoData.id, parseInt(videoRaw.timestampFeatured)),
+          console.log({
+            by: videoRaw.selectedBy,
+            link: videoRaw.selectedByLink,
           });
+          const videoScrapeInstanceData =
+            await prismaClient.videoScrapeInstance.upsert({
+              create: getVideoScrapeCreateInput(
+                videoRaw,
+                authorData,
+                selectorData
+              ),
+              update: getVideoScrapeCreateInput(
+                videoRaw,
+                authorData,
+                selectorData
+              ),
+              where: getVideoScrapeWhereInput(
+                videoData.id,
+                parseInt(videoRaw.timestampFeatured)
+              ),
+            });
 
           return videoScrapeInstanceData;
         })
@@ -75,7 +132,9 @@ export const upsertVideoScrapInstance = async (
   }
 };
 
-export const getVideo = async (args: Prisma.VideoFindFirstOrThrowArgs): Promise<ApiResponse<Video>> => {
+export const getVideo = async (
+  args: Prisma.VideoFindFirstOrThrowArgs
+): Promise<ApiResponse<Video>> => {
   try {
     const data = await prismaClient.video.findFirstOrThrow(args);
     return { status: 200, data };
@@ -85,7 +144,9 @@ export const getVideo = async (args: Prisma.VideoFindFirstOrThrowArgs): Promise<
   }
 };
 
-export const getVideos = async (args: Prisma.VideoFindManyArgs): Promise<ApiResponse<Video[]>> => {
+export const getVideos = async (
+  args: Prisma.VideoFindManyArgs
+): Promise<ApiResponse<Video[]>> => {
   try {
     const data = await prismaClient.video.findMany(args);
     return { status: 200, data };

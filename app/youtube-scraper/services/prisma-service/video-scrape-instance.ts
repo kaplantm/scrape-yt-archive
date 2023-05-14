@@ -36,56 +36,67 @@ export const getVideoScrapeWhereInput = (
 
 export const getVideoScrapeCreateInput = (
   videoRaw: VideoDataRaw,
-  author: User
-): Prisma.VideoScrapeInstanceCreateInput => ({
-  title: videoRaw.title,
-  description: videoRaw.description,
-  duration: videoRaw.duration,
-  age: videoRaw.age,
-  comments: videoRaw.comments,
-  views: videoRaw.views,
-  ratings: videoRaw.numRatings,
-  stars: videoRaw.stars,
-  featureType: videoRaw.featureType,
-  featureLabel: videoRaw.featureLabel,
-  waybackTimestamp: parseInt(videoRaw.timestampFeatured),
-  Video: {
-    connectOrCreate: {
-      create: getVideoCreateInput(videoRaw, author),
-      where: getVideoWhereUniqueInput(videoRaw.videoId),
+  author: User,
+  selector?: User
+): Prisma.VideoScrapeInstanceCreateInput => {
+  const selectorData = selector
+    ? {
+        Selector: {
+          connect: { id: selector?.id },
+        },
+      }
+    : {};
+  return {
+    title: videoRaw.title,
+    description: videoRaw.description,
+    duration: videoRaw.duration,
+    age: videoRaw.age,
+    comments: videoRaw.comments,
+    views: videoRaw.views,
+    ratings: videoRaw.numRatings,
+    stars: videoRaw.stars,
+    featureType: videoRaw.featureType,
+    featureLabel: videoRaw.featureLabel,
+    waybackTimestamp: parseInt(videoRaw.timestampFeatured),
+    Video: {
+      connectOrCreate: {
+        create: getVideoCreateInput(videoRaw, author),
+        where: getVideoWhereUniqueInput(videoRaw.videoId),
+      },
     },
-  },
-  DisplayName: {
-    connectOrCreate: {
-      create: getChannelNameCreateInput(videoRaw.author),
-      where: getChannelNameWhereUniqueInput(videoRaw.author),
+    DisplayName: {
+      connectOrCreate: {
+        create: getChannelNameCreateInput(videoRaw.author),
+        where: getChannelNameWhereUniqueInput(videoRaw.author),
+      },
     },
-  },
-  FeatureDate: {
-    connectOrCreate: {
-      create: getFeatureDateCreateInput(videoRaw.dateFeaturedEpoch),
-      where: getFeatureDateWhereUniqueInput(videoRaw.dateFeaturedEpoch),
+    FeatureDate: {
+      connectOrCreate: {
+        create: getFeatureDateCreateInput(videoRaw.dateFeaturedEpoch),
+        where: getFeatureDateWhereUniqueInput(videoRaw.dateFeaturedEpoch),
+      },
     },
-  },
-  Link: {
-    connectOrCreate: {
-      where: { url: videoRaw.videoLink },
-      create: { url: videoRaw.videoLink },
+    Link: {
+      connectOrCreate: {
+        where: { url: videoRaw.videoLink },
+        create: { url: videoRaw.videoLink },
+      },
     },
-  },
-  Categories: {
-    connectOrCreate: videoRaw.categories.map((category: string) => ({
-      where: { name: category },
-      create: { name: category },
-    })),
-  },
-  Tags: {
-    connectOrCreate: videoRaw.tags.map((tag: string) => ({
-      where: { name: tag.toLowerCase() },
-      create: { name: tag.toLowerCase() },
-    })),
-  },
-});
+    Categories: {
+      connectOrCreate: videoRaw.categories.map((category: string) => ({
+        where: { name: category },
+        create: { name: category },
+      })),
+    },
+    Tags: {
+      connectOrCreate: videoRaw.tags.map((tag: string) => ({
+        where: { name: tag.toLowerCase() },
+        create: { name: tag.toLowerCase() },
+      })),
+    },
+    ...selectorData
+  };
+};
 
 export const getFirstVideoScrapeInstance = async (
   key: keyof VideoScrapeInstance = "views",
@@ -203,7 +214,7 @@ JOIN
 };
 
 export const getLongestTimeFeatured = async (start: number, end: number) => {
-  console.log("getLongestTimeFeatured")
+  console.log("getLongestTimeFeatured");
   const instance = (
     await videoScrapeInstanceRawQueries.longestTimeFeatured(start, end)
   )[0] as VideoScrapeInstance & {
