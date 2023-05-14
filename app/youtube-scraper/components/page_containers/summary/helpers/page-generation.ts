@@ -14,17 +14,28 @@ import { commas } from "utils/num-utils";
 
 type PageParams = { year: string };
 
-export const generatePageStaticPaths = () => years.map((year) => ({ params: { year: year.toString() } }));
+export const generatePageStaticPaths = () =>
+  years.map((year) => ({ params: { year: year.toString() } }));
 
-export const generatePageStaticProps = async ({ params }: GetStaticPropsContext) => {
+export const generatePageStaticProps = async ({
+  params,
+}: GetStaticPropsContext) => {
   const paramYear = parseInt((params as PageParams)?.year);
   const year = paramYear || 2005;
   const start = easyEpochDate(year);
   const end = easyEpochDate((paramYear || new Date().getFullYear()) + 1);
-  const whereFeatureDateInYear = { FeatureDate: { epochDate: { gte: start, lt: end } } };
-  const getMostLeast = async (params: Pick<Parameters<typeof getMostAndLeastScrapeInstance>[0], "key" | "options">) =>
+  const whereFeatureDateInYear = {
+    FeatureDate: { epochDate: { gte: start, lt: end } },
+  };
+  const getMostLeast = async (
+    params: Pick<
+      Parameters<typeof getMostAndLeastScrapeInstance>[0],
+      "key" | "options"
+    >
+  ) =>
     getMostAndLeastScrapeInstance({ where: whereFeatureDateInYear, ...params });
 
+  console.log("***", { start, end });
   return {
     highlightedFeaturedVideos: [
       await getMostLeast({
@@ -32,7 +43,8 @@ export const generatePageStaticProps = async ({ params }: GetStaticPropsContext)
         options: {
           most: "Most Viewed",
           least: "Least Viewed",
-          transformValue: (value) => `${commas(value)} View${!value || value > 1 ? "s" : ""}`,
+          transformValue: (value) =>
+            `${commas(value)} View${!value || value > 1 ? "s" : ""}`,
         },
       }),
       await getMostLeast({
@@ -40,7 +52,8 @@ export const generatePageStaticProps = async ({ params }: GetStaticPropsContext)
         options: {
           most: "Most Rated",
           least: "Fewest Ratings",
-          transformValue: (value) => `${value} Rating${!value || value > 1 ? "s" : ""}`,
+          transformValue: (value) =>
+            `${value} Rating${!value || value > 1 ? "s" : ""}`,
         },
       }),
       await getMostLeast({
@@ -48,7 +61,8 @@ export const generatePageStaticProps = async ({ params }: GetStaticPropsContext)
         options: {
           most: "Top Rated",
           least: "Lowest Rated",
-          transformValue: (value) => `${value} Star${!value || value > 1 ? "s" : ""}`,
+          transformValue: (value) =>
+            `${value} Star${!value || value > 1 ? "s" : ""}`,
         },
       }),
       await getMostLeast({
@@ -56,12 +70,17 @@ export const generatePageStaticProps = async ({ params }: GetStaticPropsContext)
         options: {
           most: "Most Comments",
           least: "Fewest Comments",
-          transformValue: (value) => `${value} Commment${!value || value > 1 ? "s" : ""}`,
+          transformValue: (value) =>
+            `${value} Commment${!value || value > 1 ? "s" : ""}`,
         },
       }),
       await getMostLeast({
         key: "duration",
-        options: { most: "Longest", least: "Shortest", transformValue: (value) => secondsToHHMMSS(value) },
+        options: {
+          most: "Longest",
+          least: "Shortest",
+          transformValue: (value) => secondsToHHMMSS(value),
+        },
       }),
       await getLongestTimeFeatured(start, end),
     ],
@@ -91,24 +110,43 @@ export const generatePageStaticProps = async ({ params }: GetStaticPropsContext)
     counts: await batchRawSql({
       numFeatured: {
         label: "Featured Videos",
-        value: (await videoScrapeInstanceRawQueries.uniqueVideosAsFeatured(start, end))[0].count,
+        value: (
+          await videoScrapeInstanceRawQueries.uniqueVideosAsFeatured(start, end)
+        )[0].count,
       },
       authorsCount: {
         label: "Featured Authors",
-        value: (await authorRawQueries.uniqueVideoAuthorsInTimePeriod(start, end))[0].count,
+        value: (
+          await authorRawQueries.uniqueVideoAuthorsInTimePeriod(start, end)
+        )[0].count,
       },
       numSpotlight: {
         label: "Spotlight Videos",
-        value: (await videoScrapeInstanceRawQueries.uniqueVideosAsSpotlight(start, end))[0].count,
+        value: (
+          await videoScrapeInstanceRawQueries.uniqueVideosAsSpotlight(
+            start,
+            end
+          )
+        )[0].count,
       },
       categoriesCount: {
         label: "Categories",
-        value: (await categoryRawQueries.uniqueTagsTimePeriod(start, end))[0].count,
+        value: (
+          await categoryRawQueries.uniqueTagsTimePeriod(start, end)
+        )[0].count,
       },
-      tagsCount: { label: "Unique Tags", value: (await tagRawQueries.uniqueTagsTimePeriod(start, end))[0].count },
+      tagsCount: {
+        label: "Unique Tags",
+        value: (await tagRawQueries.uniqueTagsTimePeriod(start, end))[0].count,
+      },
       numScrapes: {
         label: "Page Snapshops",
-        value: (await videoScrapeInstanceRawQueries.uniqueWaybackTimestamps(start, end))[0].count,
+        value: (
+          await videoScrapeInstanceRawQueries.uniqueWaybackTimestamps(
+            start,
+            end
+          )
+        )[0].count,
       },
     }),
     mostFeaturedAuthors: await authorRawQueries.mostFeaturedAuthor(start, end),

@@ -1,9 +1,20 @@
 import { VideoDataRaw } from "services/types";
 import { getVideoCreateInput, getVideoWhereUniqueInput } from "./video";
-import { getFeatureDateCreateInput, getFeatureDateWhereUniqueInput } from "./feature-date";
-import { Prisma, PrismaClient, User, VideoScrapeInstance } from "@prisma/client";
+import {
+  getFeatureDateCreateInput,
+  getFeatureDateWhereUniqueInput,
+} from "./feature-date";
+import {
+  Prisma,
+  PrismaClient,
+  User,
+  VideoScrapeInstance,
+} from "@prisma/client";
 import prisma from "prisma/app-client";
-import { getChannelNameCreateInput, getChannelNameWhereUniqueInput } from "./channel-name";
+import {
+  getChannelNameCreateInput,
+  getChannelNameWhereUniqueInput,
+} from "./channel-name";
 import {
   fromVideoScrapeInstance,
   getWhereEpochDateWithin,
@@ -114,20 +125,32 @@ export const getMostAndLeastScrapeInstance = async ({
   };
   where?: Prisma.VideoScrapeInstanceWhereInput;
 }) => {
-  const mostVideoScrapeInstance = await getFirstVideoScrapeInstance(key, "desc", where);
-  const leastVideoScrapeInstance = await getFirstVideoScrapeInstance(key, "asc", where);
+  const mostVideoScrapeInstance = await getFirstVideoScrapeInstance(
+    key,
+    "desc",
+    where
+  );
+  const leastVideoScrapeInstance = await getFirstVideoScrapeInstance(
+    key,
+    "asc",
+    where
+  );
   const defaultTransformer = (val: any) => `${val} ${key}`;
   const transformer = transformValue || defaultTransformer;
   return {
     most: {
       videoScrapeInstance: mostVideoScrapeInstance,
-      value: mostVideoScrapeInstance ? transformer(mostVideoScrapeInstance[key]) : null,
+      value: mostVideoScrapeInstance
+        ? transformer(mostVideoScrapeInstance[key])
+        : null,
       label: most,
       sentiment: sentiment || "positive",
     },
     least: {
       videoScrapeInstance: leastVideoScrapeInstance,
-      value: leastVideoScrapeInstance ? transformer(leastVideoScrapeInstance[key]) : null,
+      value: leastVideoScrapeInstance
+        ? transformer(leastVideoScrapeInstance[key])
+        : null,
       label: least,
       sentiment: sentiment || "negative",
     },
@@ -152,54 +175,58 @@ export const videoScrapeInstanceRawQueries = {
     )} AND featureType = "spotlight"`,
   longestTimeFeatured: async (start: number, end: number) =>
     prisma.$queryRaw`
-                SELECT DISTINCT vsi.*,
-                                earliestFeature,
-                                latestFeature,
-                                (earliestFeature-latestFeature) AS timeDiff,
-                                FeatureDate.epochDate as epochDate
-                FROM VideoScrapeInstance AS vsi
-                JOIN FeatureDate
-                JOIN
-                  (SELECT vsiInner.videoId,
-                          fdInner.epochDate AS earliestFeature
-                  FROM VideoScrapeInstance AS vsiInner
-                  JOIN FeatureDate AS fdInner ON fdInner.id = vsiInner.featureDateId
-                  GROUP BY vsiInner.videoId,
-                            fdInner.epochDate
-                  ORDER BY earliestFeature DESC
-                  LIMIT 1) AS early
-                JOIN
-                  (SELECT vsiInner.videoId,
-                          fdInner.epochDate AS latestFeature
-                  FROM VideoScrapeInstance AS vsiInner
-                  JOIN FeatureDate AS fdInner ON fdInner.id = vsiInner.featureDateId
-                  GROUP BY vsiInner.videoId,
-                            fdInner.epochDate
-                  ORDER BY latestFeature ASC
-                  LIMIT 1) AS late
-                ${getWhereEpochDateWithin(start, end)}
-                ORDER BY timeDiff DESC LIMIT 1`,
+    SELECT DISTINCT vsi.videoId,
+                earliestFeature,
+                latestFeature,
+                (earliestFeature-latestFeature) AS diff 
+FROM VideoScrapeInstance AS vsi
+JOIN
+  (SELECT vsiInner.videoId,
+          fdInner.epochDate AS earliestFeature
+   FROM VideoScrapeInstance AS vsiInner
+   JOIN FeatureDate AS fdInner ON fdInner.id = vsiInner.featureDateId
+   GROUP BY vsiInner.videoId,
+            fdInner.epochDate
+   ORDER BY earliestFeature DESC) AS early ON early.videoId = vsi.VideoId
+JOIN
+  (SELECT vsiInner.videoId,
+          fdInner.epochDate AS latestFeature
+   FROM VideoScrapeInstance AS vsiInner
+   JOIN FeatureDate AS fdInner ON fdInner.id = vsiInner.featureDateId
+   WHERE fdInner.epochDate>=${start} AND fdInner.epochDate<=${end}
+   GROUP BY vsiInner.videoId,
+            fdInner.epochDate
+   ORDER BY latestFeature ASC) AS late ON late.videoId = vsi.VideoId
+   ORDER BY diff DESC
+   LIMIT 1`,
 };
 
 export const getLongestTimeFeatured = async (start: number, end: number) => {
-  const instance = (await videoScrapeInstanceRawQueries.longestTimeFeatured(start, end))[0] as VideoScrapeInstance & {
+  console.log("getLongestTimeFeatured")
+  const instance = (
+    await videoScrapeInstanceRawQueries.longestTimeFeatured(start, end)
+  )[0] as VideoScrapeInstance & {
     timeDiff: number;
   };
 
   console.log("*****instance", {
-    instance: await videoScrapeInstanceRawQueries.longestTimeFeatured(start, end),
+    instance: instance,
     start,
     end,
   });
 
-  if (!instance?.id) {
+  if (!instance?.videoId) {
     return {};
   }
 
   return {
     most: {
-      videoScrapeInstance: await getFirstVideoScrapeInstance("id", "asc", { id: instance.id }),
-      value: instance.timeDiff ? `${roundToNearest(msToDays(instance.timeDiff))} Day(s)` : 0,
+      videoScrapeInstance: await getFirstVideoScrapeInstance("videoId", "asc", {
+        videoId: instance.videoId,
+      }),
+      value: instance.timeDiff
+        ? `${roundToNearest(msToDays(instance.timeDiff))} Day(s)`
+        : 0,
       label: "Longest Time Featured",
       sentiment: "positive",
     },

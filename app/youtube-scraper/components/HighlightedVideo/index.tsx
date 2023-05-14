@@ -13,7 +13,6 @@ const HighlightedVideo = ({
   sentiment?: string // TODO should be enum
 }) => {
   const { Video, Selector } = videoScrapeInstance;
-  console.log("higkight", videoScrapeInstance)
   if(!Video){
     return null
   }

@@ -71,7 +71,7 @@ export const eras: { [key in eraName]: Era } = {
     // ("Featured Videos") (blue header bg)
     name: eraName.FEATURED_9,
     start: getEraBoundFromTimeStamp("20090423001139"), // april 23 2009
-    end: getEraBoundFromTimeStamp("20101006012045"), // oct 6 2010
+    end: getEraBoundFromTimeStamp("20100127201814"), // jan 27 2010
     scraper: featuredNineScraper, // TODO
   },
   // [eraName.FEATURED_9]: {

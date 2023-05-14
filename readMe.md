@@ -141,3 +141,28 @@ ORDER BY diff DESC
 
 
 TODO: now rerun featured-8 scrape to db, wrong video link
+TODO: fix longest time featured
+
+
+SELECT DISTINCT vsi.videoId,
+                earliestFeature,
+                latestFeature,
+                (earliestFeature-latestFeature) AS diff 
+FROM VideoScrapeInstance AS vsi
+JOIN
+  (SELECT vsiInner.videoId,
+          fdInner.epochDate AS earliestFeature
+   FROM VideoScrapeInstance AS vsiInner
+   JOIN FeatureDate AS fdInner ON fdInner.id = vsiInner.featureDateId
+   GROUP BY vsiInner.videoId,
+            fdInner.epochDate
+   ORDER BY earliestFeature DESC) AS early ON early.videoId = vsi.VideoId
+JOIN
+  (SELECT vsiInner.videoId,
+          fdInner.epochDate AS latestFeature
+   FROM VideoScrapeInstance AS vsiInner
+   JOIN FeatureDate AS fdInner ON fdInner.id = vsiInner.featureDateId
+   GROUP BY vsiInner.videoId,
+            fdInner.epochDate
+   ORDER BY latestFeature ASC) AS late ON late.videoId = vsi.VideoId
+   ORDER BY diff DESC

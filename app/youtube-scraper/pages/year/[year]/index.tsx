@@ -11,11 +11,14 @@ export const getStaticPaths: GetStaticPaths = () => ({
   fallback: false,
 });
 
-export const getStaticProps: GetStaticProps = async (props: GetStaticPropsContext) => ({
+export const getStaticProps: GetStaticProps = async (
+  props: GetStaticPropsContext
+) => ({
   props: await generatePageStaticProps(props),
 });
 
 const YearPage = (props: ComponentProps<typeof SummaryPageContainer>) => {
+  console.log({ props });
   return <SummaryPageContainer {...props} />;
 };
 
