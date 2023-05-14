@@ -30,6 +30,9 @@ start postgres locally postgres -D /usr/local/var/postgres - swapped from postgr
 brew services start mysql
 
 backup
+mysqldump --databases youtube_scraped --no-create-info > /Users/tonikaplan/Documents/youtube-scraper-docs/youtube-scraper-mysql-db-backups/youtube_scraped_dump_2n.sql --user root
+
+
 pg_dump youtube_scraped -f /Users/tonikaplan/Documents/youtube_scraped_backup_feature_1.dump 
 
 restore from dump
@@ -142,6 +145,7 @@ ORDER BY diff DESC
 
 TODO: now rerun featured-8 scrape to db, wrong video link
 TODO: run query on db to set feature label to spotlight on spotlight videos
+TODO: re-backup old db w/ innodb so we keepp foreign keys https://dba.stackexchange.com/questions/59195/how-can-i-backup-dump-mysql-database-with-foreign-key-constraints
 
 
 SELECT DISTINCT vsi.videoId,
