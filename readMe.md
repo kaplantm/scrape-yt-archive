@@ -141,7 +141,7 @@ ORDER BY diff DESC
 
 
 TODO: now rerun featured-8 scrape to db, wrong video link
-TODO: fix longest time featured
+TODO: run query on db to set feature label to spotlight on spotlight videos
 
 
 SELECT DISTINCT vsi.videoId,

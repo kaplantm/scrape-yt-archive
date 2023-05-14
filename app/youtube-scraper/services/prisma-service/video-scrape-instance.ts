@@ -47,6 +47,7 @@ export const getVideoScrapeCreateInput = (
   ratings: videoRaw.numRatings,
   stars: videoRaw.stars,
   featureType: videoRaw.featureType,
+  featureLabel: videoRaw.featureLabel,
   waybackTimestamp: parseInt(videoRaw.timestampFeatured),
   Video: {
     connectOrCreate: {

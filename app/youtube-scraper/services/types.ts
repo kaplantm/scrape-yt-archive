@@ -27,5 +27,6 @@ export type VideoDataRaw = {
   selectedBy: string;
   selectedByLink: string;
   featureType?: string;
+  featureLabel?: string;
   videoLink: string
 };
