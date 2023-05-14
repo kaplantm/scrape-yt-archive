@@ -6,6 +6,7 @@ import {
   safeSplit,
   safeTrim,
   removeUrlTimestampPrefix,
+  getSimpleVideoIdUrl,
 } from "../utils";
 
 const getCurriedTextFromClassById =
@@ -24,7 +25,7 @@ const getFeaturedVideos = (
   items.each((i, el) => {
     const featuredItem = $(el);
 
-    const videoLink = removeUrlTimestampPrefix(
+    const rawVideoLink = removeUrlTimestampPrefix(
       snapshot.timestamp,
       featuredItem.find(".video-long-title a").attr("href")
     );
@@ -32,6 +33,10 @@ const getFeaturedVideos = (
       featuredItem.find(".video-long-title a").attr("id"),
       "video-long-title-"
     )[1];
+
+    const videoLink = rawVideoLink?.includes("cthru?")
+      ? getSimpleVideoIdUrl(videoId)
+      : rawVideoLink;
 
     const getTextFromClass = getCurriedTextFromClassById(featuredItem);
     const views = getTextFromClass(".video-view-count");
