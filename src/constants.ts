@@ -8,6 +8,7 @@ import { featuredFiveScraper } from "./scrapers/featured-five";
 import { featuredSixScraper } from "./scrapers/featured-six";
 import { featuredSevenScraper } from "./scrapers/featured-seven";
 import { featuredEightScraper } from "./scrapers/featured-eight";
+import { featuredNineScraper } from "./scrapers/featured-nine";
 
 export const eras: { [key in eraName]: Era } = {
   [eraName.FEATURED_1]: {
@@ -66,20 +67,20 @@ export const eras: { [key in eraName]: Era } = {
     end: getEraBoundFromTimeStamp("20090422013412"), // april 22 2009
     scraper: featuredEightScraper, // TODO
   },
-  // [eraName.FEATURED_8]: {
-  //   // ("Featured Videos") (blue header bg)
-  //   name: eraName.FEATURED_8,
-  //   start: getEraBoundFromTimeStamp("20090423001139"), // april 23 2009
-  //   end: getEraBoundFromTimeStamp("20101006012045"), // oct 6 2010
+  [eraName.FEATURED_9]: {
+    // ("Featured Videos") (blue header bg)
+    name: eraName.FEATURED_9,
+    start: getEraBoundFromTimeStamp("20090423001139"), // april 23 2009
+    end: getEraBoundFromTimeStamp("20101006012045"), // oct 6 2010
+    scraper: featuredNineScraper, // TODO
+  },
+  // [eraName.FEATURED_9]: {
+  //   //  sidebar!
+  //   name: eraName.FEATURED_9,
+  //   start: getEraBoundFromTimeStamp("20101007011142"), // oct 7 2010
+  //   end: getEraBoundFromTimeStamp("20111201005550"), // dec 1 2011
   //   scraper: featuredFourScraper, // TODO
   // },
-  [eraName.FEATURED_9]: {
-    //  sidebar!
-    name: eraName.FEATURED_9,
-    start: getEraBoundFromTimeStamp("20101007011142"), // oct 7 2010
-    end: getEraBoundFromTimeStamp("20111201005550"), // dec 1 2011
-    scraper: featuredFourScraper, // TODO
-  },
 };
 
 export const erasArray = Object.values(eras);

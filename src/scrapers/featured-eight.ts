@@ -26,7 +26,7 @@ const getFeaturedVideos = (
 
     const videoLink = removeUrlTimestampPrefix(
       snapshot.timestamp,
-      featuredItem.find(".video-long-title a").attr("id")
+      featuredItem.find(".video-long-title a").attr("href")
     );
     const videoId = safeSplit(
       featuredItem.find(".video-long-title a").attr("id"),

@@ -6,7 +6,8 @@ https://khalilstemmler.com/blogs/typescript/node-starter-project/
 https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/
 https://www.freecodecamp.org/news/how-to-scrape-websites-with-node-js-and-cheerio/
 https://github.com/internetarchive/wayback/blob/master/wayback-cdx-server/README.md#basic-usage
-Raw data for list of snapshots: http://web.archive.org/cdx/search/cdx?url=youtube.com
+
+raw-snapshots - Raw data for list of snapshots: http://web.archive.org/cdx/search/cdx?url=youtube.com
 
 LIMIT=1 FEATURE=FEATURED_1 npm run start:mock:dev
 LIMIT=1 FEATURE=FEATURED_2 npm run start:mock:dev
@@ -136,3 +137,7 @@ ORDER BY diff DESC
 - debug fixed
 - mobile
 - header
+
+
+
+TODO: now rerun featured-8 scrape to db, wrong video link

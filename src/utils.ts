@@ -10,7 +10,7 @@ export const removeUrlTimestampPrefix = (
 ) =>
   url
     ? `${addYoutubeBase ? "https://www.youtube.com/" : ""}${url.replace(
-        `/web/${timestamp}/`,
+        /\/web\/\d*\//i,
         ""
       )}`
     : undefined;
