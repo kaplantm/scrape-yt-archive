@@ -10,8 +10,15 @@ import {
   getSimpleVideoIdUrl,
 } from "../utils";
 
-const avoidPlaylistList = (link: string | undefined, videoId: string) =>
-  !link || link.includes("watch_videos?") ? getSimpleVideoIdUrl(videoId) : link;
+const avoidPlaylistList = (
+  link: string | undefined,
+  videoId: string | undefined
+) => {
+  if (!link || link.includes("watch_videos?")) {
+    return videoId ? getSimpleVideoIdUrl(videoId) : undefined;
+  }
+  return link;
+};
 
 const parseFeatureType = (id = "") => {
   const lower = id.toLowerCase();
@@ -107,13 +114,13 @@ const getSidebarVideoData = (
   const views =
     getTextFromClass(".view-count") || safeTrim($(infoDivs[1]).text());
 
-    const videoIdFromLink = getVideoId(videoLink);
-    const videoIdClass = featuredItem
-      .find(".video-main-content")
-      .attr("id")
-      ?.replace("video-main-content-", "");
-    // some videos link to playlists, so their id isn't clear from link
-    const videoId = videoIdFromLink || videoIdClass;
+  const videoIdFromLink = getVideoId(videoLink);
+  const videoIdClass = featuredItem
+    .find(".video-main-content")
+    .attr("id")
+    ?.replace("video-main-content-", "");
+  // some videos link to playlists, so their id isn't clear from link
+  const videoId = videoIdFromLink || videoIdClass;
   return {
     title: getTextFromClass(".title"),
     duration: convertDurationToSeconds(getTextFromClass(".video-time")),
