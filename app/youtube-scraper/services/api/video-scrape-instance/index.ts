@@ -42,7 +42,6 @@ export const getVideoScrapeInstances = async (
     const instances = await prismaClient.videoScrapeInstance.findMany({
       where: whereTimestamp,
     });
-    console.log({ whereTimestamp, instances });
     return { status: 200, data: instances || [] };
   } catch (e: any) {
     return { status: 500, data: { error: `Server Error ${e?.message}` } };

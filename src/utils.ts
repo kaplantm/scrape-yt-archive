@@ -63,6 +63,9 @@ export const getVideoId = (str: string | undefined) => {
 export const getSimpleVideoIdUrl = (videoId: string) =>
   `http://www.youtube.com/watch?v=${videoId}`;
 
+  export const getSimpleProfileUsernameUrl = (username: string) =>
+  `http://www.youtube.com/user/${username}`;
+
 export const getKeyFromTimeStamp = (timestamp: string) =>
   timestamp.substring(0, timestamp.length - 4);
 export const getEraBoundFromTimeStamp = (timestamp: string) =>
