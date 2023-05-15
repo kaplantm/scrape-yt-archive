@@ -94,7 +94,7 @@ export const getVideoScrapeCreateInput = (
         create: { name: tag.toLowerCase() },
       })),
     },
-    ...selectorData
+    ...selectorData,
   };
 };
 
@@ -140,12 +140,12 @@ export const getMostAndLeastScrapeInstance = async ({
   const mostVideoScrapeInstance = await getFirstVideoScrapeInstance(
     key,
     "desc",
-    where
+    { ...where, [key]: { gte: 0 } }
   );
   const leastVideoScrapeInstance = await getFirstVideoScrapeInstance(
     key,
     "asc",
-    where
+    { ...where, [key]: { gte: 0 } }
   );
   const defaultTransformer = (val: any) => `${val} ${key}`;
   const transformer = transformValue || defaultTransformer;

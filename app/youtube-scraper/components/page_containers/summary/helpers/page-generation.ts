@@ -71,7 +71,7 @@ export const generatePageStaticProps = async ({
           most: "Most Comments",
           least: "Fewest Comments",
           transformValue: (value) =>
-            `${value} Commment${!value || value > 1 ? "s" : ""}`,
+            `${value} Comment${!value || value > 1 ? "s" : ""}`,
         },
       }),
       await getMostLeast({

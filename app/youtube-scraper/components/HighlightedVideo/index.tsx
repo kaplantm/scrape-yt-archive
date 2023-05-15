@@ -19,7 +19,7 @@ const HighlightedVideo = ({
   return (
     <div className={clsx("flex gap-5 flex-col bg-zinc-900 rounded-md py-8 px-8 items-start border-red-700 border")}>
       {label && (
-        <div className="flex gap-10 items-center w-full place-content-between">
+        <div className="flex gap-1 w-full place-content-between flex-col">
           <h5
             className={clsx(
               {
@@ -32,7 +32,7 @@ const HighlightedVideo = ({
           >
             {label}
           </h5>
-          <span className="whitespace-nowrap">{value}</span>
+          <span className="whitespace-nowrap pl-4">{value}</span>
         </div>
       )}
       <div className="video-container rounded-md overflow-hidden">

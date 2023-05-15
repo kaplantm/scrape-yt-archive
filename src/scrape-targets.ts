@@ -12,7 +12,6 @@ import {
 } from "./utils";
 
 const scrapeTarget = async (snapshot: Snapshot) => {
-  console.log("snapshot.eraName", snapshot.eraName);
   const scraper = eras[snapshot.eraName]?.scraper;
 
   if (!scraper) {
@@ -88,6 +87,7 @@ export const scrapeTargets = async (
     if (target.eraName !== eraName[onlyFeature as eraName]) {
       return target;
     }
+    console.log(`-- ${target.timestamp} --`);
     let foundInstancesCount = 0;
     try {
       console.log(
@@ -101,15 +101,14 @@ export const scrapeTargets = async (
       if (foundInstancesCount) {
         // testing if any found videos are invalid so we can retry them
         // videoId 11511 represents and invalid video - no youtube videoId
-        const missingVideoId = (foundInstances as any[]).some(el => el.videoId === 11511)
-        if(missingVideoId){
-
+        const missingVideoId = (foundInstances as any[]).some(
+          (el) => el.videoId === 11511
+        );
+        if (missingVideoId) {
           console.log(
-            `////////// FOUND INVALID videoId ${
-              target.timestamp
-            } //////////`
+            `////////// FOUND INVALID videoId ${target.timestamp} //////////`
           );
-          foundInstancesCount = 0
+          foundInstancesCount = 0;
         }
       }
 

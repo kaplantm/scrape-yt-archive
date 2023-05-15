@@ -72,6 +72,13 @@ const getMainVideoData = (
     ?.replace("video-main-content-", "");
   // some videos link to playlists, so their id isn't clear from link
   const videoId = videoIdFromLink || videoIdClass;
+  console.log("getMainVideo", {
+    videoId,
+    videoLink,
+    title:
+      getTextFromClass(".video-long-title a") ||
+      getTextFromClass(".video-title a"),
+  });
   return {
     title:
       getTextFromClass(".video-long-title a") ||
@@ -108,7 +115,9 @@ const getSidebarVideoData = (
   );
   const info = featuredItem.find(".stat");
   const infoDivs = [...info];
-  const author = safeTrim($(infoDivs[0]).text()).replace(/^by /g, "");
+
+  const authorSplit = safeTrim($(infoDivs[0]).text()).split(" ");
+  const author = authorSplit[authorSplit.length - 1]; // remove "by" in all language just based on space
 
   const getTextFromClass = getCurriedTextFromClassById(featuredItem);
   const views =
@@ -121,6 +130,14 @@ const getSidebarVideoData = (
     ?.replace("video-main-content-", "");
   // some videos link to playlists, so their id isn't clear from link
   const videoId = videoIdFromLink || videoIdClass;
+
+  console.log("getSidebarVideo", {
+    videoId,
+    videoLink,
+    title:
+      getTextFromClass(".video-long-title a") ||
+      getTextFromClass(".video-title a"),
+  });
   return {
     title: getTextFromClass(".title"),
     duration: convertDurationToSeconds(getTextFromClass(".video-time")),
@@ -181,7 +198,8 @@ const getMainContentVideos = (
       }));
     })
     .flat()
-    .flat();
+    .flat()
+    .filter((el) => el);
 
 const getSideBarVideos = (
   feeds: Element[],
@@ -237,7 +255,12 @@ export const featuredNineScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     dateFeatured: `${date.toUTCString()}`,
     timestampFeatured: snapshot.timestamp,
   };
-  // const mainContentVideos = getMainContentVideos([...feeds], $, snapshot, sharedDataForAllVideosOnPage)
+  const mainContentVideos = getMainContentVideos(
+    [...feeds],
+    $,
+    snapshot,
+    sharedDataForAllVideosOnPage
+  );
   const sideBarVideos = getSideBarVideos(
     [...sidebarFeeds],
     $,
@@ -245,6 +268,6 @@ export const featuredNineScraper = ($: CheerioAPI, snapshot: Snapshot) => {
     sharedDataForAllVideosOnPage
   );
 
-  return [...sideBarVideos];
-  // return [...mainContentVideos, ...sideBarVideos];
+  // return [...sideBarVideos];
+  return [...mainContentVideos, ...sideBarVideos];
 };

@@ -154,3 +154,40 @@ ORDER BY latestFeature ASC) AS late ON late.videoId = vsi.VideoId
 ORDER BY diff DESC
 
 TODO: on FE, show images for videos not available? can i detect that?
+
+
+FE:
+longest time featured value
+abbreviate views? Or move them to new line?
+limit height, scroll popover
+dots on sub list
+
+
+
+clean up "by" in other languages
+SET @goodDisplayName := "WWEFanNation";
+SET @prefix := "de";
+SELECT @goodDisplayNameId := `id` FROM ChannelName WHERE name = @goodDisplayName COLLATE utf8mb4_0900_ai_ci;
+SELECT @badDisplayNameId := `id` FROM ChannelName WHERE name = CONCAT(@prefix, " ", @goodDisplayName) COLLATE utf8mb4_0900_ai_ci;
+
+UPDATE 
+    VideoScrapeInstance
+SET
+    displayNameId = @goodDisplayNameId
+WHERE
+    displayNameId = @badDisplayNameId;
+
+SELECT @goodAuthorId := `id` FROM User WHERE usernameId = @goodDisplayNameId;
+SELECT @badAuthorId := `id` FROM User WHERE usernameId = @badDisplayNameId;
+    
+UPDATE 
+    Video
+SET
+    authorId = @goodAuthorId
+WHERE
+    authorId = @badAuthorId;
+    
+    
+DELETE FROM User WHERE id = @badAuthorId;
+
+DELETE FROM ChannelName WHERE id = @badDisplayNameId;

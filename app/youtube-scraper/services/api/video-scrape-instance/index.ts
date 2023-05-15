@@ -48,11 +48,17 @@ export const getVideoScrapeInstances = async (
   }
 };
 
+20100312140922
+20110328060049
 // TODO: now better batch updates
 export const upsertVideoScrapInstance = async (
   videosRaw: VideoDataRaw[]
 ): Promise<ApiResponse<VideoScrapeInstance[]>> => {
   try {
+    console.log({
+      timestampFeatured: videosRaw[0]?.timestampFeatured,
+      videoIds: videosRaw.map((el) => el?.videoId),
+    });
     const data = (
       await allSynchronously(
         videosRaw.map((videoRaw) => async () => {
@@ -89,16 +95,11 @@ export const upsertVideoScrapInstance = async (
               where: getUserWhereUniqueInput(selectorChannelNameData.id),
             });
           }
-          
+
           const videoData = await prismaClient.video.upsert({
             create: getVideoCreateInput(videoRaw, authorData),
             update: getVideoCreateInput(videoRaw, authorData),
             where: getVideoWhereUniqueInput(videoRaw.videoId),
-          });
-
-          console.log({
-            by: videoRaw.selectedBy,
-            link: videoRaw.selectedByLink,
           });
           const videoScrapeInstanceData =
             await prismaClient.videoScrapeInstance.upsert({
