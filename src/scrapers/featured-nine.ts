@@ -7,7 +7,11 @@ import {
   removeUrlTimestampPrefix,
   getVideoId,
   getSimpleProfileUsernameUrl,
+  getSimpleVideoIdUrl,
 } from "../utils";
+
+const avoidPlaylistList = (link: string | undefined, videoId: string) =>
+  !link || link.includes("watch_videos?") ? getSimpleVideoIdUrl(videoId) : link;
 
 const parseFeatureType = (id = "") => {
   const lower = id.toLowerCase();
@@ -54,6 +58,13 @@ const getMainVideoData = (
     featuredItem.find(".fm2-category-titleText").text() ||
     featuredItem.find(".feeditem-compressed-category-title").text();
 
+  const videoIdFromLink = getVideoId(videoLink);
+  const videoIdClass = featuredItem
+    .find(".video-main-content")
+    .attr("id")
+    ?.replace("video-main-content-", "");
+  // some videos link to playlists, so their id isn't clear from link
+  const videoId = videoIdFromLink || videoIdClass;
   return {
     title:
       getTextFromClass(".video-long-title a") ||
@@ -65,8 +76,8 @@ const getMainVideoData = (
     author:
       getTextFromClass(".video-username") || safeTrim(authorInfoDiv.text()),
     authorLink: removeUrlTimestampPrefix(snapshot.timestamp, authorLink),
-    videoLink,
-    videoId: getVideoId(videoLink),
+    videoLink: avoidPlaylistList(videoLink, videoId),
+    videoId,
     uploadDate: undefined,
     comments: undefined,
     stars: stars !== undefined ? parseFloat(stars) : undefined,
@@ -96,6 +107,13 @@ const getSidebarVideoData = (
   const views =
     getTextFromClass(".view-count") || safeTrim($(infoDivs[1]).text());
 
+    const videoIdFromLink = getVideoId(videoLink);
+    const videoIdClass = featuredItem
+      .find(".video-main-content")
+      .attr("id")
+      ?.replace("video-main-content-", "");
+    // some videos link to playlists, so their id isn't clear from link
+    const videoId = videoIdFromLink || videoIdClass;
   return {
     title: getTextFromClass(".title"),
     duration: convertDurationToSeconds(getTextFromClass(".video-time")),
@@ -104,8 +122,8 @@ const getSidebarVideoData = (
     views: parseInt(views.replace(/,/g, "").replace("views", "")) || undefined,
     author,
     authorLink: getSimpleProfileUsernameUrl(author), // authors not linked for sidebar videos
-    videoLink,
-    videoId: getVideoId(videoLink),
+    videoLink: avoidPlaylistList(videoLink, videoId),
+    videoId,
     uploadDate: undefined,
     comments: undefined,
     stars: undefined,
