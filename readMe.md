@@ -191,3 +191,7 @@ WHERE
 DELETE FROM User WHERE id = @badAuthorId;
 
 DELETE FROM ChannelName WHERE id = @badDisplayNameId;
+
+
+
+TODO: update longest time featured to just count number of scrapes?

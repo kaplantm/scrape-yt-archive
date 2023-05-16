@@ -1,5 +1,6 @@
 import {
   getLongestTimeFeatured,
+  getMostFeatured,
   getMostAndLeastScrapeInstance,
   videoScrapeInstanceRawQueries,
 } from "services/prisma-service/video-scrape-instance";
@@ -11,6 +12,8 @@ import { tagRawQueries } from "services/prisma-service/tag";
 import { categoryRawQueries } from "services/prisma-service/category";
 import { years } from "utils/path-utils";
 import { commas } from "utils/num-utils";
+import { Prisma } from "@prisma/client";
+import prisma from "prisma/app-client";
 
 type PageParams = { year: string };
 
@@ -31,9 +34,13 @@ export const generatePageStaticProps = async ({
     params: Pick<
       Parameters<typeof getMostAndLeastScrapeInstance>[0],
       "key" | "options"
-    >
+    >,
+    where?: Prisma.VideoScrapeInstanceWhereInput
   ) =>
-    getMostAndLeastScrapeInstance({ where: whereFeatureDateInYear, ...params });
+    getMostAndLeastScrapeInstance({
+      where: { ...whereFeatureDateInYear, ...where },
+      ...params,
+    });
 
   console.log("***", { start, end });
   return {
@@ -56,15 +63,18 @@ export const generatePageStaticProps = async ({
             `${value} Rating${!value || value > 1 ? "s" : ""}`,
         },
       }),
-      await getMostLeast({
-        key: "stars",
-        options: {
-          most: "Top Rated",
-          least: "Lowest Rated",
-          transformValue: (value) =>
-            `${value} Star${!value || value > 1 ? "s" : ""}`,
+      await getMostLeast(
+        {
+          key: "stars",
+          options: {
+            most: "Top Rated",
+            least: "Lowest Rated",
+            transformValue: (value) =>
+              `${value} Star${!value || value > 1 ? "s" : ""}`,
+          },
         },
-      }),
+        { stars: { gt: 0 } }
+      ),
       await getMostLeast({
         key: "comments",
         options: {
@@ -83,6 +93,7 @@ export const generatePageStaticProps = async ({
         },
       }),
       await getLongestTimeFeatured(start, end),
+      await getMostFeatured(start, end, whereFeatureDateInYear),
     ],
     // Using raw queries for some logic not supported by prisma around count distinct
     mostLeastList: [

@@ -3,8 +3,15 @@ import VideoCallout from "components/HighlightedVideo";
 import { generatePageStaticProps } from "./helpers/page-generation";
 import { Fragment, memo } from "react";
 
-const SummaryPageContainer = (props: Awaited<ReturnType<typeof generatePageStaticProps>>) => {
-  const { highlightedFeaturedVideos, mostLeastList, counts, mostFeaturedAuthors } = props;
+const SummaryPageContainer = (
+  props: Awaited<ReturnType<typeof generatePageStaticProps>>
+) => {
+  const {
+    highlightedFeaturedVideos,
+    mostLeastList,
+    counts,
+    mostFeaturedAuthors,
+  } = props;
 
   const router = useRouter();
   const { year } = router.query;
@@ -15,7 +22,9 @@ const SummaryPageContainer = (props: Awaited<ReturnType<typeof generatePageStati
         <header>
           <h1 className="text-3xl">Featured Videos</h1>
           {/* TODO: now not hardcode, use latest scrape? */}
-          <span className="text-9xl font-bold text-red-500">{year || "2005-2023"}</span>
+          <span className="text-9xl font-bold text-red-500">
+            {year || "2005-2023"}
+          </span>
         </header>
         {!!mostLeastList.length && (
           <>
@@ -38,7 +47,10 @@ const SummaryPageContainer = (props: Awaited<ReturnType<typeof generatePageStati
                 <ul className="flex flex-col gap-1 border-l-red-400 border-l-8 border-t-red-400 border-t-8 pl-2">
                   {mostFeaturedAuthors.map((el) => (
                     <li key={el.name}>
-                      <a target="_blank" href={`https://www.youtube.com/@${el.name}`}>
+                      <a
+                        target="_blank"
+                        href={`https://www.youtube.com/@${el.name}`}
+                      >
                         {el.name}
                       </a>
                     </li>
@@ -51,7 +63,10 @@ const SummaryPageContainer = (props: Awaited<ReturnType<typeof generatePageStati
                 (el) =>
                   !!el?.value && (
                     <p key={el.label}>
-                      <span className="text-lg font-bold text-red-400">{parseInt(el.value)}</span> {el.label}
+                      <span className="text-lg font-bold text-red-400">
+                        {parseInt(el.value)}
+                      </span>{" "}
+                      {el.label}
                     </p>
                   )
               )}

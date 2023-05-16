@@ -120,7 +120,7 @@ export const getFirstVideoScrapeInstance = async (
       FeatureDate: true,
       Selector: { include: { DisplayName: true, Links: true, Username: true } },
     },
-    where: { [key]: { not: null }, ...where },
+    where: { [key]: { not: undefined }, ...where },
   })) || null;
 
 export const getMostAndLeastScrapeInstance = async ({
@@ -140,12 +140,12 @@ export const getMostAndLeastScrapeInstance = async ({
   const mostVideoScrapeInstance = await getFirstVideoScrapeInstance(
     key,
     "desc",
-    { ...where, [key]: { gte: 0 } }
+    where
   );
   const leastVideoScrapeInstance = await getFirstVideoScrapeInstance(
     key,
     "asc",
-    { ...where, [key]: { gte: 0 } }
+    where
   );
   const defaultTransformer = (val: any) => `${val} ${key}`;
   const transformer = transformValue || defaultTransformer;
@@ -218,7 +218,7 @@ export const getLongestTimeFeatured = async (start: number, end: number) => {
   const instance = (
     await videoScrapeInstanceRawQueries.longestTimeFeatured(start, end)
   )[0] as VideoScrapeInstance & {
-    timeDiff: number;
+    diff: bigint;
   };
 
   console.log("*****instance", {
@@ -231,15 +231,55 @@ export const getLongestTimeFeatured = async (start: number, end: number) => {
     return {};
   }
 
+  console.log("asdfjkashdfjkashdfjkahsdjkfashjk");
+  console.log(instance);
   return {
     most: {
       videoScrapeInstance: await getFirstVideoScrapeInstance("videoId", "asc", {
         videoId: instance.videoId,
       }),
-      value: instance.timeDiff
-        ? `${roundToNearest(msToDays(instance.timeDiff))} Day(s)`
+      value: instance.diff
+        ? `${roundToNearest(msToDays(instance.diff))} Day(s)`
         : 0,
       label: "Longest Time Featured",
+      sentiment: "positive",
+    },
+  };
+};
+
+export const getMostFeatured = async (
+  start: number,
+  end: number,
+  where: Prisma.VideoScrapeInstanceWhereInput
+) => {
+  console.log("getLongestTimeFeatured");
+  const video = await prisma.video.findFirst({
+    select: { id: true, _count: { select: { VideoScrapeInstances: true } } },
+    orderBy: { VideoScrapeInstances: { _count: "desc" } },
+    where: {
+      VideoScrapeInstances: {
+        some: {
+          FeatureDate: { is: { epochDate: { gte: start, lte: end } } },
+        },
+      },
+    },
+  });
+
+  if (!video?.id) {
+    return {};
+  }
+
+  const videoScrapeInstance = await getFirstVideoScrapeInstance(
+    "featureDateId",
+    "desc",
+    { videoId: video.id, ...where }
+  );
+
+  return {
+    most: {
+      videoScrapeInstance,
+      value: `Featured in ${video._count.VideoScrapeInstances} Snapshots`,
+      label: "Most Often Featured",
       sentiment: "positive",
     },
   };
