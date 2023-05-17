@@ -7,7 +7,7 @@ const DebugPanel = ({ data }: { data: Obj }) => {
   const toggleOpen = () => setOpen((prev) => !prev);
 
   return (
-    <div className="flex flex-col max-w-lg absolute bottom-4 left-4 gap-5 text-xs">
+    <div className="flex flex-col max-w-lg fixed bottom-4 right-4 gap-5 text-xs">
       {open && <DebugPrettyJSON data={data} />}
       <button
         onClick={toggleOpen}

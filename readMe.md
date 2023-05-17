@@ -195,3 +195,8 @@ DELETE FROM ChannelName WHERE id = @badDisplayNameId;
 
 
 TODO: update longest time featured to just count number of scrapes?
+
+
+<!-- TODO: now backup sql somewhere and link it -->
+<!-- TODO: now missing scrapes january-march 2009 -->
+<!-- TODO: now mobile? -->

@@ -7,7 +7,9 @@ import { daysInMonth } from "utils/time-utils";
 import { getRange } from "utils/num-utils";
 import { chunk } from "utils/array-utils";
 
-const MonthPageContainer = (props: Awaited<ReturnType<typeof generatePageStaticProps>>) => {
+const MonthPageContainerUnmemoized = (
+  props: Awaited<ReturnType<typeof generatePageStaticProps>>
+) => {
   const { calendarArray } = props;
   const router = useRouter();
   const { year, month } = router.query;
@@ -19,7 +21,9 @@ const MonthPageContainer = (props: Awaited<ReturnType<typeof generatePageStaticP
           <h1 className="text-3xl">Featured Videos</h1>
 
           <span className="text-9xl font-bold text-red-500">{year}</span>
-          <span className="text-4xl font-bold text-red-600 block">{monthNames[parseInt(month as string) - 1]}</span>
+          <span className="text-4xl font-bold text-red-600 block">
+            {monthNames[parseInt(month as string) - 1]}
+          </span>
         </header>
         {/* {!!mostLeastList.length && (
           <>
@@ -75,14 +79,19 @@ const MonthPageContainer = (props: Awaited<ReturnType<typeof generatePageStaticP
             </tr>
           </thead>
           <tbody>
+            {/* green if has data
+            red no data
+            selectable
+            x to cancel
+             */}
             {chunkedCalendarArray.map((el, i) => (
               <tr key={i}>
                 {el.map((day, i) => (
                   <td className="p-2" key={`${el}-${i}`}>
                     {!!day && (
-                      <div className="rounded-full p-2 bg-slate-700 flex">
-                        <div className="rounded-full p-2 bg-slate-900 w-10 h-10 flex items-center justify-center text-lg font-bold">
-                          {day}
+                      <div className="rounded-lg ll p-2 bg-slate-700 flex items-center">
+                        <div className="rounded-full p-2 bg-slate-900 w-10 h-10 flex items-center justify-center text-lg font-bold mr-3">
+                          {day.date}
                         </div>
                       </div>
                     )}
@@ -97,4 +106,5 @@ const MonthPageContainer = (props: Awaited<ReturnType<typeof generatePageStaticP
   );
 };
 
-export default memo(MonthPageContainer);
+const MonthPageContainer = memo(MonthPageContainerUnmemoized);
+export default MonthPageContainer;

@@ -5,7 +5,13 @@ import {
   videoScrapeInstanceRawQueries,
 } from "services/prisma-service/video-scrape-instance";
 import { GetStaticPropsContext } from "next";
-import { addDays, easyEpochDate, getCalendarArray, monthNames, secondsToHHMMSS } from "utils/time-utils";
+import {
+  addDays,
+  easyEpochDate,
+  getCalendarArray,
+  monthNames,
+  secondsToHHMMSS,
+} from "utils/time-utils";
 import { batchRawSql } from "utils/prisma-utils";
 import { authorRawQueries } from "services/prisma-service/author";
 import { tagRawQueries } from "services/prisma-service/tag";
@@ -13,24 +19,34 @@ import { categoryRawQueries } from "services/prisma-service/category";
 import { years } from "utils/path-utils";
 import { videoRawQueries } from "services/prisma-service/video";
 
-type PageParams = { year: string; month: string };
+export type SummaryPageParams = { year: string; month: string };
 
 // TODO: now check if scraping right now or off by 1
 export const generatePageStaticPaths = () =>
   years
-    .map((year) => monthNames.map((month, i) => ({ params: { year: year.toString(), month: i.toString() } })))
+    .map((year) =>
+      monthNames.map((month, i) => ({
+        params: { year: year.toString(), month: (i+1).toString() },
+      }))
+    )
     .flat();
 
-export const generatePageStaticProps = async ({ params }: GetStaticPropsContext) => {
-  const year = parseInt((params as PageParams)?.year);
-  const month = parseInt((params as PageParams)?.month);
+export const generatePageStaticProps = async ({
+  params,
+}: GetStaticPropsContext) => {
+  const year = parseInt((params as SummaryPageParams)?.year);
+  const month = parseInt((params as SummaryPageParams)?.month);
   const calendarArray = getCalendarArray(month, year);
 
   // TODO: now DRY?
   const getDataForDay = async (day: number) => {
     const start = easyEpochDate(year, month, day);
     const nextDay = addDays(`${month}/${day}/${year}`);
-    const end = easyEpochDate(nextDay.getFullYear(), nextDay.getMonth() + 1, nextDay.getDate());
+    const end = easyEpochDate(
+      nextDay.getFullYear(),
+      nextDay.getMonth() + 1,
+      nextDay.getDate()
+    );
 
     console.log("><><><><", {
       day,
@@ -43,7 +59,7 @@ export const generatePageStaticProps = async ({ params }: GetStaticPropsContext)
     });
 
     return {
-      videos: await videoRawQueries.uniqueVideosInTimePeriod(start, end),
+      videos: await videoRawQueries.uniqueVideoIdsInTimePeriod(start, end),
       // highlightedFeaturedVideos: [
       //   await getMostLeast({ key: "views", options: { most: "Most Viewed", least: "Least Viewed" } }),
       //   await getMostLeast({ key: "ratings", options: { most: "Most Rated", least: "Fewest Ratings" } }),
@@ -106,6 +122,11 @@ export const generatePageStaticProps = async ({ params }: GetStaticPropsContext)
   };
 
   return {
-    calendarArray: await Promise.all(calendarArray.map(async (day) => (day ? await getDataForDay(day) : null))),
+    calendarArray: await Promise.all(
+      calendarArray.map(async (day) => ({
+        date: day,
+        ...(day ? await getDataForDay(day) : null),
+      }))
+    ),
   };
 };

@@ -14,18 +14,15 @@ import { years } from "utils/path-utils";
 import { commas } from "utils/num-utils";
 import { Prisma } from "@prisma/client";
 
-type PageParams = { year: string };
+type PageParams = { year: string; month?: string };
 
 export const generatePageStaticPaths = () =>
   years.map((year) => ({ params: { year: year.toString() } }));
 
-export const generatePageStaticProps = async ({
-  params,
-}: GetStaticPropsContext) => {
-  const paramYear = parseInt((params as PageParams)?.year);
-  const year = paramYear || 2005;
-  const start = easyEpochDate(year);
-  const end = easyEpochDate((paramYear || new Date().getFullYear()) + 1);
+export const generatePageStaticProps = async (
+  { params }: GetStaticPropsContext,
+  { start, end }: { start: number; end: number }
+) => {
   const whereFeatureDateInYear = {
     FeatureDate: { epochDate: { gte: start, lt: end } },
   };
@@ -44,24 +41,30 @@ export const generatePageStaticProps = async ({
   console.log("***", { start, end });
   return {
     highlightedFeaturedVideos: [
-      await getMostLeast({
-        key: "views",
-        options: {
-          most: "Most Viewed",
-          least: "Least Viewed",
-          transformValue: (value) =>
-            `${commas(value)} View${!value || value > 1 ? "s" : ""}`,
+      await getMostLeast(
+        {
+          key: "views",
+          options: {
+            most: "Most Viewed",
+            least: "Least Viewed",
+            transformValue: (value) =>
+              `${commas(value)} View${!value || value > 1 ? "s" : ""}`,
+          },
         },
-      }, { views: { gte: 0 } }),
-      await getMostLeast({
-        key: "ratings",
-        options: {
-          most: "Most Rated",
-          least: "Fewest Ratings",
-          transformValue: (value) =>
-            `${value} Rating${!value || value > 1 ? "s" : ""}`,
+        { views: { gte: 0 } }
+      ),
+      await getMostLeast(
+        {
+          key: "ratings",
+          options: {
+            most: "Most Rated",
+            least: "Fewest Ratings",
+            transformValue: (value) =>
+              `${value} Rating${!value || value > 1 ? "s" : ""}`,
+          },
         },
-      }, { ratings: { gte: 0 } }),
+        { ratings: { gte: 0 } }
+      ),
       await getMostLeast(
         {
           key: "stars",
@@ -74,23 +77,29 @@ export const generatePageStaticProps = async ({
         },
         { stars: { gt: 0 } }
       ),
-      await getMostLeast({
-        key: "comments",
-        options: {
-          most: "Most Comments",
-          least: "Fewest Comments",
-          transformValue: (value) =>
-            `${value} Comment${!value || value > 1 ? "s" : ""}`,
+      await getMostLeast(
+        {
+          key: "comments",
+          options: {
+            most: "Most Comments",
+            least: "Fewest Comments",
+            transformValue: (value) =>
+              `${value} Comment${!value || value > 1 ? "s" : ""}`,
+          },
         },
-      }, { comments: { gte: 0 } }),
-      await getMostLeast({
-        key: "duration",
-        options: {
-          most: "Longest",
-          least: "Shortest",
-          transformValue: (value) => secondsToHHMMSS(value),
+        { comments: { gte: 0 } }
+      ),
+      await getMostLeast(
+        {
+          key: "duration",
+          options: {
+            most: "Longest",
+            least: "Shortest",
+            transformValue: (value) => secondsToHHMMSS(value),
+          },
         },
-      }, { duration: { gt: 0 } }),
+        { duration: { gt: 0 } }
+      ),
       await getLongestTimeFeatured(start, end),
       await getMostFeatured(start, end, whereFeatureDateInYear),
     ],

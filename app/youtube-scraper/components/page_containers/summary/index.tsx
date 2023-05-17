@@ -2,8 +2,9 @@ import { useRouter } from "next/router";
 import VideoCallout from "components/HighlightedVideo";
 import { generatePageStaticProps } from "./helpers/page-generation";
 import { Fragment, memo } from "react";
+import { monthNames } from "utils/time-utils";
 
-const SummaryPageContainer = (
+const SummaryPageContainerUnmemoized = (
   props: Awaited<ReturnType<typeof generatePageStaticProps>>
 ) => {
   const {
@@ -14,7 +15,7 @@ const SummaryPageContainer = (
   } = props;
 
   const router = useRouter();
-  const { year } = router.query;
+  const { year, month } = router.query;
 
   return (
     <div>
@@ -23,8 +24,13 @@ const SummaryPageContainer = (
           <h1 className="text-3xl">Featured Videos</h1>
           {/* TODO: now not hardcode, use latest scrape? */}
           <span className="text-9xl font-bold text-red-500">
-            {year || "2005-2023"}
+            {year || "2005-2010"}
           </span>
+          {month && (
+            <span className="text-4xl font-bold text-red-600 block">
+              {monthNames[parseInt(month as string) - 1]}
+            </span>
+          )}
         </header>
         {!!mostLeastList.length && (
           <>
@@ -105,4 +111,5 @@ const SummaryPageContainer = (
   );
 };
 
-export default memo(SummaryPageContainer);
+const SummaryPageContainer = memo(SummaryPageContainerUnmemoized);
+export default SummaryPageContainer;

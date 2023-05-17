@@ -40,15 +40,6 @@ export const videoRawQueries = {
       start,
       end
     )}`,
-  uniqueVideosInTimePeriod: async (
-    start: number,
-    end: number
-  ): Promise<CountResult> =>
-    prisma.$queryRaw`SELECT Video.id as id, title, views, youtubeVideoId, name FROM Video INNER JOIN User ON Video.authorId = User.id INNER JOIN _ChannelNameToUser on _ChannelNameToUser.b = User.id INNER JOIN ChannelName on ChannelName.id = _ChannelNameToUser.a INNER JOIN 
-    (SELECT title, videoId, views FROM VideoScrapeInstance WHERE videoId = id) as scrapes ON scrapes.videoId = Video.id ORDER BY Video.id ${getWhereEpochDateWithin(
-      start,
-      end
-    )}`,
   videoIdWithMostFeatureDays: async (
     start: number,
     end: number
