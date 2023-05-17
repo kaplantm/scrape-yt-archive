@@ -71,13 +71,8 @@ export const eras: { [key in eraName]: Era } = {
     // ("Featured Videos") (blue header bg and no blue bg)
     // get a sidebar sept 30 2010 (20100930234605)
     name: eraName.FEATURED_9,
-    // start: getEraBoundFromTimeStamp("20100930234605"), // march 26 2009 // temp, where sidebar starts
-
-
-    start: getEraBoundFromTimeStamp("20100312014916"), // march 26 2009  // temp
+    start: getEraBoundFromTimeStamp("20090326040603"), // march 26 2009
     end: getEraBoundFromTimeStamp("20111201003233"), // dec 1 2011
-    // start: getEraBoundFromTimeStamp("20090326040603"), // march 26 2009
-    // end: getEraBoundFromTimeStamp("20100929040831"), // sept 29 2010
     scraper: featuredNineScraper,
   },
 };

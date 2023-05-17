@@ -1,4 +1,3 @@
-import { chunk } from "./array-utils";
 import { getRange } from "./num-utils";
 
 // source: https://stackoverflow.com/a/6313008
@@ -30,7 +29,11 @@ export const secondsToHHMMSS = (totalSeconds: number) => {
 export const easyEpochDate = (year: number, month = 1, day = 1) =>
   new Date(Date.UTC(year, month, day, 0, 0, 0)).getTime();
 
+// TS yelling about converting bigint to float - parseFloat wants a string.
+// But the resulting division should not result in a bigint number
 export const msToDays = (ms: bigint) =>
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   ms ? parseFloat(ms / (1000n * 60n * 60n * 24n)) : 0;
 
 export const monthNames = new Array(12).fill(0).map((_, i) => {
@@ -43,7 +46,9 @@ export const daysInMonth = (month: number, year: number) => {
   return new Date(year, month, 0).getDate();
 };
 
-export const getWeekDays = (format = "long") => {
+export const getWeekDays = (
+  format: "long" | "short" | "narrow" | undefined = "long"
+) => {
   const baseDate = new Date(Date.UTC(2017, 0, 2)); // just a Monday
   const weekDays = [];
   for (let i = 0; i < 7; i++) {

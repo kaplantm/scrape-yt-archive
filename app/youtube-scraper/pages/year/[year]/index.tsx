@@ -1,6 +1,6 @@
-import { SummaryPageParams } from "components/page_containers/month/helpers/page-generation";
 import SummaryPageContainer from "components/page_containers/summary";
 import {
+  SummaryPageParams,
   generatePageStaticPaths,
   generatePageStaticProps,
 } from "components/page_containers/summary/helpers/page-generation";
@@ -25,7 +25,7 @@ export const getStaticProps: GetStaticProps = async (
   const end = easyEpochDate((paramYear || new Date().getFullYear()) + 1);
 
   return {
-    props: await generatePageStaticProps(props, { start, end }),
+    props: await generatePageStaticProps({ start, end }),
   };
 };
 

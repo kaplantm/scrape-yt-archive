@@ -1,9 +1,5 @@
-import MonthPageContainer from "components/page_containers/month";
-import {
-  SummaryPageParams,
-  generatePageStaticPaths,
-} from "components/page_containers/month/helpers/page-generation";
-import { generatePageStaticProps } from "components/page_containers/summary/helpers/page-generation";
+import { generatePageStaticPaths } from "components/page_containers/month/helpers/page-generation";
+import { SummaryPageParams, generatePageStaticProps } from "components/page_containers/summary/helpers/page-generation";
 import SummaryPageContainer from "components/page_containers/summary";
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import React, { ComponentProps } from "react";
@@ -20,7 +16,7 @@ export const getStaticProps: GetStaticProps = async (
   // TODO: now move?
   const paramYear = parseInt((props.params as SummaryPageParams)?.year);
   const paramsMonth = (props.params as SummaryPageParams)?.month;
-  const month = paramsMonth ? parseInt(paramsMonth)-1 : undefined;
+  const month = paramsMonth ? parseInt(paramsMonth) - 1 : undefined;
   const year = paramYear || 2005;
   const start = easyEpochDate(year, month);
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -28,7 +24,7 @@ export const getStaticProps: GetStaticProps = async (
 
   console.log("<<<<<<<<", { start, end });
   return {
-    props: await generatePageStaticProps(props, { start, end }),
+    props: await generatePageStaticProps({ start, end }),
   };
 };
 const MonthPage = (props: ComponentProps<typeof SummaryPageContainer>) => {

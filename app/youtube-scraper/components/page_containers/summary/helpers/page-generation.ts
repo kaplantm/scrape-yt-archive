@@ -14,15 +14,18 @@ import { years } from "utils/path-utils";
 import { commas } from "utils/num-utils";
 import { Prisma } from "@prisma/client";
 
-type PageParams = { year: string; month?: string };
+export type SummaryPageParams = { year: string; month?: string; day?: string };
 
 export const generatePageStaticPaths = () =>
   years.map((year) => ({ params: { year: year.toString() } }));
 
-export const generatePageStaticProps = async (
-  { params }: GetStaticPropsContext,
-  { start, end }: { start: number; end: number }
-) => {
+export const generatePageStaticProps = async ({
+  start,
+  end,
+}: {
+  start: number;
+  end: number;
+}) => {
   const whereFeatureDateInYear = {
     FeatureDate: { epochDate: { gte: start, lt: end } },
   };

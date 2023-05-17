@@ -1,41 +1,29 @@
-import {
-  getLongestTimeFeatured,
-  getMostAndLeastScrapeInstance,
-  getVideoScrapeInstances,
-  videoScrapeInstanceRawQueries,
-} from "services/prisma-service/video-scrape-instance";
 import { GetStaticPropsContext } from "next";
 import {
   addDays,
   easyEpochDate,
   getCalendarArray,
   monthNames,
-  secondsToHHMMSS,
 } from "utils/time-utils";
-import { batchRawSql } from "utils/prisma-utils";
-import { authorRawQueries } from "services/prisma-service/author";
-import { tagRawQueries } from "services/prisma-service/tag";
-import { categoryRawQueries } from "services/prisma-service/category";
 import { years } from "utils/path-utils";
 import { videoRawQueries } from "services/prisma-service/video";
-
-export type SummaryPageParams = { year: string; month: string };
+import { SummaryPageParams } from "components/page_containers/summary/helpers/page-generation";
 
 // TODO: now check if scraping right now or off by 1
 export const generatePageStaticPaths = () =>
   years
     .map((year) =>
       monthNames.map((month, i) => ({
-        params: { year: year.toString(), month: (i+1).toString() },
+        params: { year: year.toString(), month: (i + 1).toString() },
       }))
     )
     .flat();
 
 export const generatePageStaticProps = async ({
   params,
-}: GetStaticPropsContext) => {
+}: GetStaticPropsContext<SummaryPageParams>) => {
   const year = parseInt((params as SummaryPageParams)?.year);
-  const month = parseInt((params as SummaryPageParams)?.month);
+  const month = params?.month ? parseInt(params.month) : 1;
   const calendarArray = getCalendarArray(month, year);
 
   // TODO: now DRY?
