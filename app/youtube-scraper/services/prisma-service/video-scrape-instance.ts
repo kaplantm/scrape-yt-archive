@@ -1,5 +1,9 @@
 import { VideoDataRaw } from "services/types";
-import { getVideoCreateInput, getVideoWhereUniqueInput } from "./video";
+import {
+  getVideoCreateInput,
+  getVideoWhereUniqueInput,
+  videoRawQueries,
+} from "./video";
 import {
   getFeatureDateCreateInput,
   getFeatureDateWhereUniqueInput,
@@ -21,8 +25,9 @@ import {
   videoJoinVideoScraperInstance,
   videoScrapeInstanceJoinFeatureDate,
 } from "./utils/raw-queries";
-import { msToDays } from "utils/time-utils";
+import { dateFormatters, dateFromEpoch, msToDays } from "utils/time-utils";
 import { roundToNearest } from "utils/num-utils";
+import { pluralize } from "utils/string-utils";
 
 export const getVideoScrapeWhereInput = (
   videoId: number,
@@ -185,7 +190,12 @@ export const videoScrapeInstanceRawQueries = {
       start,
       end
     )} AND featureType = "spotlight"`,
-  longestTimeFeatured: async (start: number, end: number) =>
+  longestTimeFeatured: async (
+    start: number,
+    end: number
+  ): Promise<
+    { videoId: number; earliestFeature: bigint; latestFeature: bigint }[]
+  > =>
     prisma.$queryRaw`
     SELECT DISTINCT vsi.videoId,
                 earliestFeature,
@@ -217,9 +227,7 @@ export const getLongestTimeFeatured = async (start: number, end: number) => {
   console.log("getLongestTimeFeatured");
   const instance = (
     await videoScrapeInstanceRawQueries.longestTimeFeatured(start, end)
-  )[0] as VideoScrapeInstance & {
-    diff: bigint;
-  };
+  )[0];
 
   console.log("*****instance", {
     instance: instance,
@@ -233,15 +241,22 @@ export const getLongestTimeFeatured = async (start: number, end: number) => {
 
   console.log("asdfjkashdfjkashdfjkahsdjkfashjk");
   console.log(instance);
+  const firstFeatureDate = dateFormatters.numeric(
+    dateFromEpoch(instance.latestFeature) // TODO: these are reversed in the SQL query
+  );
+  const lastFeatureDate = dateFormatters.numeric(
+    dateFromEpoch(instance.earliestFeature)
+  );
   return {
     most: {
       videoScrapeInstance: await getFirstVideoScrapeInstance("videoId", "asc", {
         videoId: instance.videoId,
       }),
-      value: instance.diff
-        ? `${roundToNearest(msToDays(instance.diff))} Day(s)`
-        : 0,
-      label: "Longest Time Featured",
+      value: [
+        `First Feature: ${firstFeatureDate}`,
+        `Latest Feature: ${lastFeatureDate}`,
+      ],
+      label: "Longest Feature Range",
       sentiment: "positive",
     },
   };
@@ -252,19 +267,12 @@ export const getMostFeatured = async (
   end: number,
   where: Prisma.VideoScrapeInstanceWhereInput
 ) => {
-  console.log("getLongestTimeFeatured");
-  const video = await prisma.video.findFirst({
-    select: { id: true, _count: { select: { VideoScrapeInstances: true } } },
-    orderBy: { VideoScrapeInstances: { _count: "desc" } },
-    where: {
-      VideoScrapeInstances: {
-        some: {
-          FeatureDate: { is: { epochDate: { gte: start, lte: end } } },
-        },
-      },
-    },
-  });
+  const video = (
+    await videoRawQueries.videoIdWithMostFeatureDays(start, end)
+  )[0];
 
+  console.log("**** getLongestTimeFeatured 1", start, end);
+  console.log({ video });
   if (!video?.id) {
     return {};
   }
@@ -274,11 +282,14 @@ export const getMostFeatured = async (
     "desc",
     { videoId: video.id, ...where }
   );
+  console.log("**** getLongestTimeFeatured 2");
+  console.log({ video });
+  console.log({ videoScrapeInstance });
 
   return {
     most: {
       videoScrapeInstance,
-      value: `Featured in ${video._count.VideoScrapeInstances} Snapshots`,
+      value: `Featured ${video.count} ${pluralize("Day", video.count)}`,
       label: "Most Often Featured",
       sentiment: "positive",
     },

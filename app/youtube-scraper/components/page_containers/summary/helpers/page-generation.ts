@@ -13,7 +13,6 @@ import { categoryRawQueries } from "services/prisma-service/category";
 import { years } from "utils/path-utils";
 import { commas } from "utils/num-utils";
 import { Prisma } from "@prisma/client";
-import prisma from "prisma/app-client";
 
 type PageParams = { year: string };
 
@@ -53,7 +52,7 @@ export const generatePageStaticProps = async ({
           transformValue: (value) =>
             `${commas(value)} View${!value || value > 1 ? "s" : ""}`,
         },
-      }),
+      }, { views: { gte: 0 } }),
       await getMostLeast({
         key: "ratings",
         options: {
@@ -62,7 +61,7 @@ export const generatePageStaticProps = async ({
           transformValue: (value) =>
             `${value} Rating${!value || value > 1 ? "s" : ""}`,
         },
-      }),
+      }, { ratings: { gte: 0 } }),
       await getMostLeast(
         {
           key: "stars",
@@ -83,7 +82,7 @@ export const generatePageStaticProps = async ({
           transformValue: (value) =>
             `${value} Comment${!value || value > 1 ? "s" : ""}`,
         },
-      }),
+      }, { comments: { gte: 0 } }),
       await getMostLeast({
         key: "duration",
         options: {
@@ -91,7 +90,7 @@ export const generatePageStaticProps = async ({
           least: "Shortest",
           transformValue: (value) => secondsToHHMMSS(value),
         },
-      }),
+      }, { duration: { gt: 0 } }),
       await getLongestTimeFeatured(start, end),
       await getMostFeatured(start, end, whereFeatureDateInYear),
     ],

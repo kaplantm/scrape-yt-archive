@@ -7,17 +7,23 @@ const HighlightedVideo = ({
   label,
   sentiment,
 }: {
-  videoScrapeInstance: NonNullable<Awaited<ReturnType<typeof getFirstVideoScrapeInstance>>>;
+  videoScrapeInstance: NonNullable<
+    Awaited<ReturnType<typeof getFirstVideoScrapeInstance>>
+  >;
   value?: string;
   label?: string;
-  sentiment?: string // TODO should be enum
+  sentiment?: string; // TODO should be enum
 }) => {
   const { Video, Selector } = videoScrapeInstance;
-  if(!Video){
-    return null
+  if (!Video) {
+    return null;
   }
   return (
-    <div className={clsx("flex gap-5 flex-col bg-zinc-900 rounded-md py-8 px-8 items-start border-red-700 border")}>
+    <div
+      className={clsx(
+        "flex gap-5 flex-col bg-zinc-900 rounded-md py-8 px-8 items-start border-red-700 border"
+      )}
+    >
       {label && (
         <div className="flex gap-1 w-full place-content-between flex-col">
           <h5
@@ -32,7 +38,9 @@ const HighlightedVideo = ({
           >
             {label}
           </h5>
-          <span className="whitespace-nowrap pl-4">{value}</span>
+          <span className="whitespace-nowrap pl-4">
+            {Array.isArray(value) ? value.map((val) => <p key={val}>{val}</p>) : value}
+          </span>
         </div>
       )}
       <div className="video-container rounded-md overflow-hidden">
@@ -48,21 +56,34 @@ const HighlightedVideo = ({
       </div>
       <ul className="w-full">
         <li>
-          <a target="_blank" href={`https://www.youtube.com/watch?v=${Video.youtubeVideoId}`} className="font-lg font-bold underline">
+          <a
+            target="_blank"
+            href={`https://www.youtube.com/watch?v=${Video.youtubeVideoId}`}
+            className="font-lg font-bold underline"
+          >
             {videoScrapeInstance.title}
           </a>
         </li>
-        <li className="max-h-20 overflow-auto">{videoScrapeInstance.description}</li>
+        <li className="max-h-20 overflow-auto">
+          {videoScrapeInstance.description}
+        </li>
         <li className="mt-2">
           Uploaded by{" "}
-          <a target="_blank" href={`https://www.youtube.com/@${Video.Author.Username.name}`} className="text-cyan-600 underline">
+          <a
+            target="_blank"
+            href={`https://www.youtube.com/@${Video.Author.Username.name}`}
+            className="text-cyan-600 underline"
+          >
             {Video.Author.Username.name}
           </a>
         </li>
         {Selector && (
           <li>
             Featured by{" "}
-            <a target="_blank" href={`https://www.youtube.com/@${Selector.Username.name}`}>
+            <a
+              target="_blank"
+              href={`https://www.youtube.com/@${Selector.Username.name}`}
+            >
               {Selector.Username.name}
             </a>
           </li>
@@ -75,9 +96,15 @@ const HighlightedVideo = ({
         <ul className="flex flex-col gap-2 bg-zinc-900 p-4 rounded-md border-red-700 border">
           <li>VideoId: {Video.youtubeVideoId}</li>
           <li>Author username: {Video.Author?.Username.name}</li>
-          <li>Author display name at time of feature: {videoScrapeInstance.DisplayName.name}</li>
+          <li>
+            Author display name at time of feature:{" "}
+            {videoScrapeInstance.DisplayName.name}
+          </li>
           {Video.Author?.DisplayName.length > 1 && (
-            <li>All Author display names: {Video.Author?.DisplayName.map(({ name }) => name).join(", ")}</li>
+            <li>
+              All Author display names:{" "}
+              {Video.Author?.DisplayName.map(({ name }) => name).join(", ")}
+            </li>
           )}
           <li>
             Historical Author Links:
